@@ -36,11 +36,3 @@ Since the barrier to spaceflight will be significantly reduced, more people will
 ### Conclusion
 **SpaceFlight Planner** will be considered a success if the number of space tourists increases by 100% over the next decade.
 Since the number of current space tourists is so low, we expect a huge increase in tourists once the barrier to entry is lowered this significantly.
-
-# Features
-
-## Browse Available Flights
-Users can look at flights leaving from their location and sort the flights by various categories such as date, price, and destination
-
-_Priority: High_
-_Time Cost: 6 Hours_
