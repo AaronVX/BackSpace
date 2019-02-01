@@ -20,6 +20,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, BookActivity.class));
             }
         });
+
+        Button btn_track = (Button) findViewById(R.id.btn_track);
+        btn_track.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, FlightStatus.class));
+            }
+        });
     }
 
 }

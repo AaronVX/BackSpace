@@ -2,4 +2,7 @@
     <string name="app_name">BackSpace</string>
     <string name="title_activity_flight_detail">FlightDetailActivity</string>
     <string name="title_activity_book">BookActivity</string>
+    <string name="title_activity_purchase_ticket">PurchaseTicket</string>
+    <string name="title_activity_travel_class">TravelClass</string>
+    <string name="title_activity_flight_status">FlightStatus</string>
 </resources>
