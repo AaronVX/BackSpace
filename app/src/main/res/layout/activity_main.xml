@@ -14,23 +14,25 @@
 
 
         <Button
+            android:id="@+id/btn_book"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/ic_book"
-            android:text="Book a flight"
-            android:paddingVertical="20dp"/>
+            android:paddingVertical="20dp"
+            android:text="Book a flight"/>
 
 
         <Button
+            android:id="@+id/btn_track"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/ic_track"
-            android:text="Track flights"
-            android:paddingVertical="20dp"/>
+            android:paddingVertical="20dp"
+            android:text="Track flights" />
 
     </TableRow>
 
@@ -41,23 +43,25 @@
 
 
         <Button
+            android:id="@+id/btn_reservations"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/ic_reservations"
-            android:text="My reservations"
-            android:paddingVertical="20dp" />
+            android:paddingVertical="20dp"
+            android:text="My reservations" />
 
 
         <Button
+            android:id="@+id/btn_account"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/ic_account"
-            android:text="My account"
-            android:paddingVertical="20dp" />
+            android:paddingVertical="20dp"
+            android:text="My account" />
 
     </TableRow>
 </TableLayout>
