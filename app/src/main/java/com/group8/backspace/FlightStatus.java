@@ -16,6 +16,8 @@ import android.widget.Adapter;
     and activity_flight_status.xml
 
     The code copied was the the new customer adapter that overwrites viewlist to show a picture, title, and information
+
+    4 hours was spent on this view
  */
 
 public class FlightStatus extends AppCompatActivity {
