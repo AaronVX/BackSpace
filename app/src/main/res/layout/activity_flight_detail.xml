@@ -15,14 +15,14 @@
 
 
         <Button
-            android:id="@+id/btn_purchase"
+            android:id="@+id/btn_travel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/ic_book"
             android:paddingVertical="20dp"
-            android:text="Purchase Ticket" />
+            android:text="Travel Class" />
     </TableRow>
 
 
