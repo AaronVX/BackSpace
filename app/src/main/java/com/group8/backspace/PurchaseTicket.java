@@ -16,13 +16,7 @@ public class PurchaseTicket extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_purchase_ticket);
 
-        Button btn_travel = (Button) findViewById(R.id.btn_travel);
-        btn_travel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(PurchaseTicket.this, TravelClass.class));
-            }
-        });
+
     }
 
 }
