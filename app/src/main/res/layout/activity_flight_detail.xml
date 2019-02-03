@@ -3,11 +3,101 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical"
-    android:orientation="vertical"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:gravity="top|center_vertical"
+    android:orientation="vertical">
 
 
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top|center">
+
+        <TextView
+            android:id="@+id/detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Flight #12345"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/detail_depart_pic"
+            android:layout_width="36dp"
+            android:layout_height="72dp"
+            android:layout_marginRight="80dp"
+            android:adjustViewBounds="true"
+            android:cropToPadding="true"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/ic_track" />
+
+        <TextView
+            android:id="@+id/detail_depart_text"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-50dp"
+            android:layout_marginTop="20dp"
+            android:text="Depart: Feb 3rd, 6:00AM"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/detail_total_time"
+            android:layout_width="36dp"
+            android:layout_height="72dp"
+            android:layout_marginRight="80dp"
+            app:srcCompat="?android:attr/floatingToolbarOpenDrawable" />
+
+        <TextView
+            android:id="@+id/detail_total_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-50dp"
+            android:layout_marginTop="20dp"
+            android:text="3 Months, 8 Days, 2 hours, 1 minute"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/detail_destination_pic"
+            android:layout_width="36dp"
+            android:layout_height="72dp"
+            android:layout_marginRight="80dp"
+            android:adjustViewBounds="true"
+            android:cropToPadding="true"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/ic_track" />
+
+        <TextView
+            android:id="@+id/detail_destination_text"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-50dp"
+            android:layout_marginTop="20dp"
+            android:text="Return: June 10th, 5:00PM"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <TableRow
         android:layout_width="match_parent"
