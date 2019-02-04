@@ -29,7 +29,7 @@ public class FlightStatus extends AppCompatActivity {
                          "Status: On Time\nFlight Stage: In Transfer\nETA: May 1st 2076",
                          "Status: Early\nFlight Stage: In Transfer\nETA: January 7th 2023",
                          "Status: Crew Dead\nFlight Stage: Unknown\nETA: N/A"};
-    int flags[] = {R.drawable.ic_book, R.drawable.ic_book, R.drawable.ic_book, R.drawable.ic_book, R.drawable.ic_book};
+    int flags[] = {R.drawable.ic_earth, R.drawable.ic_mercury, R.drawable.ic_venus, R.drawable.ic_earth, R.drawable.ic_venus};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
