@@ -24,24 +24,25 @@ public class PurchaseTicket extends AppCompatActivity {
         classPrice.setText(classP + "");
         totalPrice.setText(total + "");
 
-        EditText cardNum = (EditText) findViewById(R.id.cardNum);
-        EditText expiryDate = (EditText) findViewById(R.id.expiry_date);
-        EditText securityCode = (EditText) findViewById(R.id.security_code);
-
-        final String card = cardNum.getText().toString();
-        final String date = expiryDate.getText().toString();
-        final String code = securityCode.getText().toString();
 
         Button purchaseBtn = (Button) findViewById(R.id.btn_purchase);
         purchaseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                EditText cardNum = (EditText) findViewById(R.id.cardNum);
+                EditText expiryDate = (EditText) findViewById(R.id.expiry_date);
+                EditText securityCode = (EditText) findViewById(R.id.security_code);
+
+                String card = cardNum.getText().toString();
+                String date = expiryDate.getText().toString();
+                String code = securityCode.getText().toString();
                 TextView condition = (TextView) findViewById(R.id.condition);
                 if(checkFormat(card,date,code)){
-                    condition.setText("purchase succeed");
+                    condition.setText("Purchase succeed");
                 }
                 else{
-                    condition.setText("purchase failed");
+                    condition.setText("Purchase failed");
                 }
 
             }
