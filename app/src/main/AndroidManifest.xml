@@ -9,17 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".PurchaseTicket"></activity>
         <activity
             android:name=".FlightStatus"
             android:label="@string/title_activity_flight_status"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".TravelClass"
             android:label="@string/title_activity_travel_class"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".PurchaseTicket"
-            android:label="@string/title_activity_purchase_ticket"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".BookActivity"
