@@ -22,14 +22,14 @@ import android.widget.Adapter;
 
 public class FlightStatus extends AppCompatActivity {
     // Array of stub data for the flight
-    ListView simpleList;
-    String  Item[] = {"Flight #3045", "Flight #4509", "Flight #4398", "Flight #0986", "Flight #7654"};
-    String  SubItem[] = {"Status: On Time\nFlight Stage: In Orbit\nETA: April 3rd, 2025",
-                         "Status: Delayed\nFlight Stage: Deorbiting\nETA: February 17th 2019",
-                         "Status: On Time\nFlight Stage: In Transfer\nETA: May 1st 2076",
-                         "Status: Early\nFlight Stage: In Transfer\nETA: January 7th 2023",
-                         "Status: Crew Dead\nFlight Stage: Unknown\nETA: N/A"};
-    int flags[] = {R.drawable.ic_earth, R.drawable.ic_mercury, R.drawable.ic_venus, R.drawable.ic_earth, R.drawable.ic_venus};
+        ListView simpleList;
+        String  Item[] = {"Flight #3045", "Flight #4509", "Flight #4398", "Flight #0986", "Flight #7654"};
+        String  SubItem[] = {"Status: On Time\nFlight Stage: In Orbit\nETA: April 3rd, 2025",
+                "Status: Delayed\nFlight Stage: Deorbiting\nETA: February 17th 2019",
+                "Status: On Time\nFlight Stage: In Transfer\nETA: May 1st 2076",
+                "Status: Early\nFlight Stage: In Transfer\nETA: January 7th 2023",
+                "Status: Crew Dead\nFlight Stage: Unknown\nETA: N/A"};
+        int flags[] = {R.drawable.ic_earth, R.drawable.ic_mercury, R.drawable.ic_venus, R.drawable.ic_earth, R.drawable.ic_venus};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,5 +39,10 @@ public class FlightStatus extends AppCompatActivity {
         simpleList = (ListView)findViewById(R.id.ListView);
         CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), Item,SubItem, flags);
         simpleList.setAdapter(customAdapter);
+    }
+
+    public String[] getItem()
+    {
+        return Item;
     }
 }
