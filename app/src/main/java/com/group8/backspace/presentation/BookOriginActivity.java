@@ -1,16 +1,18 @@
-package com.group8.backspace;
+package com.group8.backspace.presentation;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class BookDestinationActivity extends AppCompatActivity implements View.OnClickListener {
+import com.group8.backspace.R;
+
+public class BookOriginActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_destination);
+        setContentView(R.layout.activity_book_origin);
 
         findViewById(R.id.btn_mercury).setOnClickListener(this);
         findViewById(R.id.btn_venus).setOnClickListener(this);
@@ -22,14 +24,17 @@ public class BookDestinationActivity extends AppCompatActivity implements View.O
         findViewById(R.id.btn_uranus).setOnClickListener(this);
         findViewById(R.id.btn_neptune).setOnClickListener(this);
 
+
+
     }
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(getBaseContext(), BookBrowseActivity.class);
-        intent.putExtra("origin", getIntent().getStringExtra("origin"));
-        intent.putExtra("destination", (String) v.getTag());
+        Intent intent = new Intent(BookOriginActivity.this, BookDestinationActivity.class);
+        intent.putExtra("origin", (String) v.getTag());
         startActivity(intent);
+
+
     }
 
 }

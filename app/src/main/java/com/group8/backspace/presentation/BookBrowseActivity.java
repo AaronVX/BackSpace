@@ -1,12 +1,13 @@
-package com.group8.backspace;
+package com.group8.backspace.presentation;
 
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.group8.backspace.R;
 
 public class BookBrowseActivity extends AppCompatActivity {
 
@@ -27,5 +28,13 @@ public class BookBrowseActivity extends AppCompatActivity {
         destination_view.setImageResource(getResources().getIdentifier("ic_" + destination , "drawable", getPackageName()));
 
         // TODO populate calendarview from database
+
+        Button nextPage = (Button) findViewById(R.id.btn_nextPage);
+        nextPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BookBrowseActivity.this, FlightDetailActivity.class));
+            }
+        });
     }
 }

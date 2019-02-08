@@ -11,29 +11,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".BookBrowseActivity"></activity>
-        <activity android:name=".BookDestinationActivity" />
-        <activity android:name=".PurchaseTicket" />
+        <activity android:name=".presentation.BookBrowseActivity"></activity>
+        <activity android:name=".presentation.BookDestinationActivity" />
+        <activity android:name=".presentation.PurchaseTicket" />
         <activity
-            android:name=".Listview"
+            android:name=".presentation.Listview"
             android:label="@string/title_activity_listview"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".FlightStatus"
+            android:name=".presentation.FlightStatus"
             android:label="@string/title_activity_flight_status"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".TravelClass"
+            android:name=".presentation.TravelClass"
             android:label="@string/title_activity_travel_class"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".BookOriginActivity"
+            android:name=".presentation.BookOriginActivity"
             android:label="@string/title_activity_book"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".FlightDetailActivity"
+            android:name=".presentation.FlightDetailActivity"
             android:label="@string/title_activity_flight_detail" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".presentation.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
