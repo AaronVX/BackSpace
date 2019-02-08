@@ -9,4 +9,11 @@ public class BenTest {
         FlightStatus test = new FlightStatus();
         assertEquals("Flight #3045", (test.getItem())[0]);
     }
+
+    //Evans tests
+    @Test
+    public void testJUnit() {
+        FlightDetailActivity testDetail = new FlightDetailActivity();
+        assertEquals("Flight #1520", (testDetail.getDetails())[0]);
+    }
 }
