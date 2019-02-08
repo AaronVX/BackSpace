@@ -1,4 +1,6 @@
-package com.group8.backspace;
+package com.group8.backspace.UI_test;
+
+import com.group8.backspace.presentation.FlightStatus;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -10,10 +12,4 @@ public class BenTest {
         assertEquals("Flight #3045", (test.getItem())[0]);
     }
 
-    //Evans tests
-    @Test
-    public void testJUnit() {
-        FlightDetailActivity testDetail = new FlightDetailActivity();
-        assertEquals("Flight #1520", (testDetail.getDetails())[0]);
-    }
 }

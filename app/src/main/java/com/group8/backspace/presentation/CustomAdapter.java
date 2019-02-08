@@ -1,4 +1,4 @@
-package com.group8.backspace;
+package com.group8.backspace.presentation;
 
 import android.content.Context;
 import android.media.Image;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.group8.backspace.R;
 
 import java.util.zip.Inflater;
 

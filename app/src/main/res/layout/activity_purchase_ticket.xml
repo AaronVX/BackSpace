@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PurchaseTicket"
+    tools:context=".presentation.PurchaseTicket"
     android:background="@color/colorPrimary">
 
     <Button
@@ -14,7 +14,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="232dp"
         android:layout_marginBottom="60dp"
-        android:background="@color/colorPrimary"
+        android:background="@android:color/holo_orange_dark"
         android:text="Purchase"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,10 +25,11 @@
         android:id="@+id/flight_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="52dp"
-        android:text="Flight"
-        android:textSize="22sp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="40dp"
+        android:text="Flight#1520"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,19 +37,19 @@
         android:id="@+id/ticketPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="44dp"
-        android:text="ticketPrice"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="40dp"
+        android:text="ticket"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flight_view" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="23dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="188dp"
+        android:layout_marginBottom="4dp"
         android:text="+"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/classPrice"
@@ -60,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="44dp"
-        android:text="classPrice"
+        android:text="class"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ticketPrice" />
@@ -71,7 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="44dp"
-        android:text="totalPrice"
+        android:text="total"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/classPrice" />
@@ -154,5 +155,48 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_purchase" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="16dp"
+        android:text="Ticket Price($):"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toStartOf="@+id/ticketPrice"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Class Price($):"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toStartOf="@+id/classPrice"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text="Total Price($):"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toStartOf="@+id/totalPrice"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="92dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_reservations" />
 
 </android.support.constraint.ConstraintLayout>
