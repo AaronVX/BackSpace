@@ -26,6 +26,6 @@ public class BookBrowseActivity extends AppCompatActivity {
         ImageView destination_view = (ImageView) findViewById(R.id.destination);
         destination_view.setImageResource(getResources().getIdentifier("ic_" + destination , "drawable", getPackageName()));
 
-        // TODO populate listview from database
+        // TODO populate calendarview from database
     }
 }
