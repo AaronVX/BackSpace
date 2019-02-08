@@ -14,11 +14,11 @@ this java file overwrites the the standard list view format to include a picture
 
 ## FlightDetailActivity.java
 
-text
+This activity shows details about the currently selected flight in a table layout
 
 ### activity flight detail.xml
 
-text
+this file contains the layout to be used when viewing details of a flight
 
 ## FlightStatus.java
 

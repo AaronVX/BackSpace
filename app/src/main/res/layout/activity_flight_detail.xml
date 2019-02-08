@@ -2,6 +2,7 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detail_table"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
@@ -43,8 +44,7 @@
             android:layout_marginRight="40dp"
             android:adjustViewBounds="true"
             android:cropToPadding="true"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_earth" />
+            android:scaleType="fitCenter" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -57,17 +57,27 @@
                 android:id="@+id/detail_depart_planet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Earth"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/detail_depart_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Depart: Feb 3rd, 6:00AM"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/departText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Depart: " />
+
+                <TextView
+                    android:id="@+id/detail_depart_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            </TableRow>
+
         </LinearLayout>
 
     </TableRow>
@@ -109,7 +119,6 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="4 Months, 7 Days, 11 hours"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="18sp" />
 
@@ -145,8 +154,7 @@
             android:layout_marginRight="40dp"
             android:adjustViewBounds="true"
             android:cropToPadding="true"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_mercury" />
+            android:scaleType="fitCenter" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -159,17 +167,27 @@
                 android:id="@+id/detail_destination_planet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mercury"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/detail_destination_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Arrive: June 10th, 5:00PM"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Arrive: " />
+
+                <TextView
+                    android:id="@+id/detail_destination_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            </TableRow>
+
         </LinearLayout>
 
     </TableRow>
@@ -178,7 +196,7 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:gravity="center">
 
         <FrameLayout
