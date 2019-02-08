@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.group8.backspace">
 
     <application
@@ -8,12 +9,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".PurchaseTicket"></activity>
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".BookBrowseActivity"></activity>
+        <activity android:name=".BookDestinationActivity" />
+        <activity android:name=".PurchaseTicket" />
         <activity
             android:name=".Listview"
             android:label="@string/title_activity_listview"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".FlightStatus"
             android:label="@string/title_activity_flight_status"
@@ -23,7 +27,7 @@
             android:label="@string/title_activity_travel_class"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".BookActivity"
+            android:name=".BookOriginActivity"
             android:label="@string/title_activity_book"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
