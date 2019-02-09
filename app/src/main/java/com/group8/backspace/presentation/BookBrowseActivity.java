@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.group8.backspace.R;
 import com.group8.backspace.logic.AccessFlights;
 import com.group8.backspace.objects.Flight;
+import com.group8.backspace.objects.Location;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
@@ -36,7 +37,7 @@ public class BookBrowseActivity extends AppCompatActivity {
         destination_view.setImageResource(getResources().getIdentifier("ic_" + destination , "drawable", getPackageName()));
 
         AccessFlights accessFlights = new AccessFlights();
-        final List<Flight> flights = accessFlights.getFutureFlights();
+        final List<Flight> flights = accessFlights.getFutureFlights(Location.getByName(origin), Location.getByName(destination));
 
         MaterialCalendarView calendar = (MaterialCalendarView) findViewById(R.id.calendar);
         calendar.setSelectionMode(MaterialCalendarView.SELECTION_MODE_MULTIPLE);

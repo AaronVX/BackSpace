@@ -17,4 +17,15 @@ public enum Location {
     Location(String name) {
         this.name = name;
     }
+
+
+    public static Location getByName(String name) {
+        Location[] locations = Location.values();
+        for (Location location : locations) {
+            if (location.name.equals(name)) {
+                return location;
+            }
+        }
+        return null;
+    }
 }
