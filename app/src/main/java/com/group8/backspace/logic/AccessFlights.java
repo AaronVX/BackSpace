@@ -3,7 +3,6 @@ package com.group8.backspace.logic;
 import com.group8.backspace.objects.Flight;
 import com.group8.backspace.objects.Location;
 import com.group8.backspace.persistence.FlightPersistence;
-import com.group8.backspace.persistence.Services;
 
 import java.util.Collections;
 import java.util.List;

@@ -1,5 +1,6 @@
-package com.group8.backspace.persistence;
+package com.group8.backspace.logic;
 
+import com.group8.backspace.persistence.FlightPersistence;
 import com.group8.backspace.persistence.stubs.FlightPersistenceStub;
 
 public class Services {
