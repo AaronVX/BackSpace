@@ -14,7 +14,9 @@ public class Flight {
     private CalendarDay departure;
     private CalendarDay arrival;
 
-    public Flight(Location origin, Location destination, CalendarDay departure, CalendarDay arrival) {
+    private int ticketPrice;
+
+    public Flight(Location origin, Location destination, CalendarDay departure, CalendarDay arrival, int ticketPrice) {
         this.flightNum = nextFlightNum;
         nextFlightNum++;
 
@@ -23,6 +25,7 @@ public class Flight {
 
         this.departure = departure;
         this.arrival = arrival;
+        this.ticketPrice = ticketPrice;
     }
 
     public int getFlightNum() { return flightNum; }
@@ -40,4 +43,6 @@ public class Flight {
     public CalendarDay getArrival() {
         return arrival;
     }
+
+    public int getTicketPrice(){ return ticketPrice;}
 }

@@ -17,8 +17,10 @@ public class FlightPersistenceStub implements FlightPersistence {
     public FlightPersistenceStub(){
         flights = new ArrayList<Flight>();
 
-        Flight flight1 = new Flight(Location.EARTH, Location.VENUS, CalendarDay.from(2019,2,14), CalendarDay.from(2019,5,20));
+        Flight flight1 = new Flight(Location.EARTH, Location.VENUS, CalendarDay.from(2019,2,14), CalendarDay.from(2019,5,20), 1000);
+        Flight flight2 = new Flight(Location.EARTH, Location.VENUS, CalendarDay.from(2019,2,20), CalendarDay.from(2019,5,20), 1000);
         flights.add(flight1);
+        flights.add(flight2);
     }
 
     @Override

@@ -60,6 +60,8 @@ public class BookBrowseActivity extends AppCompatActivity {
                 // NOTE: assumes only one flight per day
                 for (Flight flight : flights) {
                     if (flight.getDeparture().equals(calendarDay)) {
+                        materialCalendarView.setDateSelected(calendarDay, true); // re-select date
+
                         int chosenFlightNum = flight.getFlightNum();
 
                         Intent detailIntent = new Intent(BookBrowseActivity.this, FlightDetailActivity.class);

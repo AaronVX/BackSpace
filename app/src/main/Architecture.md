@@ -46,7 +46,7 @@ text
 
 ## PurchaseTicket.java
 
-text
+this jave file shows the total price of the ticket and check the format of the Visa card
 
 ### activity purchase ticket.xml
 
