@@ -60,10 +60,17 @@ public class BookBrowseActivity extends AppCompatActivity {
                 // NOTE: assumes only one flight per day
                 for (Flight flight : flights) {
                     if (flight.getDeparture().equals(calendarDay)) {
-                        // TODO switch to details activity, with flight object as extra
+                        int chosenFlightNum = flight.getFlightNum();
+
+                        Intent detailIntent = new Intent(BookBrowseActivity.this, FlightDetailActivity.class);
+                        detailIntent.putExtra("FLIGHT_NUM", chosenFlightNum);
+                        detailIntent.putExtra("origin", getIntent().getStringExtra("origin"));
+                        detailIntent.putExtra("destination", getIntent().getStringExtra("destination"));
+
+                        startActivity(detailIntent);
 
                         //testing
-                        Toast.makeText(getBaseContext(),flight.getDestination().name(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getBaseContext(),flight.getDestination().name(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }

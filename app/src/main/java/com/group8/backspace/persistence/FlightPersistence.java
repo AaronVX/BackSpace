@@ -12,4 +12,6 @@ public interface FlightPersistence {
     List<Flight> getFutureFlights();
     List<Flight> getFutureFlights(Location origin, Location destination);
 
+    Flight getFlightByNum(int flightSearchNum);
+
 }

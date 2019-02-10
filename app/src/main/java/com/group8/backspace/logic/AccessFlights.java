@@ -32,4 +32,8 @@ public class AccessFlights {
         return Collections.unmodifiableList(flightPersistence.getFutureFlights(origin,destination));
     }
 
+    public Flight getFlightByNum(int searchFlightNum) {
+        return flightPersistence.getFlightByNum(searchFlightNum);
+    }
+
 }

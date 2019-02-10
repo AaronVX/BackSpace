@@ -33,5 +33,4 @@ public class BookDestinationActivity extends AppCompatActivity implements View.O
         intent.putExtra("destination", (String) v.getTag());
         startActivity(intent);
     }
-
 }

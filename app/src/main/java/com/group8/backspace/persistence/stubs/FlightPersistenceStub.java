@@ -67,4 +67,17 @@ public class FlightPersistenceStub implements FlightPersistence {
         return currentFlights;
 
     }
+
+    @Override
+    public Flight getFlightByNum(int flightSearchNum ) {
+        Flight foundFlight = null;
+        for(Flight flight : flights) {
+            if(flight.getFlightNum() == flightSearchNum ) {
+                foundFlight = flight;
+            }
+        }
+        return foundFlight;
+
+    }
+
 }
