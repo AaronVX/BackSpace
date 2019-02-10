@@ -13,7 +13,7 @@
 
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textViewPrompt"
             android:layout_width="400dp"
             android:layout_height="100dp"
             android:gravity="center"
@@ -28,14 +28,14 @@
         android:gravity="center">
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/toBeReplaced1"
             android:layout_width="86dp"
             android:layout_height="match_parent"
             android:layout_weight="10"
             android:text="Image 1" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/toBeReplaced2"
             android:layout_width="133dp"
             android:layout_height="187dp"
             android:layout_weight="0"
@@ -53,14 +53,14 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/radioButton"
+                android:id="@+id/radio_Poor"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:text="Poor traveler" />
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/radio_Rich"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
@@ -77,15 +77,15 @@
         >
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/textPoorDescription"
             android:layout_width="290dp"
-            android:layout_height="40dp"
+            android:layout_height="109dp"
             android:layout_weight="10"
             android:text="- original price
 - hyper-sleep pod" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/textRichDescription"
             android:layout_width="191dp"
             android:layout_height="match_parent"
             android:layout_weight="0"
@@ -99,7 +99,7 @@
         android:gravity="bottom">
 
         <Button
-            android:id="@+id/button6"
+            android:id="@+id/buttonSelect"
             android:layout_width="wrap_content"
             android:layout_height="90dp"
             android:text="Continue" />
