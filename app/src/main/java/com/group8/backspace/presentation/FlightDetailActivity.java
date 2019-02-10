@@ -5,24 +5,31 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.group8.backspace.R;
+import com.group8.backspace.logic.AccessFlights;
+import com.group8.backspace.logic.DateHandler;
+import com.group8.backspace.objects.Flight;
+
 
 
 public class FlightDetailActivity extends AppCompatActivity {
-
-    // Arrays of stub data for the current flight
-    String  names[] = {"Flight #1520", "Earth", "Mercury"}; //in order of flight name, departure, arrival
-    String  times[] = {"Feb 3rd, 6:00AM", "4 Months, 7 Days, 11 hours", "June 10th, 5:00PM"}; //in order of depart time, total flight time, arrival time
-    int planetPics[] = {R.drawable.ic_earth, R.drawable.ic_mercury}; //in order of depart pic, destination pic
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flight_detail);
 
+        //get the flight object selected via the flightNum passed by BookBrowseActivity
+        AccessFlights accessor =   new AccessFlights();
+        int currFlightNum = getIntent().getIntExtra("FLIGHT_NUM", 0);
+        String originSrc = getIntent().getStringExtra("origin");
+        String destinationSrc = getIntent().getStringExtra("destination");
+
+
+        Flight currFlight = accessor.getFlightByNum(currFlightNum);
         //Get the objects we want to set
         TextView title = (TextView) findViewById(R.id.detail_title);
         TextView departPlanetName = (TextView) findViewById(R.id.detail_depart_planet);
@@ -36,16 +43,23 @@ public class FlightDetailActivity extends AppCompatActivity {
         ImageView destPlanetPic = (ImageView) findViewById(R.id.detail_destination_pic);
 
         //set each text and picture slots to the given values
-        title.setText(names[0]);
-        departPlanetName.setText(names[1]);
-        destPlanetName.setText(names[2]);
+        String flightTitle = "Flight #"+currFlightNum;
+        title.setText(flightTitle);
+        departPlanetName.setText(currFlight.getOrigin().name());
+        destPlanetName.setText(currFlight.getDestination().name());
 
-        departTime.setText(times[0]);
-        totalTime.setText(times[1]);
-        arrivalTime.setText(times[2]);
+        //use the date handler to get nice strings for textviews
+        DateHandler handleDates = new DateHandler(currFlight.getDeparture(), currFlight.getArrival());
+        String dates[] = handleDates.getStrings();
 
-        departPlanetPic.setImageResource(planetPics[0]);
-        destPlanetPic.setImageResource(planetPics[1]);
+        departTime.setText(dates[0]);
+        arrivalTime.setText(dates[1]);
+
+        totalTime.setText(handleDates.getTravelTime());
+
+        //use the "putExtra" tags for each picture
+        departPlanetPic.setImageResource(getResources().getIdentifier("ic_" + originSrc , "drawable", getPackageName()));
+        destPlanetPic.setImageResource(getResources().getIdentifier("ic_" + destinationSrc , "drawable", getPackageName()));
 
         Button btn_travel = (Button) findViewById(R.id.btn_travel);
         btn_travel.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +69,4 @@ public class FlightDetailActivity extends AppCompatActivity {
             }
         });
     }
-
-    public String[] getDetails(){ return names; }
 }

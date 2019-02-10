@@ -25,7 +25,6 @@ public class BookOriginActivity extends AppCompatActivity implements View.OnClic
         findViewById(R.id.btn_neptune).setOnClickListener(this);
 
 
-
     }
 
     @Override
