@@ -65,7 +65,10 @@ public class FlightDetailActivity extends AppCompatActivity {
         btn_travel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FlightDetailActivity.this, TravelClass.class));
+                int flightNum = getIntent().getIntExtra("FLIGHT_NUM", 0);
+                Intent detailIntent = new Intent(FlightDetailActivity.this, TravelClass.class);
+                detailIntent.putExtra("FLIGHT_NUM", flightNum);
+                startActivity(detailIntent);
             }
         });
     }
