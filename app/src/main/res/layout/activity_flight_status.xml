@@ -10,21 +10,29 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:gravity="top|center">
 
         <TextView
             android:id="@+id/detail_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="top|center"
-            android:layout_marginBottom="10dp"
+            android:gravity="center|center"
+            android:layout_marginBottom="0dp"
             android:text="Ongoing Flights"
-            android:textSize="36dp"
+            android:textSize="52dp"
             android:textColor="@android:color/black"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:divider="@color/material_blue_grey_800"
+            android:dividerHeight="2dp"
+            android:footerDividersEnabled="true" />
 
     </TableRow>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5px"
+        android:background="@android:color/black"/>
 
     <ListView
         android:id="@+id/ListView"
@@ -32,6 +40,6 @@
         android:layout_height="wrap_content"
         android:divider="@color/material_blue_grey_800"
         android:dividerHeight="2dp"
-        android:footerDividersEnabled="false" />
+        android:footerDividersEnabled="true" />
 
 </LinearLayout>
