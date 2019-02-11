@@ -36,32 +36,33 @@
 
     </TableRow>
 
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <Button
-            android:id="@+id/btn_reservations"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:drawableTop="@drawable/ic_reservations"
-            android:paddingVertical="20dp"
-            android:text="My reservations" />
+    <!-- unimplemented buttons
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
-        <Button
-            android:id="@+id/btn_account"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:drawableTop="@drawable/ic_account"
-            android:paddingVertical="20dp"
-            android:text="My account" />
+            <Button
+                android:id="@+id/btn_reservations"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/ic_reservations"
+                android:paddingVertical="20dp"
+                android:text="My reservations" />
 
-    </TableRow>
-</TableLayout>
+
+            <Button
+                android:id="@+id/btn_account"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/ic_account"
+                android:paddingVertical="20dp"
+                android:text="My account" />
+
+        </TableRow>
+    -->
+    </TableLayout>

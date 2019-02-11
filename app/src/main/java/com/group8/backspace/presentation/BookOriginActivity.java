@@ -17,12 +17,13 @@ public class BookOriginActivity extends AppCompatActivity implements View.OnClic
         findViewById(R.id.btn_mercury).setOnClickListener(this);
         findViewById(R.id.btn_venus).setOnClickListener(this);
         findViewById(R.id.btn_earth).setOnClickListener(this);
-        findViewById(R.id.btn_moon).setOnClickListener(this);
-        findViewById(R.id.btn_mars).setOnClickListener(this);
-        findViewById(R.id.btn_jupiter).setOnClickListener(this);
-        findViewById(R.id.btn_saturn).setOnClickListener(this);
-        findViewById(R.id.btn_uranus).setOnClickListener(this);
-        findViewById(R.id.btn_neptune).setOnClickListener(this);
+        // unimplemented planets (no xml images)
+        // findViewById(R.id.btn_moon).setOnClickListener(this);
+        // findViewById(R.id.btn_mars).setOnClickListener(this);
+        // findViewById(R.id.btn_jupiter).setOnClickListener(this);
+        // findViewById(R.id.btn_saturn).setOnClickListener(this);
+        // findViewById(R.id.btn_uranus).setOnClickListener(this);
+        // findViewById(R.id.btn_neptune).setOnClickListener(this);
 
 
     }
