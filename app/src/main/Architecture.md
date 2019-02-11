@@ -59,10 +59,13 @@ This jave file shows the total price of the ticket and check the format of the V
 ### TravelClass
 This gets and then contains the information for the choose a travel class view
 
-## Drawable
+## Images
 
-### Added Pictures
-This folder contains the added pictures for our app, including pictures of earth, venus, etc
+### Drawable
+This folder contains vector images for our app, including pictures of earth, venus, etc
+
+### Mipmap-hdpi
+This folder contains raster images for our app, taken from https://icons8.com/icon/set/planet/color
 
 ## Layout
 
