@@ -11,7 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".presentation.BookBrowseActivity"></activity>
+        <activity
+            android:name=".presentation.EarthInfo"
+            android:label="@string/title_activity_earth_info"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".presentation.PlanetList"
+            android:label="@string/title_activity_planet_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".presentation.BookBrowseActivity" />
         <activity android:name=".presentation.BookDestinationActivity" />
         <activity android:name=".presentation.PurchaseTicket" />
         <activity

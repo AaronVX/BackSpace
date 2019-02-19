@@ -42,15 +42,15 @@
 
 
             <Button
-                android:id="@+id/btn_reservations"
+                android:id="@+id/btn_planets"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:drawableTop="@drawable/ic_reservations"
                 android:paddingVertical="20dp"
-                android:text="My reservations" />
-
+                android:drawableTop="@drawable/ic_i_nasa"
+                android:text="Browse Planets"
+                />
 
             <Button
                 android:id="@+id/btn_account"
