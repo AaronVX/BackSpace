@@ -4,7 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
+import java.util.List;
 import com.group8.backspace.R;
+import com.group8.backspace.logic.AccessFlights;
+import com.group8.backspace.objects.CurrentFlights;
 
 /*
     https://www.andrious.com/tutorials/listview-tutorial-with-example-in-android-studio/
@@ -17,6 +20,9 @@ import com.group8.backspace.R;
  */
 
 public class FlightStatus extends AppCompatActivity {
+
+    private boolean sqldb = true;
+
     // Array of stub data for the flight
         ListView simpleList;
         String  Item[] = {"Flight #3045", "Flight #4509", "Flight #4398", "Flight #0986", "Flight #7654"};
@@ -32,9 +38,22 @@ public class FlightStatus extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flight_status);
 
-        simpleList = (ListView)findViewById(R.id.ListView);
-        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), Item,SubItem, flags);
-        simpleList.setAdapter(customAdapter);
+        if (sqldb) {
+            AccessFlights getCurrentFlights = new AccessFlights();
+            List<CurrentFlights> list = getCurrentFlights.getAllInfo();
+            CurrentFlights test = list.get(0);
+            String test2 = test.toString();
+            String test3[] = {test2};
+            simpleList = (ListView)findViewById(R.id.ListView);
+            CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), Item, test3, flags);
+            simpleList.setAdapter(customAdapter);
+        }
+        else
+        {
+            simpleList = (ListView)findViewById(R.id.ListView);
+            CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), Item, SubItem, flags);
+            simpleList.setAdapter(customAdapter);
+        }
     }
 
     public String[] getItem()
