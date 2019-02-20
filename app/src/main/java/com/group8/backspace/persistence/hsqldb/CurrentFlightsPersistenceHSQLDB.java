@@ -16,13 +16,14 @@ public class CurrentFlightsPersistenceHSQLDB implements CurrentFlightsPersistenc
 {
     private final Connection c;
 
-    public CurrentFlightsPersistenceHSQLDB() {
-        try {
-            this.c = DriverManager.getConnection("jdbc:hsqldb:file:" + "HSQLDB6437CD171A", "SA", "");
-        } catch (final SQLException e) {
-            throw new PersistenceException(e);
+    public CurrentFlightsPersistenceHSQLDB(final String dbPath) {
+            try {
+                this.c = DriverManager.getConnection("jdbc:hsqldb:file:" + dbPath, "SA", "");
+            } catch (final SQLException e) {
+                throw new PersistenceException(e);
+            }
         }
-    }
+
 
     private CurrentFlights fromResultSet(final ResultSet rs) throws SQLException {
         final String FlightID = rs.getString("FlightID");
