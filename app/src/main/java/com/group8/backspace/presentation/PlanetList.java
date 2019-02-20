@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.group8.backspace.R;
@@ -31,5 +32,13 @@ public class PlanetList extends AppCompatActivity {
         simpleList = (ListView)findViewById(R.id.ListView);
         CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), Planet, Description, Icons);
         simpleList.setAdapter(customAdapter);
+
+        /*ImageButton btn_list = (ImageButton) findViewById(R.id.imageButton);
+        btn_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PlanetList.this, EarthInfo.class));
+            }
+        });*/
     }
 }

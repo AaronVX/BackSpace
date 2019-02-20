@@ -41,6 +41,7 @@
         android:divider="@color/material_blue_grey_800"
         android:dividerHeight="2dp"
         android:footerDividersEnabled="true"
-        />
+        >
+    </ListView>
 
 </LinearLayout>
