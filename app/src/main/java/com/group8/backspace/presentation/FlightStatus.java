@@ -21,7 +21,7 @@ import com.group8.backspace.objects.CurrentFlights;
 
 public class FlightStatus extends AppCompatActivity {
 
-    private boolean sqldb = true;
+    private boolean sqldb = false;
 
     // Array of stub data for the flight
         ListView simpleList;
