@@ -12,8 +12,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".presentation.EarthInfo"
-            android:label="@string/title_activity_earth_info"
+            android:name=".presentation.PlanetInfo"
+            android:label="@string/title_activity_planet_info"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".presentation.PlanetList"

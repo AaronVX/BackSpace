@@ -22,7 +22,7 @@ public class PlanetList extends AppCompatActivity {
 
     ListView simpleList;
     String Planet[] = {"Earth", "Venus", "Mars"};
-    String Description[] = {"A warm blue and green planet", "a hot hellhole filled with volcanoes and sulphuric acid", "A calm cold red planet covered in dust"};
+    String Description[] = {"A warm blue and green planet", "a hot hell hole filled with volcanoes and sulphuric acid", "A calm cold red planet covered in dust"};
     int Icons[] = {R.mipmap.ic_earth, R.mipmap.ic_venus, R.mipmap.ic_mars};
 
     @Override
@@ -31,9 +31,6 @@ public class PlanetList extends AppCompatActivity {
         setContentView(R.layout.activity_planet_list);
 
         simpleList = (ListView)findViewById(R.id.ListView);
-
-        //needs to make listview planet icons into buttons
-
         CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), Planet, Description, Icons);
         simpleList.setAdapter(customAdapter);
     }

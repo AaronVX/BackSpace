@@ -1,7 +1,7 @@
 package com.group8.backspace.presentation;
 
 import android.content.Context;
-import android.media.Image;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +44,7 @@ public class CustomAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) {
         view = inflter.inflate(R.layout.activity_listview, null);
         TextView item = (TextView) view.findViewById(R.id.item);
         TextView subitem = (TextView) view.findViewById(R.id.subitem);
@@ -52,6 +52,18 @@ public class CustomAdapter extends BaseAdapter {
         item.setText(Item[i]);
         subitem.setText(SubItem[i]);
         image.setImageResource(flags[i]);
+
+        // EXAMPLE CODE
+        view.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), PlanetInfo.class);
+                intent.putExtra("planetName", Item[i]);
+                v.getContext().startActivity(intent);
+            }
+        });
+
         return view;
     }
 }
