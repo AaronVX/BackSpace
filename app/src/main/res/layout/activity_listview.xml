@@ -16,7 +16,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
             <ImageButton
-                android:id="@+id/image"
+                android:id="@+id/imageID"
+                android:background="?android:selectableItemBackground"
                 android:translationX="20dp"
                 android:translationY="10dp"
                 android:layout_width="100dp"
