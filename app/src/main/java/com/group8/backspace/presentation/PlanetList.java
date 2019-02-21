@@ -31,7 +31,7 @@ public class PlanetList extends AppCompatActivity {
         setContentView(R.layout.activity_planet_list);
 
         simpleList = (ListView)findViewById(R.id.ListView);
-        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), Planet, Description, Icons);
+        CustomAdapter customAdapter = new CustomAdapter(PlanetList.this, Planet, Description, Icons);
         simpleList.setAdapter(customAdapter);
     }
 }
