@@ -13,12 +13,12 @@ import com.group8.backspace.R;
 
 public class CustomAdapter extends BaseAdapter {
     Context context;
-    String Item[];
-    String SubItem[];
-    int flags[];
+    String Item[]; //title
+    String SubItem[]; //description
+    int flags[]; //images
     LayoutInflater inflter;
 
-    public CustomAdapter(Context applicationContext, String[] Item, String[] SubItem , int[] flags) {
+    public CustomAdapter(Context applicationContext, String[] Item, String[] SubItem , int[] flags) { //constructor takes in and sets info
         this.context = context;
         this.Item = Item;
         this.SubItem = SubItem;
@@ -42,20 +42,19 @@ public class CustomAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(final int i, View view, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) { //creates view
         view = inflter.inflate(R.layout.activity_listview, null);
-        TextView item = (TextView) view.findViewById(R.id.item);
+        TextView item = (TextView) view.findViewById(R.id.item); //creates textviews and imageviews based on the xml
         TextView subitem = (TextView) view.findViewById(R.id.subitem);
         ImageView image = (ImageView) view.findViewById(R.id.imageID);
-        item.setText(Item[i]);
+        item.setText(Item[i]); //sets info and image
         subitem.setText(SubItem[i]);
         image.setImageResource(flags[i]);
 
-        // EXAMPLE CODE
         view.setOnClickListener(new View.OnClickListener(){
 
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //makes a button, that when pressed goes to info.class the title of the textview clicked
                 Intent intent = new Intent(v.getContext(), Info.class);
                 intent.putExtra("planetName", Item[i]);
                 v.getContext().startActivity(intent);

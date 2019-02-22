@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         final String DB_PATH = "db";
 
         String[] assetNames;
-        Context context = getApplicationContext();
+        Context context = MainActivity.this;
         File dataDirectory = context.getDir(DB_PATH, Context.MODE_PRIVATE);
         AssetManager assetManager = getAssets();
 
