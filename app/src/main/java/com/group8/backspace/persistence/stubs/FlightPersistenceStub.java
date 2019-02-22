@@ -19,8 +19,10 @@ public class FlightPersistenceStub implements FlightPersistence {
 
         Flight flight1 = new Flight(Location.EARTH, Location.VENUS, CalendarDay.from(2019,2,14), CalendarDay.from(2019,5,20), 1000);
         Flight flight2 = new Flight(Location.EARTH, Location.VENUS, CalendarDay.from(2019,2,20), CalendarDay.from(2019,5,20), 1000);
+        Flight flight3 = new Flight(Location.EARTH, Location.VENUS, CalendarDay.from(2019,3,20), CalendarDay.from(2019,5,20), 1000);
         flights.add(flight1);
         flights.add(flight2);
+        flights.add(flight3);
     }
 
     @Override
