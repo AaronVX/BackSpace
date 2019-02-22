@@ -1,18 +1,20 @@
 package com.group8.backspace.presentation;
 
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.group8.backspace.R;
+import com.group8.backspace.presentation.PurchaseTicket.BookOriginActivity;
 
 
 // to import db
 import com.group8.backspace.application.Main;
+import com.group8.backspace.presentation.PlanetList_and_FlightStatus.FlightStatus;
+import com.group8.backspace.presentation.PlanetList_and_FlightStatus.PlanetList;
+
 import android.content.Context;
 import android.content.res.AssetManager;
 import java.io.File;

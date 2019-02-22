@@ -1,13 +1,10 @@
-package com.group8.backspace.presentation;
+package com.group8.backspace.presentation.PlanetList_and_FlightStatus;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
-import java.util.List;
 import com.group8.backspace.R;
-import com.group8.backspace.logic.AccessFlights;
-import com.group8.backspace.objects.CurrentFlights;
 
 /*
     https://www.andrious.com/tutorials/listview-tutorial-with-example-in-android-studio/

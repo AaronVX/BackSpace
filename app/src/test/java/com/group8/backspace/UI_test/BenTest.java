@@ -1,6 +1,6 @@
 package com.group8.backspace.UI_test;
 
-import com.group8.backspace.presentation.FlightStatus;
+import com.group8.backspace.presentation.PlanetList_and_FlightStatus.FlightStatus;
 
 import org.junit.Test;
 import static org.junit.Assert.*;

@@ -1,18 +1,16 @@
-package com.group8.backspace.presentation;
+package com.group8.backspace.presentation.PurchaseTicket;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.group8.backspace.R;
 import com.group8.backspace.logic.AccessFlights;
 import com.group8.backspace.objects.Flight;
 import com.group8.backspace.objects.Location;
+import com.group8.backspace.presentation.PurchaseTicket.FlightDetailActivity;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
