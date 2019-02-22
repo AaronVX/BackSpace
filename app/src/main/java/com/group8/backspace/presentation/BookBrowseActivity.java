@@ -29,7 +29,6 @@ public class BookBrowseActivity extends AppCompatActivity {
         String origin = getIntent().getStringExtra("origin");
         String destination = getIntent().getStringExtra("destination");
 
-
         // Update top images
         ImageView origin_view = (ImageView) findViewById(R.id.origin);
         origin_view.setImageResource(getResources().getIdentifier("ic_" + origin , "drawable", getPackageName()));

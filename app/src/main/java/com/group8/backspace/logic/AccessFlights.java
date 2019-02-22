@@ -21,6 +21,7 @@ public class AccessFlights {
         cfp = Services.getCurrentFlightPersistence();
     }
 
+    /*
     public List<Flight> getCurrentFlights() {
         return Collections.unmodifiableList(flightPersistence.getCurrentFlights());
     }
@@ -32,6 +33,7 @@ public class AccessFlights {
     public List<Flight> getFutureFlights() {
         return Collections.unmodifiableList(flightPersistence.getFutureFlights());
     }
+    */
 
     public List<Flight> getFutureFlights(Location origin, Location destination) {
         return Collections.unmodifiableList(flightPersistence.getFutureFlights(origin,destination));

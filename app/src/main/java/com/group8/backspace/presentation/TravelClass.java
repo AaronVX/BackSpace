@@ -25,7 +25,7 @@ public class TravelClass extends AppCompatActivity {
                 int flightNum = getIntent().getIntExtra("FLIGHT_NUM", 0);
                 //need a method to set class price
                 int classPrice = 200;
-                Intent detailIntent = new Intent(TravelClass.this, PurchaseTicket.class);
+                Intent detailIntent = new Intent(TravelClass.this, AdditionalOptions.class);
                 detailIntent.putExtra("FLIGHT_NUM", flightNum);
                 detailIntent.putExtra("Class_Price", classPrice);
                 startActivity(detailIntent);
