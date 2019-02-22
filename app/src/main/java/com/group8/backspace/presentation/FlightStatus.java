@@ -51,7 +51,7 @@ public class FlightStatus extends AppCompatActivity {
         else
         {
             simpleList = (ListView)findViewById(R.id.ListView);
-            CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), Item, SubItem, flags);
+            CustomAdapter customAdapter = new CustomAdapter(FlightStatus.this, Item, SubItem, flags);
             simpleList.setAdapter(customAdapter);
         }
     }
