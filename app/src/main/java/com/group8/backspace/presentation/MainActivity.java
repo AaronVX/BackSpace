@@ -1,6 +1,8 @@
 package com.group8.backspace.presentation;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -51,9 +53,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         copyDatabaseToDevice();
-
     }
-
 
     private void copyDatabaseToDevice() {
         final String DB_PATH = "db";
