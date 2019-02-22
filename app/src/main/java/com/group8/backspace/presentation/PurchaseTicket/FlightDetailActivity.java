@@ -1,4 +1,4 @@
-package com.group8.backspace.presentation;
+package com.group8.backspace.presentation.PurchaseTicket;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +12,6 @@ import com.group8.backspace.R;
 import com.group8.backspace.logic.AccessFlights;
 import com.group8.backspace.logic.DateHandler;
 import com.group8.backspace.objects.Flight;
-
 
 
 public class FlightDetailActivity extends AppCompatActivity {

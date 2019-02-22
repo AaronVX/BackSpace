@@ -1,6 +1,6 @@
 package com.group8.backspace.UI_test;
 
-import com.group8.backspace.presentation.PurchaseTicket;
+import com.group8.backspace.presentation.PurchaseTicket.PurchaseTicket;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.group8.backspace.presentation;
+package com.group8.backspace.presentation.PurchaseTicket;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import com.group8.backspace.R;
 import com.group8.backspace.logic.AccessFlights;
+import com.group8.backspace.logic.CalculatePrice;
+import com.group8.backspace.logic.CheckCard;
+import com.group8.backspace.logic.CheckDiscountCode;
 import com.group8.backspace.objects.Flight;
 
 public class PurchaseTicket extends AppCompatActivity {
@@ -20,12 +23,8 @@ public class PurchaseTicket extends AppCompatActivity {
 
 
         //get the flight object selected via the flightNum passed by BookBrowseActivity
-        AccessFlights accessor =   new AccessFlights();
         int currFlightNum = getIntent().getIntExtra("FLIGHT_NUM", 0);
         int currClassPrice = getIntent().getIntExtra("Class_Price", 0);
-        Flight currFlight = accessor.getFlightByNum(currFlightNum);
-
-
 
         TextView flightNum = (TextView) findViewById(R.id.flight_view);
         String flightTitle = "Flight #"+currFlightNum;
@@ -35,12 +34,34 @@ public class PurchaseTicket extends AppCompatActivity {
         TextView ticketPrice = (TextView) findViewById(R.id.ticketPrice);
         TextView classPrice = (TextView) findViewById(R.id.classPrice);
         TextView totalPrice = (TextView) findViewById(R.id.totalPrice);
-        int ticketP = currFlight.getTicketPrice();
-        int classP = currClassPrice;
-        int total = ticketP + classP;
-        ticketPrice.setText(ticketP + "");
-        classPrice.setText(classP + "");
-        totalPrice.setText(total + "");
+
+
+        CalculatePrice total = new CalculatePrice(currFlightNum,currClassPrice);
+
+        ticketPrice.setText(total.getTicketPrice() + "");
+        classPrice.setText(total.getClassPrice() + "");
+        totalPrice.setText(total.getTotalPrice() + "");
+        final int totalP = total.getTotalPrice();
+        Button checkCode = (Button) findViewById(R.id.btn_code);
+        checkCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText discountCode = (EditText) findViewById(R.id.code);
+                TextView newP = (TextView) findViewById(R.id.newPrice);
+                int price = totalP;
+                String code = discountCode.getText().toString();
+                CheckDiscountCode check = new CheckDiscountCode(code, price);
+                double newPrice = check.checkCode();
+                if(newPrice!=0){
+                    newP.setText("new price($): "+newPrice+"");
+                }
+                else{
+                    newP.setText("Sorry, the code is invalid!");
+                }
+            }
+        });
+
+
 
 
         Button purchaseBtn = (Button) findViewById(R.id.btn_purchase);
@@ -56,7 +77,8 @@ public class PurchaseTicket extends AppCompatActivity {
                 String date = expiryDate.getText().toString();
                 String code = securityCode.getText().toString();
                 TextView condition = (TextView) findViewById(R.id.condition);
-                if(checkFormat(card,date,code)){
+                CheckCard check = new CheckCard(card, date, code);
+                if(check.checkFormat(card,date,code)){
                     condition.setText("Purchase succeed");
                 }
                 else{
@@ -66,11 +88,5 @@ public class PurchaseTicket extends AppCompatActivity {
             }
         });
     }
-    public boolean checkFormat(String cardNum, String date, String securityNum){
-        if(cardNum.length()==16&&date.length()==6&&securityNum.length()==3){
-            return true;
-        }
-        else
-            return false;
-    }
+
 }

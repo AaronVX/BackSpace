@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
-    tools:context="com.group8.backspace.presentation.FlightStatus">
+    tools:context="com.group8.backspace.presentation.PlanetList_and_FlightStatus.FlightStatus">
 
     <TableRow
         android:layout_width="match_parent"
