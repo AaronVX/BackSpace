@@ -19,9 +19,8 @@ import com.group8.backspace.objects.CurrentFlights;
 import java.util.List;
 
 public class PlanetList extends AppCompatActivity {
-
     ListView simpleList;
-    String Planet[] = {"Earth", "Venus", "Mars"};
+    String Planet[] = {"Earth", "Venus", "Mars"}; //temp info to replace with sql db
     String Description[] = {"A warm blue and green planet", "a hot hell hole filled with volcanoes and sulphuric acid", "A calm cold red planet covered in dust"};
     int Icons[] = {R.mipmap.ic_earth, R.mipmap.ic_venus, R.mipmap.ic_mars};
 
@@ -30,7 +29,7 @@ public class PlanetList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planet_list);
 
-        simpleList = (ListView)findViewById(R.id.ListView);
+        simpleList = (ListView)findViewById(R.id.ListView); //makes listview based on info fed in
         CustomAdapter customAdapter = new CustomAdapter(PlanetList.this, Planet, Description, Icons);
         simpleList.setAdapter(customAdapter);
     }

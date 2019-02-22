@@ -24,7 +24,6 @@ public class BookDestinationActivity extends AppCompatActivity implements View.O
         // findViewById(R.id.btn_saturn).setOnClickListener(this);
         // findViewById(R.id.btn_uranus).setOnClickListener(this);
         // findViewById(R.id.btn_neptune).setOnClickListener(this);
-
     }
 
     @Override

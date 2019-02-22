@@ -12,4 +12,6 @@
     <string name="fatalError">Fatal error</string>
     <string name="warning">Warning</string>
     <string name="title_activity_planet_info">PlanetInfo</string>
+    <string name="title_activity_space_suit_rental">SpaceSuitRental</string>
+    <string name="title_activity_meal_plan">MealPlan</string>
 </resources>

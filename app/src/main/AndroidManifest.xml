@@ -12,9 +12,13 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".presentation.AdditionalOptions"
+            android:label="@string/title_activity_meal_plan"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".presentation.Info"
             android:label="@string/title_activity_planet_info"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".presentation.PlanetList"
             android:label="@string/title_activity_planet_list"
