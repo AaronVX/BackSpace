@@ -31,9 +31,9 @@ public class BookBrowseActivity extends AppCompatActivity {
 
         // Update top images
         ImageView origin_view = (ImageView) findViewById(R.id.origin);
-        origin_view.setImageResource(getResources().getIdentifier("ic_" + origin , "drawable", getPackageName()));
+        origin_view.setImageResource(getResources().getIdentifier("ic_" + origin , "mipmap", getPackageName()));
         ImageView destination_view = (ImageView) findViewById(R.id.destination);
-        destination_view.setImageResource(getResources().getIdentifier("ic_" + destination , "drawable", getPackageName()));
+        destination_view.setImageResource(getResources().getIdentifier("ic_" + destination , "mipmap", getPackageName()));
 
         AccessFlights accessFlights = new AccessFlights();
         final List<Flight> flights = accessFlights.getFutureFlights(Location.getByName(origin), Location.getByName(destination));

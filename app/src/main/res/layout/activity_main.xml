@@ -19,8 +19,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:drawableTop="@drawable/ic_book"
-            android:paddingVertical="20dp"
+            android:drawableTop="@drawable/ic_shuttle"
+            android:drawablePadding="15dp"
+            android:paddingVertical="30dp"
             android:text="Book a flight"/>
 
 
@@ -30,8 +31,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:drawableTop="@drawable/ic_track"
-            android:paddingVertical="20dp"
+            android:drawableTop="@drawable/ic_telescope"
+            android:drawablePadding="15dp"
+            android:paddingVertical="30dp"
             android:text="Track flights" />
 
     </TableRow>
@@ -47,8 +49,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:paddingVertical="20dp"
-                android:drawableTop="@drawable/ic_i_nasa"
+                android:paddingVertical="30dp"
+                android:drawablePadding="15dp"
+                android:drawableTop="@drawable/ic_orbit"
                 android:text="Browse Planets"
                 />
 
@@ -58,7 +61,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:paddingVertical="20dp"
+                android:drawablePadding="15dp"
+                android:paddingVertical="30dp"
                 android:text="" />
     </TableRow>
 </TableLayout>

@@ -11,7 +11,6 @@
         android:layout_width="210dp"
         android:layout_height="365dp">
 
-
         <TextView
             android:id="@+id/textViewPrompt"
             android:layout_width="400dp"
@@ -19,79 +18,57 @@
             android:gravity="center"
             android:text="Choose you travel class"
             android:textSize="24sp" />
-
     </TableRow>
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="184dp"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/toBeReplaced1"
-            android:layout_width="86dp"
-            android:layout_height="match_parent"
-            android:layout_weight="10"
-            android:text="Image 1" />
-
-        <TextView
-            android:id="@+id/toBeReplaced2"
-            android:layout_width="133dp"
-            android:layout_height="187dp"
-            android:layout_weight="0"
-            android:text="image 2" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="212dp"
-        android:gravity="center">
 
         <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <RadioButton
                 android:id="@+id/radio_Poor"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
                 android:text="Poor traveler" />
+            <TextView
+                android:id="@+id/textPoorDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- original price\n- hyper-sleep pod" />
 
             <RadioButton
                 android:id="@+id/radio_Rich"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
                 android:text="Rich business-man" />
+
+            <TextView
+                android:id="@+id/textRichDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- additional cost of 30%\n- virtual reality pod" />
+
+            <RadioButton
+                android:id="@+id/radio_Explorer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Space explorer" />
+
+            <TextView
+                android:id="@+id/textExplorerDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- additional cost of 89%\n- select your own meal plan\n- rent a space suit for space diving" />
 
         </RadioGroup>
 
-    </TableRow>
-
-
-    <TableRow
-        android:layout_width="150dp"
-        android:layout_height="310dp"
-        >
-
-        <TextView
-            android:id="@+id/textPoorDescription"
-            android:layout_width="290dp"
-            android:layout_height="109dp"
-            android:layout_weight="10"
-            android:text="- original price
-- hyper-sleep pod" />
-
-        <TextView
-            android:id="@+id/textRichDescription"
-            android:layout_width="191dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0"
-            android:text="- additional cost of 30%
-- virtual reality pod" />
-    </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
