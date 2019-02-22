@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 import com.group8.backspace.R;
 
-import java.util.zip.Inflater;
-
 public class CustomAdapter extends BaseAdapter {
     Context context;
     String Item[];
@@ -58,7 +56,7 @@ public class CustomAdapter extends BaseAdapter {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), PlanetInfo.class);
+                Intent intent = new Intent(v.getContext(), Info.class);
                 intent.putExtra("planetName", Item[i]);
                 v.getContext().startActivity(intent);
             }

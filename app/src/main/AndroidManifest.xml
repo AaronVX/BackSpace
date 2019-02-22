@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".presentation.PlanetInfo"
+            android:name=".presentation.Info"
             android:label="@string/title_activity_planet_info"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity

@@ -29,6 +29,12 @@ This calls the stub database
 
 ## Presentation
 
+### PlanetList
+This contains a list of planets you can go to, with a picture of them and a small piece of information in a custom listview
+
+### Info
+This page gets called when a flight or planet is selected from flightstatus or planetlist respectively
+
 ### BookBrowseActivity
 This gets and then contains the information in the monthly booking view
 
@@ -68,6 +74,12 @@ This folder contains vector images for our app, including pictures of earth, ven
 This folder contains raster images for our app, taken from https://icons8.com/icon/set/planet/color
 
 ## Layout
+
+### activity_info
+This describes the format for the specific flight or planet page
+
+### activity\_planet\_list
+This describes the format for the list of possible destination planets
 
 ### activity\_book\_browse
 This describes the format for the booking on the calender view activity

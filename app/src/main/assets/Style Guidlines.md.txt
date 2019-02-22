@@ -1,0 +1,17 @@
+#Style Guidlines
+
+##spaces for indentation
+self explanitory
+
+##K&R bracing
+opening brace on the next line of a method
+all blocks inside the method have the opeing brace on the same line
+
+##PascalCase for class names
+all class names will have the format of every new word being capitilized
+
+##camelCase for class members
+all class members will have the format of every new word excpet the first being capitilized
+
+##all caps for constants
+self explanitory
