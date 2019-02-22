@@ -1,4 +1,4 @@
-package com.group8.backspace.presentation;
+package com.group8.backspace.presentation.PurchaseTicket;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
