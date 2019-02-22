@@ -39,14 +39,14 @@ public class FlightStatus extends AppCompatActivity {
         setContentView(R.layout.activity_flight_status);
 
         if (sqldb) {
-            AccessFlights getCurrentFlights = new AccessFlights();
-            List<CurrentFlights> list = getCurrentFlights.getAllInfo();
-            CurrentFlights test = list.get(0);
-            String test2 = test.toString();
-            String test3[] = {test2};
-            simpleList = (ListView)findViewById(R.id.ListView);
-            CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), Item, test3, flags);
-            simpleList.setAdapter(customAdapter);
+//            AccessFlights getCurrentFlights = new AccessFlights();
+//            List<CurrentFlights> list = getCurrentFlights.getAllInfo();
+//            CurrentFlights test = list.get(0);
+//            String test2 = test.toString();
+//            String test3[] = {test2};
+//            simpleList = (ListView)findViewById(R.id.ListView);
+//            CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), Item, test3, flags);
+//            simpleList.setAdapter(customAdapter);
         }
         else
         {

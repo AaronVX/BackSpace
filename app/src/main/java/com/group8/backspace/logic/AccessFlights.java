@@ -14,11 +14,11 @@ import java.util.List;
 public class AccessFlights {
 
     FlightPersistence flightPersistence;
-    CurrentFlightsPersistence cfp;
+//    CurrentFlightsPersistence cfp;
 
     public AccessFlights() {
         flightPersistence = Services.getFlightPersistence();
-        cfp = Services.getCurrentFlightPersistence();
+//        cfp = Services.getCurrentFlightPersistence();
     }
 
     public List<Flight> getCurrentFlights() {
@@ -41,8 +41,8 @@ public class AccessFlights {
         return flightPersistence.getFlightByNum(searchFlightNum);
     }
 
-    public List<CurrentFlights> getAllInfo () {
-        return cfp.getInfo();
-    }
+//    public List<CurrentFlights> getAllInfo () {
+//        return cfp.getInfo();
+//    }
 
 }
