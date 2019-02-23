@@ -6,12 +6,9 @@ import com.group8.backspace.objects.Location;
 import java.util.List;
 
 public interface FlightPersistence {
-    List<Flight> getCurrentFlights();
-    List<Flight> getCurrentFlights(Location origin, Location destination);
+    List<Flight> getFlights();
+    List<Flight> getFlights(String origin, String destination);
 
-    List<Flight> getFutureFlights();
-    List<Flight> getFutureFlights(Location origin, Location destination);
-
-    Flight getFlightByNum(int flightSearchNum);
+    Flight getFlightByID(int flightID);
 
 }

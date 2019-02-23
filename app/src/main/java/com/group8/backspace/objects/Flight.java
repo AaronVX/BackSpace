@@ -3,46 +3,47 @@ package com.group8.backspace.objects;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 
+import java.util.Date;
+
 public class Flight {
 
-    private static int nextFlightNum = 1;
-    private int flightNum;
+    private int flightID;
 
-    private Location origin;
-    private Location destination;
+    private String origin;
+    private String destination;
 
-    private CalendarDay departure;
-    private CalendarDay arrival;
+    private Date departure;
+    private Date arrival;
 
-    private int ticketPrice;
+    //private int ticketPrice;
 
-    public Flight(Location origin, Location destination, CalendarDay departure, CalendarDay arrival, int ticketPrice) {
-        this.flightNum = nextFlightNum;
-        nextFlightNum++;
-
+    public Flight(int flightID, String origin, String destination, Date departure, Date arrival) {
+        this.flightID = flightID;
         this.origin = origin;
         this.destination = destination;
 
         this.departure = departure;
         this.arrival = arrival;
-        this.ticketPrice = ticketPrice;
+        //this.ticketPrice = ticketPrice;
     }
 
-    public int getFlightNum() { return flightNum; }
+    public int getFlightID() {
+        return flightID;
+    }
 
-    public Location getOrigin() { return origin; }
+    public String getOrigin() {
+        return origin;
+    }
 
-    public Location getDestination() {
+    public String getDestination() {
         return destination;
     }
 
-    public CalendarDay getDeparture() {
+    public Date getDeparture() {
         return departure;
     }
 
-    public CalendarDay getArrival() {
+    public Date getArrival() {
         return arrival;
     }
-
-    public int getTicketPrice(){ return ticketPrice;}
 }

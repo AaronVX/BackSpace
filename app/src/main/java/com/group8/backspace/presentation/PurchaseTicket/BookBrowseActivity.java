@@ -15,6 +15,7 @@ import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
+import java.util.Date;
 import java.util.List;
 
 public class BookBrowseActivity extends AppCompatActivity {
@@ -34,14 +35,23 @@ public class BookBrowseActivity extends AppCompatActivity {
         destination_view.setImageResource(getResources().getIdentifier("ic_" + destination , "mipmap", getPackageName()));
 
         AccessFlights accessFlights = new AccessFlights();
-        final List<Flight> flights = accessFlights.getFutureFlights(Location.getByName(origin), Location.getByName(destination));
+
+        //temp
+        final List<Flight> temp = accessFlights.getFlights();
+
+        final List<Flight> flights = accessFlights.getFutureFlights(origin, destination);
 
         MaterialCalendarView calendar = (MaterialCalendarView) findViewById(R.id.calendar);
         calendar.setSelectionMode(MaterialCalendarView.SELECTION_MODE_MULTIPLE);
 
 
+
         for (Flight flight : flights) {
-            calendar.setDateSelected(flight.getDeparture(), true);
+            Date departure = flight.getDeparture();
+            int year = departure.getYear();
+            int month = departure.getMonth();
+            int day = departure.getDate();
+            calendar.setDateSelected(CalendarDay.from(year, month, day), true);
         }
 
 
@@ -59,7 +69,7 @@ public class BookBrowseActivity extends AppCompatActivity {
                     if (flight.getDeparture().equals(calendarDay)) {
                         materialCalendarView.setDateSelected(calendarDay, true); // re-select date
 
-                        int chosenFlightNum = flight.getFlightNum();
+                        int chosenFlightNum = flight.getFlightID();
 
                         Intent detailIntent = new Intent(BookBrowseActivity.this, FlightDetailActivity.class);
                         detailIntent.putExtra("FLIGHT_NUM", chosenFlightNum);

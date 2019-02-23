@@ -28,7 +28,7 @@ public class FlightDetailActivity extends AppCompatActivity {
         String destinationSrc = getIntent().getStringExtra("destination");
 
 
-        Flight currFlight = accessor.getFlightByNum(currFlightNum);
+        Flight currFlight = accessor.getFlightByID(currFlightNum);
         //Get the objects we want to set
         TextView title = (TextView) findViewById(R.id.detail_title);
         TextView departPlanetName = (TextView) findViewById(R.id.detail_depart_planet);
@@ -44,8 +44,8 @@ public class FlightDetailActivity extends AppCompatActivity {
         //set each text and picture slots to the given values
         String flightTitle = "Flight #"+currFlightNum;
         title.setText(flightTitle);
-        departPlanetName.setText(currFlight.getOrigin().name());
-        destPlanetName.setText(currFlight.getDestination().name());
+        departPlanetName.setText(currFlight.getOrigin());
+        destPlanetName.setText(currFlight.getDestination());
 
         //use the date handler to get nice strings for textviews
         DateHandler handleDates = new DateHandler(currFlight.getDeparture(), currFlight.getArrival());

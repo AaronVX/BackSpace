@@ -8,8 +8,9 @@ public class CalculatePrice {
 
     public CalculatePrice(int flightNum, int classPrice){
         AccessFlights accessor =   new AccessFlights();
-        Flight currFlight = accessor.getFlightByNum(flightNum);
-        ticketPrice = currFlight.getTicketPrice();
+        Flight currFlight = accessor.getFlightByID(flightNum);
+        // TODO TEMPORARY ticketPrice = currFlight.getTicketPrice();
+        ticketPrice = 1000;
         this.classPrice = classPrice;
     }
 
