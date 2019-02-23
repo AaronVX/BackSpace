@@ -4,22 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    android:gravity="center_vertical"
-    android:orientation="vertical">
+    android:gravity="center">
 
 
-    <TableRow
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10"
         android:gravity="center">
 
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="78dp"
+            android:id="@+id/textView1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
             android:text="Select your current location"
-            android:textSize="30sp" />
-    </TableRow>
+            android:textSize="24sp" />
+    </LinearLayout>
 
     <TableRow
         android:layout_width="match_parent"
@@ -61,15 +64,15 @@
     </TableRow>
 
     <!--<Button-->
-        <!--android:id="@+id/btn_moon"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_weight="1"-->
-        <!--android:background="@android:color/transparent"-->
-        <!--android:drawableTop="@mipmap/ic_moon"-->
-        <!--android:paddingVertical="20dp"-->
-        <!--android:tag="moon"-->
-        <!--android:text="Moon" />-->
+    <!--android:id="@+id/btn_moon"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@android:color/transparent"-->
+    <!--android:drawableTop="@mipmap/ic_moon"-->
+    <!--android:paddingVertical="20dp"-->
+    <!--android:tag="moon"-->
+    <!--android:text="Moon" />-->
 
 
     <TableRow
@@ -148,7 +151,6 @@
             android:tag="pluto"
             android:text="Pluto" />
     </TableRow>
-
 
 
 </TableLayout>

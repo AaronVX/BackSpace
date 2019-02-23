@@ -4,86 +4,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical"
-    android:orientation="vertical"
     android:background="@color/colorPrimary">
 
     <!--I think the main activity is self-descriptive .. Do we really need a title ?-->
     <!--<TableRow-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="80dp"-->
-        <!--android:gravity="top|center">-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="80dp"-->
+    <!--android:gravity="top|center">-->
 
-        <!--<TextView-->
-            <!--android:id="@+id/detail_title"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:gravity="center|center"-->
-            <!--android:layout_marginBottom="0dp"-->
-            <!--android:text="BackSpace Shuttle Planner"-->
-            <!--android:textSize="32dp"-->
-            <!--android:textColor="@android:color/black"-->
-            <!--android:textStyle="bold"-->
-            <!--android:divider="@color/material_blue_grey_800"-->
-            <!--android:dividerHeight="2dp"-->
-            <!--android:footerDividersEnabled="true" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/detail_title"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:gravity="center|center"-->
+    <!--android:layout_marginBottom="0dp"-->
+    <!--android:text="BackSpace Shuttle Planner"-->
+    <!--android:textSize="32dp"-->
+    <!--android:textColor="@android:color/black"-->
+    <!--android:textStyle="bold"-->
+    <!--android:divider="@color/material_blue_grey_800"-->
+    <!--android:dividerHeight="2dp"-->
+    <!--android:footerDividersEnabled="true" />-->
     <!--</TableRow>-->
 
-    <TableRow
+    <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:columnCount="2"
+        android:rowCount="2">
 
         <Button
             android:id="@+id/btn_book"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center"
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/ic_shuttle"
             android:drawablePadding="15dp"
-            android:paddingVertical="30dp"
-            android:text="Book a flight"/>
-
+            android:text="Book a flight" />
 
         <Button
             android:id="@+id/btn_track"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center"
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/ic_telescope"
             android:drawablePadding="15dp"
-            android:paddingVertical="30dp"
-            android:text="Track flights" />
-
-    </TableRow>
-
-    <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:text="Book a flight" />
 
 
         <Button
-                android:id="@+id/btn_planets"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:paddingVertical="30dp"
-                android:drawablePadding="15dp"
-                android:drawableTop="@drawable/ic_orbit"
-                android:text="Browse Planets"
-                />
+            android:id="@+id/btn_planets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/ic_orbit"
+            android:text="Browse Planets"
+            />
 
-            <Button
-                android:id="@+id/btn_account"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:drawablePadding="15dp"
-                android:paddingVertical="30dp"
-                android:text="" />
-    </TableRow>
+        <Button
+            android:id="@+id/btn_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/ic_brain"
+            android:drawablePadding="15dp"
+            android:text="Conscious transfer" />
+
+    </GridLayout>
+
 </TableLayout>
