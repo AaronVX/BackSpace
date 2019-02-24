@@ -5,10 +5,11 @@ import com.group8.backspace.objects.Flight;
 import com.group8.backspace.objects.Location;
 import com.group8.backspace.persistence.FlightPersistence;
 
+import org.joda.time.DateTime;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Date;
 
 public class AccessFlights {
 
@@ -31,7 +32,7 @@ public class AccessFlights {
     public List<Flight> getCurrentFlights() {
         ArrayList<Flight> futureFlights = new ArrayList<>();
         List<Flight> flights = flightPersistence.getFlights();
-        Date now = new Date();
+        DateTime now = DateTime.now();
 
         for (Flight flight : flights) {
             if (flight.getDeparture().compareTo(now) < 0) {
@@ -45,7 +46,7 @@ public class AccessFlights {
     public List<Flight> getCurrentFlights(String origin, String destination) {
         ArrayList<Flight> futureFlights = new ArrayList<>();
         List<Flight> flights = flightPersistence.getFlights();
-        Date now = new Date();
+        DateTime now = DateTime.now();
 
         for (Flight flight : flights) {
             if (flight.getDeparture().compareTo(now) < 0) {
@@ -60,7 +61,7 @@ public class AccessFlights {
     public List<Flight> getFutureFlights() {
         ArrayList<Flight> futureFlights = new ArrayList<>();
         List<Flight> flights = flightPersistence.getFlights();
-        Date now = new Date();
+        DateTime now = DateTime.now();
 
         for (Flight flight : flights) {
             if (flight.getDeparture().compareTo(now) > 0) {
@@ -74,7 +75,7 @@ public class AccessFlights {
     public List<Flight> getFutureFlights(String origin, String destination) {
         ArrayList<Flight> futureFlights = new ArrayList<>();
         List<Flight> flights = flightPersistence.getFlights(origin, destination);
-        Date now = new Date();
+        DateTime now = DateTime.now();
 
         for (Flight flight : flights) {
             if (flight.getDeparture().compareTo(now) > 0) {

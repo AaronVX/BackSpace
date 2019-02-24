@@ -15,7 +15,8 @@ import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
-import java.util.Date;
+import org.joda.time.DateTime;
+
 import java.util.List;
 
 public class BookBrowseActivity extends AppCompatActivity {
@@ -47,10 +48,11 @@ public class BookBrowseActivity extends AppCompatActivity {
 
 
         for (Flight flight : flights) {
-            Date departure = flight.getDeparture();
+            DateTime departure = flight.getDeparture();
             int year = departure.getYear();
-            int month = departure.getMonth();
-            int day = departure.getDate();
+            int month = departure.getMonthOfYear();
+            int day = departure.getDayOfMonth();
+            
             calendar.setDateSelected(CalendarDay.from(year, month, day), true);
         }
 

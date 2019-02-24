@@ -4,10 +4,11 @@ import com.group8.backspace.objects.Flight;
 import com.group8.backspace.objects.Location;
 import com.group8.backspace.persistence.FlightPersistence;
 
+import org.joda.time.DateTime;
+
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 public class FlightPersistenceStub implements FlightPersistence {
@@ -17,7 +18,7 @@ public class FlightPersistenceStub implements FlightPersistence {
     public FlightPersistenceStub(){
         flights = new ArrayList<Flight>();
 
-        Flight flight1 = new Flight(1, "earth", "venus", new Date(2019,2,14), new Date(2019,5,20));
+        Flight flight1 = new Flight(1, "earth", "venus", new DateTime(2019,2,14,0,0), new DateTime(2019,5,20,0,0));
         flights.add(flight1);
     }
 

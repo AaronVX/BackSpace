@@ -9,12 +9,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.group8.backspace.objects.Flight;
 import com.group8.backspace.persistence.CurrentFlightsPersistence;
 import com.group8.backspace.persistence.FlightPersistence;
+
+import org.joda.time.DateTime;
 
 public class FlightPersistenceHSQLDB implements FlightPersistence
 {
@@ -33,11 +34,11 @@ public class FlightPersistenceHSQLDB implements FlightPersistence
         final int flightID = rs.getInt("FLIGHTID");
         final String origin = rs.getString("ORIGINID");
         final String destination = rs.getString("DESTINATIONID");
-        final int departure_unix = rs.getInt("DEPARTURE");
-        final int arrival_unix = rs.getInt("ARRIVAL");
+        final long departure_unix = rs.getInt("DEPARTURE");
+        final long arrival_unix = rs.getInt("ARRIVAL");
 
-        final Date departure = new Date(departure_unix * 1000);
-        final Date arrival = new Date(arrival_unix * 1000);
+        final DateTime departure = new DateTime(departure_unix * 1000);
+        final DateTime arrival = new DateTime(arrival_unix * 1000);
 
         return new Flight(flightID, origin, destination, departure, arrival);
     }

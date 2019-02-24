@@ -3,7 +3,8 @@ package com.group8.backspace.objects;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 
-import java.util.Date;
+import org.joda.time.DateTime;
+
 
 public class Flight {
 
@@ -12,12 +13,12 @@ public class Flight {
     private String origin;
     private String destination;
 
-    private Date departure;
-    private Date arrival;
+    private DateTime departure;
+    private DateTime arrival;
 
     //private int ticketPrice;
 
-    public Flight(int flightID, String origin, String destination, Date departure, Date arrival) {
+    public Flight(int flightID, String origin, String destination, DateTime departure, DateTime arrival) {
         this.flightID = flightID;
         this.origin = origin;
         this.destination = destination;
@@ -39,11 +40,11 @@ public class Flight {
         return destination;
     }
 
-    public Date getDeparture() {
+    public DateTime getDeparture() {
         return departure;
     }
 
-    public Date getArrival() {
+    public DateTime getArrival() {
         return arrival;
     }
 }

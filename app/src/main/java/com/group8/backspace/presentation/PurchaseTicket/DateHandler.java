@@ -1,16 +1,17 @@
 package com.group8.backspace.presentation.PurchaseTicket;
 
+import org.joda.time.DateTime;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 
 public class DateHandler {
-    private Date departure;
-    private Date arrival;
+    private DateTime departure;
+    private DateTime arrival;
 
-    public DateHandler(Date departure, Date arrival){
+    public DateHandler(DateTime departure, DateTime arrival){
         this.departure = departure;
         this.arrival = arrival;
     }
@@ -23,7 +24,7 @@ public class DateHandler {
     }
 
     public String getTravelTime(){
-        long diff = arrival.getTime() - departure.getTime();
+        long diff = arrival.getMillis() - departure.getMillis();
         String returnString = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS) +" days";
         return returnString;
     }
