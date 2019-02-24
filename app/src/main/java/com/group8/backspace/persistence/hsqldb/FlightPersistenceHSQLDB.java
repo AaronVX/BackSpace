@@ -31,8 +31,8 @@ public class FlightPersistenceHSQLDB implements FlightPersistence
 
     private Flight fromResultSet(final ResultSet rs) throws SQLException {
         final int flightID = rs.getInt("FLIGHTID");
-        final String origin = rs.getString("ORIGIN");
-        final String destination = rs.getString("DESTINATION");
+        final String origin = rs.getString("ORIGINID");
+        final String destination = rs.getString("DESTINATIONID");
         final int departure_unix = rs.getInt("DEPARTURE");
         final int arrival_unix = rs.getInt("ARRIVAL");
 
@@ -72,7 +72,7 @@ public class FlightPersistenceHSQLDB implements FlightPersistence
         final List<Flight> flights = new ArrayList<>();
         try (final Connection c = connection())
         {
-            final PreparedStatement st = c.prepareStatement("SELECT * FROM flights WHERE origin = ? AND destination = ?");
+            final PreparedStatement st = c.prepareStatement("SELECT * FROM flights WHERE originID = ? AND destinationID = ?");
             st.setString(1, origin);
             st.setString(2, destination);
 
