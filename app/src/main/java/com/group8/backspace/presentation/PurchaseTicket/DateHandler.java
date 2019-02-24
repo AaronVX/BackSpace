@@ -1,4 +1,4 @@
-package com.group8.backspace.logic;
+package com.group8.backspace.presentation.PurchaseTicket;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

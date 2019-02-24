@@ -16,7 +16,7 @@
             android:layout_width="400dp"
             android:layout_height="100dp"
             android:gravity="center"
-            android:text="Choose you travel class"
+            android:text="Choose your travel class"
             android:textSize="24sp" />
     </TableRow>
 

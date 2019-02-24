@@ -1,6 +1,6 @@
 package com.group8.backspace.UI_test;
 
-import com.group8.backspace.logic.DateHandler;
+import com.group8.backspace.presentation.PurchaseTicket.DateHandler;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 
 import org.junit.Test;

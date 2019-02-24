@@ -1,7 +1,6 @@
 package com.group8.backspace.persistence;
 
 import com.group8.backspace.objects.Flight;
-import com.group8.backspace.objects.Location;
 
 import java.util.List;
 

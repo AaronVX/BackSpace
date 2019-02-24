@@ -28,7 +28,6 @@ public class AccessFlights {
 
 
 
-
     public List<Flight> getCurrentFlights() {
         ArrayList<Flight> futureFlights = new ArrayList<>();
         List<Flight> flights = flightPersistence.getFlights();
