@@ -13,13 +13,18 @@
         android:layout_height="match_parent">
 
 
+        <ImageView
+            android:id="@+id/planetIcon"
+            android:layout_width="200dp"
+            android:layout_height="match_parent" />
+
         <TextView
-            android:id="@+id/planetinfo"
+            android:id="@+id/planetTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingVertical="20dp"
             android:paddingHorizontal="20dp"
-            android:text="Planet Info"/>
+            android:paddingVertical="20dp"
+            android:text="Planet Info" />
 
     </TableRow>
 

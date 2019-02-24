@@ -1,8 +1,12 @@
 package com.group8.backspace.persistence.hsqldb;
 
+import android.util.Log;
+
+import com.group8.backspace.R;
 import com.group8.backspace.objects.Location;
 import com.group8.backspace.persistence.PlanetPersistence;
 
+import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -51,7 +55,7 @@ public class PlanetPersistenceHSQLDB implements PlanetPersistence
     public Location getPlanetByName(String locationName) {
         final List<Location> planets = new ArrayList<>();
         try (final Connection c = connection()) {
-            final PreparedStatement st = c.prepareStatement("SELECT * FROM LOCATIONS WHERE LOCATIONID = ?");
+            final PreparedStatement st = c.prepareStatement("SELECT * FROM locations WHERE LOCATIONID = ?");
             st.setString(1, locationName);
 
             final ResultSet rs = st.executeQuery();
@@ -74,8 +78,17 @@ public class PlanetPersistenceHSQLDB implements PlanetPersistence
 
     private Location fromResultSet(final ResultSet rs) throws SQLException {
         final String planetName = rs.getString("LOCATIONID");
+        String image = rs.getString("IMAGESRC");
+        int mipMapId = 0;
+        try {
+            Class res = R.mipmap.class;
+            Field field = res.getField(image);
+            mipMapId = field.getInt(null);
+        }catch(Exception e){
+            Log.e("MyTag", "Failure to get mipmap id.", e);
+        }
 
-        return new Location(planetName);
+        return new Location(planetName, mipMapId);
     }
 
 }

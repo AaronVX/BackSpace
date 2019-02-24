@@ -2,6 +2,7 @@ package com.group8.backspace.presentation.PlanetList_and_FlightStatus;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.group8.backspace.R;
@@ -15,16 +16,18 @@ public class Info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
-        String test = getIntent().getStringExtra("planetName");
+        String nameFromList = getIntent().getStringExtra("planetName");
 
         AccessPlanets access = new AccessPlanets();
 
-        Location loc = access.getPlanetByName(test);
+        Location loc = access.getPlanetByName(nameFromList);
+        String planetName = loc.getId();
+        int iconSrc = loc.getImgSrc();
 
-        String test2 = loc.getId();
-
-        TextView origin_view = (TextView) findViewById(R.id.planetinfo);
-        origin_view.setText(test2);
+        TextView titleView = (TextView) findViewById(R.id.planetTitle);
+        ImageView iconView = (ImageView) findViewById(R.id.planetIcon);
+        titleView.setText(planetName);
+        iconView.setImageResource(iconSrc);
     }
 
 }
