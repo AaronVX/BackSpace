@@ -22,12 +22,14 @@ public class Info extends AppCompatActivity {
 
         Location loc = access.getPlanetByName(nameFromList);
         String planetName = loc.getId();
-        int iconSrc = loc.getImgSrc();
+        String iconName = loc.getImgSrc();
+
+        int test = getResources().getIdentifier(iconName, "mipmap", getPackageName());
 
         TextView titleView = (TextView) findViewById(R.id.planetTitle);
         ImageView iconView = (ImageView) findViewById(R.id.planetIcon);
         titleView.setText(planetName);
-        iconView.setImageResource(iconSrc);
+        iconView.setImageResource(test);
     }
 
 }

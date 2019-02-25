@@ -79,16 +79,8 @@ public class PlanetPersistenceHSQLDB implements PlanetPersistence
     private Location fromResultSet(final ResultSet rs) throws SQLException {
         final String planetName = rs.getString("LOCATIONID");
         String image = rs.getString("IMAGESRC");
-        int mipMapId = 0;
-        try {
-            Class res = R.mipmap.class;
-            Field field = res.getField(image);
-            mipMapId = field.getInt(null);
-        }catch(Exception e){
-            Log.e("MyTag", "Failure to get mipmap id.", e);
-        }
 
-        return new Location(planetName, mipMapId);
+        return new Location(planetName, image);
     }
 
 }

@@ -3,9 +3,9 @@ package com.group8.backspace.objects;
 public class Location {
 
     private String id;
-    private int imgSrc;
+    private String imgSrc;
 
-    public Location(String id, int src) {
+    public Location(String id, String src) {
         this.id = id;
         this.imgSrc = src;
     }
@@ -14,7 +14,7 @@ public class Location {
         return this.id;
     }
 
-    public int getImgSrc() {
+    public String getImgSrc() {
         return imgSrc;
     }
 }
