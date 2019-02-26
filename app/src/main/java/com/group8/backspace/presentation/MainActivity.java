@@ -14,6 +14,8 @@ import com.group8.backspace.presentation.PurchaseTicket.BookOriginActivity;
 import com.group8.backspace.application.Main;
 import com.group8.backspace.presentation.PlanetList_and_FlightStatus.FlightStatus;
 import com.group8.backspace.presentation.PlanetList_and_FlightStatus.PlanetList;
+import com.group8.backspace.presentation.PurchaseTicket.FlightDetailActivity;
+import com.group8.backspace.presentation.PurchaseTicket.TravelClass;
 
 import android.content.Context;
 import android.content.res.AssetManager;
