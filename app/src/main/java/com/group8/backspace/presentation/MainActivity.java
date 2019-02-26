@@ -19,7 +19,6 @@ import com.group8.backspace.presentation.PurchaseTicket.TravelClass;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.widget.ImageButton;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -39,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, BookOriginActivity.class));
+
             }
         });
 
