@@ -1,97 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:fillViewport="true">
 
-    <!--I think the main activity is self-descriptive .. Do we really need a title ?-->
-    <!--<TableRow-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="80dp"-->
-    <!--android:gravity="top|center">-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/detail_title"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:gravity="center|center"-->
-    <!--android:layout_marginBottom="0dp"-->
-    <!--android:text="BackSpace Shuttle Planner"-->
-    <!--android:textSize="32dp"-->
-    <!--android:textColor="@android:color/black"-->
-    <!--android:textStyle="bold"-->
-    <!--android:divider="@color/material_blue_grey_800"-->
-    <!--android:dividerHeight="2dp"-->
-    <!--android:footerDividersEnabled="true" />-->
-    <!--</TableRow>-->
-
-    <GridLayout
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:columnCount="2"
-        android:rowCount="2">
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
-        <Button
-            android:id="@+id/btn_book"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="0"
-            android:layout_rowWeight="1"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_gravity="center"
-            android:background="@android:color/transparent"
-            android:drawableTop="@drawable/ic_shuttle"
-            android:drawablePadding="15dp"
-            android:text="Book a flight" />
+            android:orientation="horizontal"
+            android:gravity="center">
 
-        <Button
-            android:id="@+id/btn_track"
+            <Button
+                android:id="@+id/btn_book"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/ic_shuttle"
+                android:drawablePadding="25dp"
+                android:text="Book a flight"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:layout_margin="20dp"
+                style="?android:attr/buttonBarButtonStyle"/>
+
+            <Button
+                android:id="@+id/btn_track"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/ic_telescope"
+                android:drawablePadding="25dp"
+                android:text="Track flights"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:layout_margin="20dp"
+                style="?android:attr/buttonBarButtonStyle"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="0"
-            android:layout_rowWeight="1"
-            android:layout_column="1"
-            android:layout_columnWeight="1"
-            android:layout_gravity="center"
-            android:background="@android:color/transparent"
-            android:drawableTop="@drawable/ic_telescope"
-            android:drawablePadding="15dp"
-            android:text="Track flights" />
+            android:orientation="horizontal"
+            android:gravity="center">
 
+            <Button
+                android:id="@+id/btn_planets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/ic_orbit"
+                android:drawablePadding="25dp"
+                android:text="Browse Planets"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:layout_margin="20dp"
+                style="?android:attr/buttonBarButtonStyle"/>
 
-        <Button
-            android:id="@+id/btn_planets"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_rowWeight="1"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_gravity="center"
-            android:background="@android:color/transparent"
-            android:drawableTop="@drawable/ic_orbit"
-            android:drawablePadding="15dp"
-            android:text="Browse Planets"
-            />
+            <Button
+                android:id="@+id/btn_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/ic_brain"
+                android:drawablePadding="25dp"
+                android:text="Conscious transfer"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:layout_margin="20dp"
+                style="?android:attr/buttonBarButtonStyle"/>
 
-        <Button
-            android:id="@+id/btn_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_rowWeight="1"
-            android:layout_column="1"
-            android:layout_columnWeight="1"
-            android:layout_gravity="center"
-            android:background="@android:color/transparent"
-            android:drawableTop="@drawable/ic_brain"
-            android:drawablePadding="15dp"
-            android:text="Conscious transfer" />
+        </LinearLayout>
+    </TableLayout>
 
-    </GridLayout>
-
-</TableLayout>
+</ScrollView>

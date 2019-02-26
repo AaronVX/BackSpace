@@ -1,7 +1,7 @@
 <!--taken from https://www.flaticon.com/packs/space-90-->
 
-<vector android:height="100dp" android:viewportHeight="463.981"
-    android:viewportWidth="463.981" android:width="100dp" xmlns:android="http://schemas.android.com/apk/res/android">
+<vector android:height="130dp" android:viewportHeight="463.981"
+    android:viewportWidth="463.981" android:width="130dp" xmlns:android="http://schemas.android.com/apk/res/android">
     <path android:fillAlpha="0.4" android:fillColor="#5B5B5F"
         android:pathData="M383.985,231.889l19.934,-43.805l22.044,10.032l-19.934,43.805z" android:strokeAlpha="0.4"/>
     <path android:fillColor="#59595A" android:pathData="M442.416,205.607l-2.94,6.461l-16.451,-7.486l-14.053,30.883l16.451,7.486l-2.94,6.46l11.187,5.092l19.933,-43.805z"/>
