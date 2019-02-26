@@ -1,85 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    android:padding="15dp">
+    android:fillViewport="true">
 
-    <TableRow
-        android:layout_width="210dp"
-        android:layout_height="365dp">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/textViewPrompt"
-            android:layout_width="400dp"
-            android:layout_height="100dp"
-            android:gravity="center"
-            android:text="Choose your travel class"
-            android:textSize="24sp" />
-    </TableRow>
-
-
-        <RadioGroup
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:text="How do you want to spend your time?"
+            android:textSize="24sp"
+            android:padding="20sp"/>
 
-            <RadioButton
-                android:id="@+id/radio_Poor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="20dp"
-                android:text="Poor traveler" />
-            <TextView
-                android:id="@+id/textPoorDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="- original price\n- hyper-sleep pod" />
-
-            <RadioButton
-                android:id="@+id/radio_Rich"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="20dp"
-                android:text="Rich business-man" />
-
-            <TextView
-                android:id="@+id/textRichDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="- additional cost of 30%\n- virtual reality pod" />
-
-            <RadioButton
-                android:id="@+id/radio_Explorer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="20dp"
-                android:text="Space explorer" />
-
-            <TextView
-                android:id="@+id/textExplorerDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="- additional cost of 89%\n- select your own meal plan\n- rent a space suit for space diving" />
-
-        </RadioGroup>
-
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="bottom">
-
-        <Button
-            android:id="@+id/buttonSelect"
+        <TextView
+            android:id="@+id/textViewTip"
             android:layout_width="wrap_content"
-            android:layout_height="90dp"
-            android:text="Continue" />
-    </TableRow>
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="tap to select"
+            android:textSize="20sp"
+            android:paddingBottom="50sp"
+            android:textColor="#80707070"/>
 
-</TableLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/imageEconomy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_sleep"
+                    android:background="@android:color/transparent"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/textEconomy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Hyper Sleep"
+                    android:textSize="24sp"
+                    android:textColor=" #0588CC"
+                    android:padding="20sp"/>
+
+                <TextView
+                    android:id="@+id/textEconomyD1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10 $ per day"
+                    android:textSize="18sp"
+                    android:paddingHorizontal="30sp"
+                    android:paddingVertical="15sp"
+                    android:drawablePadding="15dp"
+                    android:drawableLeft="@drawable/ic_price"/>
+
+                <TextView
+                    android:id="@+id/textEnergyTip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="efficient use of resources"
+                    android:textSize="18sp"
+                    android:paddingHorizontal="30sp"
+                    android:paddingVertical="15sp"
+                    android:drawablePadding="15dp"
+                    android:drawableLeft="@drawable/ic_tooltip"/>
+
+                <TextView
+                    android:id="@+id/textNutrientTip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="nutrient injections"
+                    android:textSize="18sp"
+                    android:paddingHorizontal="30sp"
+                    android:paddingVertical="15sp"
+                    android:drawablePadding="15dp"
+                    android:drawableLeft="@drawable/ic_tooltip"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#33707070" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/imageBusiness"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_astronaut"
+                    android:background="@android:color/transparent"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/textBusiness"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Activities"
+                    android:textSize="24sp"
+                    android:textColor=" #0588CC"
+                    android:padding="20sp"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/textBusinessD1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="min 99 $ per day"
+                    android:textSize="18sp"
+                    android:paddingHorizontal="30sp"
+                    android:paddingVertical="15sp"
+                    android:drawablePadding="15dp"
+                    android:drawableLeft="@drawable/ic_price"/>
+
+                <TextView
+                    android:id="@+id/textVRTip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="virtual reality access"
+                    android:textSize="18sp"
+                    android:paddingHorizontal="30sp"
+                    android:paddingVertical="15sp"
+                    android:drawablePadding="15dp"
+                    android:drawableLeft="@drawable/ic_tooltip"/>
+
+                <TextView
+                    android:id="@+id/textSuitTip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="space suit rental"
+                    android:textSize="18sp"
+                    android:paddingHorizontal="30sp"
+                    android:paddingVertical="15sp"
+                    android:drawablePadding="15dp"
+                    android:drawableLeft="@drawable/ic_tooltip"/>
+
+                <TextView
+                    android:id="@+id/textMealTip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="meal plan"
+                    android:textSize="18sp"
+                    android:paddingHorizontal="30sp"
+                    android:paddingVertical="15sp"
+                    android:drawablePadding="15dp"
+                    android:drawableLeft="@drawable/ic_tooltip"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </TableLayout>
+
+</ScrollView>
