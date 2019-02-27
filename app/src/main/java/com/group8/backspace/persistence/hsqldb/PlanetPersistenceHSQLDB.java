@@ -79,8 +79,14 @@ public class PlanetPersistenceHSQLDB implements PlanetPersistence
     private Location fromResultSet(final ResultSet rs) throws SQLException {
         final String planetName = rs.getString("LOCATIONID");
         String image = rs.getString("IMAGESRC");
+        String years = rs.getString("YEAR");
+        String min = rs.getString("MINTEMP");
+        String max = rs.getString("MAXTEMP");
+        String pop = rs.getString("POPULATION");
+        String dist = rs.getString("DISTANCE");
+        String desc = rs.getString("DESCRIPTION");
 
-        return new Location(planetName, image);
+        return new Location(planetName, image, years, min, max, pop, dist, desc);
     }
 
 }

@@ -4,17 +4,39 @@ public class Location {
 
     private String id;
     private String imgSrc;
+    private String years;
+    private String minTemp;
+    private String maxTemp;
+    private String population;
+    private String distance;
+    private String description;
 
-    public Location(String id, String src) {
+    public Location(String id, String src, String yrs, String min, String max, String pop, String dist, String desc) {
         this.id = id;
         this.imgSrc = src;
+        this.years = yrs;
+        this.minTemp = min;
+        this.maxTemp = max;
+        this.population = pop;
+        this.distance = dist;
+        this.description = desc;
     }
 
     public String getId(){
         return this.id;
     }
 
-    public String getImgSrc() {
-        return imgSrc;
-    }
+    public String getImgSrc() { return imgSrc; }
+
+    public String getYears() { return years; }
+
+    public String getMin() { return minTemp; }
+
+    public String getMax() { return maxTemp; }
+
+    public String getPopulation() { return population; }
+
+    public String getDistance(){ return distance; }
+
+    public String getDescription() { return description; }
 }
