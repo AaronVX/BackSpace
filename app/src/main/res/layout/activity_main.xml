@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/backspaceLogo" />
+                app:srcCompat="@drawable/backspace_logo" />
         </TableRow>
 
         <LinearLayout
