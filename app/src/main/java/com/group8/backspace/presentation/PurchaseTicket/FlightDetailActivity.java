@@ -21,22 +21,19 @@ public class FlightDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_flight_detail);
 
         //get the flight object selected via the flightNum passed by BookBrowseActivity
-        AccessFlights accessor =   new AccessFlights();
+        AccessFlights accessor =  new AccessFlights();
         int currFlightNum = getIntent().getIntExtra("FLIGHT_NUM", 0);
         String originSrc = getIntent().getStringExtra("origin");
         String destinationSrc = getIntent().getStringExtra("destination");
-
 
         Flight currFlight = accessor.getFlightByID(currFlightNum);
         //Get the objects we want to set
         TextView title = (TextView) findViewById(R.id.detail_title);
         TextView departPlanetName = (TextView) findViewById(R.id.detail_depart_planet);
         TextView destPlanetName = (TextView) findViewById(R.id.detail_destination_planet);
-
         TextView departTime = (TextView) findViewById(R.id.detail_depart_text);
         TextView totalTime = (TextView) findViewById(R.id.detail_total_time);
         TextView arrivalTime = (TextView) findViewById(R.id.detail_destination_text);
-
         ImageView departPlanetPic = (ImageView) findViewById(R.id.detail_depart_pic);
         ImageView destPlanetPic = (ImageView) findViewById(R.id.detail_destination_pic);
 

@@ -18,8 +18,7 @@ public class DateHandler {
 
     public String[] getStrings(){
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String dates[] = { dateFormat.format(departure), dateFormat.format(arrival)};
-
+        String[] dates = { dateFormat.format(departure), dateFormat.format(arrival)};
         return dates;
     }
 
