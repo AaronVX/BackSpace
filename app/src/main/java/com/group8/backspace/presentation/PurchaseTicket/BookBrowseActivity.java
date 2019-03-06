@@ -79,6 +79,7 @@ public class BookBrowseActivity extends AppCompatActivity {
                         detailIntent.putExtra("destination", getIntent().getStringExtra("destination"));
 
                         startActivity(detailIntent);
+                        return;
 
                         //testing
                         //Toast.makeText(getBaseContext(),flight.getDestination().name(), Toast.LENGTH_SHORT).show();
