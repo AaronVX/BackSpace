@@ -23,6 +23,11 @@ public class AccessFlights {
         return Collections.unmodifiableList(flightPersistence.getFlights());
     }
 
+    public AccessFlights(final FlightPersistence flightPersistence){
+        this();
+        this.flightPersistence = flightPersistence;
+    }
+
     public List<Flight> getFlights(String origin, String destination) {
         return Collections.unmodifiableList(flightPersistence.getFlights(origin, destination));
     }
