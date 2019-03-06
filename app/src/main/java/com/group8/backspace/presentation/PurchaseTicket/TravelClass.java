@@ -9,8 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.group8.backspace.R;
 
-import com.group8.backspace.logic.AccessPrices;
-import com.group8.backspace.objects.Price;
+import com.group8.backspace.logic.AccessItems;
+import com.group8.backspace.objects.Item;
 
 public class TravelClass extends AppCompatActivity {
 
@@ -19,10 +19,10 @@ public class TravelClass extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel_class);
 
-        AccessPrices access = new AccessPrices();
+        AccessItems access = new AccessItems();
 
-        final Price economy = access.getPriceByItem("hyper sleep");
-        final Price business = access.getPriceByItem("activities");
+        final Item economy = access.getItemByName("hyper sleep");
+        final Item business = access.getItemByName("activities");
         TextView textEconomyPrice =  findViewById(R.id.textEconomyPrice);
         TextView textBusinessPrice =  findViewById(R.id.textBusinessPrice);
         textEconomyPrice.setText(economy.getPrice()+" $ per day ");

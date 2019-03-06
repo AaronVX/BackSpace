@@ -1,18 +1,17 @@
 package com.group8.backspace.persistence.hsqldb;
-import com.group8.backspace.persistence.PricePersistence;
-import com.group8.backspace.objects.Price;
+import com.group8.backspace.persistence.ItemPersistence;
+import com.group8.backspace.objects.Item;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class PricePersistenceHSQLDB implements PricePersistence {
+public class ItemPersistenceHSQLDB implements ItemPersistence {
 
     private final String path;
-    public PricePersistenceHSQLDB(final String path) {
+    public ItemPersistenceHSQLDB(final String path) {
         this.path = path;
     }
 
@@ -22,9 +21,9 @@ public class PricePersistenceHSQLDB implements PricePersistence {
     }
 
     @Override
-    public Price getPrice(String name)
+    public Item getItem(String name)
     {
-        Price price = null;
+        Item price = null;
         try (final Connection c = connection()) {
             final PreparedStatement st = c.prepareStatement("SELECT * FROM prices WHERE item = ?");
             st.setString(1, name);
@@ -47,10 +46,10 @@ public class PricePersistenceHSQLDB implements PricePersistence {
         }
     }
 
-    private Price fromResultSet(final ResultSet rs) throws SQLException {
+    private Item fromResultSet(final ResultSet rs) throws SQLException {
         String item = rs.getString("item");
         String type = rs.getString("type");
         int price = rs.getInt("price");
-        return new Price(item,type,price);
+        return new Item(item,type,price);
     }
 }

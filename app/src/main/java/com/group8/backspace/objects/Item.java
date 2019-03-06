@@ -1,10 +1,10 @@
 package com.group8.backspace.objects;
 
-public class Price {
+public class Item {
 
     private String item, type;
     private int price;
-    public Price(String item, String type, int price)
+    public Item(String item, String type, int price)
     {
         this.item = item;
         this.type = type;

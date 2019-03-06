@@ -129,7 +129,7 @@
                 android:padding="20sp"/>
 
             <CheckBox
-                android:id="@+id/check_none_nyc"
+                android:id="@+id/checkNYC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center" />
@@ -171,7 +171,7 @@
                 android:padding="20sp"/>
 
             <CheckBox
-                android:id="@+id/check_none_ww"
+                android:id="@+id/checkWW"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center" />
@@ -210,7 +210,7 @@
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/textWaterPrice"
+                    android:id="@+id/textPastePrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="99$"
@@ -219,7 +219,7 @@
                     android:paddingVertical="15sp" />
 
                 <ImageButton
-                    android:id="@+id/imageWater"
+                    android:id="@+id/imagePaste"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -228,7 +228,7 @@
                     app:srcCompat="@drawable/ic_paste" />
 
                 <TextView
-                    android:id="@+id/textWater"
+                    android:id="@+id/textPaste"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -237,7 +237,7 @@
                     android:padding="20sp"/>
 
                 <CheckBox
-                    android:id="@+id/checkWater"
+                    android:id="@+id/checkPaste"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
