@@ -7,8 +7,10 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.group8.backspace.R;
+
+import com.group8.backspace.logic.AccessPrices;
+import com.group8.backspace.objects.Price;
 
 public class TravelClass extends AppCompatActivity {
 
@@ -17,8 +19,18 @@ public class TravelClass extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel_class);
 
+        AccessPrices access = new AccessPrices();
+
+        final Price economy = access.getPriceByItem("hyper sleep");
+        final Price business = access.getPriceByItem("activities");
+        TextView textEconomyPrice =  findViewById(R.id.textEconomyPrice);
+        TextView textBusinessPrice =  findViewById(R.id.textBusinessPrice);
+        textEconomyPrice.setText(economy.getPrice()+" $ per day ");
+        textBusinessPrice.setText("min "+business.getPrice()+" $ per day ");
+
         ImageButton btn_TravelClassEconomy = findViewById(R.id.imageEconomy);
         ImageButton btn_TravelClassBusiness = findViewById(R.id.imageBusiness);
+
 
         TextView tip_Nutrient = findViewById(R.id.textNutrientTip);
         TextView tip_VR = findViewById(R.id.textVRTip);
@@ -31,7 +43,7 @@ public class TravelClass extends AppCompatActivity {
             public void onClick(View v) {
                 int flightNum = getIntent().getIntExtra("FLIGHT_NUM", 0);
                 //need a method to set class price
-                int classPrice = 10;
+                int classPrice = economy.getPrice();
                 Intent detailIntent = new Intent(TravelClass.this, AdditionalOptions.class);
                 detailIntent.putExtra("FLIGHT_NUM", flightNum);
                 detailIntent.putExtra("Class_Price", classPrice);
@@ -44,7 +56,7 @@ public class TravelClass extends AppCompatActivity {
             public void onClick(View v) {
                 int flightNum = getIntent().getIntExtra("FLIGHT_NUM", 0);
                 //need a method to set class price
-                int classPrice = 99;
+                int classPrice = business.getPrice();
                 Intent detailIntent = new Intent(TravelClass.this, AdditionalOptions.class);
                 detailIntent.putExtra("FLIGHT_NUM", flightNum);
                 detailIntent.putExtra("Class_Price", classPrice);

@@ -59,10 +59,10 @@
                     android:padding="20sp"/>
 
                 <TextView
-                    android:id="@+id/textEconomyD1"
+                    android:id="@+id/textEconomyPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10 $ per day"
+                    android:text="price"
                     android:textSize="18sp"
                     android:paddingHorizontal="30sp"
                     android:paddingVertical="15sp"
@@ -123,10 +123,10 @@
                     android:layout_gravity="center"/>
 
                 <TextView
-                    android:id="@+id/textBusinessD1"
+                    android:id="@+id/textBusinessPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="min 99 $ per day"
+                    android:text="price"
                     android:textSize="18sp"
                     android:paddingHorizontal="30sp"
                     android:paddingVertical="15sp"
