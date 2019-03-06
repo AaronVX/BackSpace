@@ -22,6 +22,7 @@ public class Info extends AppCompatActivity {
 
         Location loc = access.getPlanetByName(nameFromList);
         String planetName = loc.getId();
+        planetName = planetName.substring(0,1).toUpperCase() + planetName.substring(1);
         String iconName = loc.getImgSrc();
         String desc = loc.getDescription();
         String pop = loc.getPopulation();

@@ -1,8 +1,5 @@
 package com.group8.backspace.objects;
 
-
-import com.prolificinteractive.materialcalendarview.CalendarDay;
-
 import org.joda.time.DateTime;
 
 

@@ -61,14 +61,14 @@ public class BookBrowseActivity extends AppCompatActivity {
         calendar.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView materialCalendarView, @NonNull CalendarDay calendarDay, boolean b) {
-                // don't allow selection of non-selected dates
-                if (b) {
-                    materialCalendarView.setDateSelected(calendarDay, false);
-                }
+                // don't allow calendar selection changes
+                materialCalendarView.setDateSelected(calendarDay, !b);
 
                 // NOTE: assumes only one flight per day
                 for (Flight flight : flights) {
-                    if (flight.getDeparture().equals(calendarDay)) {
+                    if (flight.getDeparture().getYear() == calendarDay.getYear() &&
+                        flight.getDeparture().getMonthOfYear() == calendarDay.getMonth() &&
+                        flight.getDeparture().getDayOfMonth() == calendarDay.getDay()) {
                         materialCalendarView.setDateSelected(calendarDay, true); // re-select date
 
                         int chosenFlightNum = flight.getFlightID();
