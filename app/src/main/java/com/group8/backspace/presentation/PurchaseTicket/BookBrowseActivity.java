@@ -66,7 +66,9 @@ public class BookBrowseActivity extends AppCompatActivity {
 
                 // NOTE: assumes only one flight per day
                 for (Flight flight : flights) {
-                    if (flight.getDeparture().equals(calendarDay)) {
+                    if (flight.getDeparture().getYear() == calendarDay.getYear() &&
+                        flight.getDeparture().getMonthOfYear() == calendarDay.getMonth() &&
+                        flight.getDeparture().getDayOfMonth() == calendarDay.getDay()) {
                         materialCalendarView.setDateSelected(calendarDay, true); // re-select date
 
                         int chosenFlightNum = flight.getFlightID();
