@@ -22,6 +22,7 @@ public class FlightPersistenceStub implements FlightPersistence {
         flights.add(flight1);
     }
 
+
     @Override
     public List<Flight> getFlights() {
         return Collections.unmodifiableList(flights);

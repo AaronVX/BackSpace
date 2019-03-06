@@ -33,7 +33,7 @@ public class Services {
 
     public static synchronized ItemPersistence getItemPersistence() {
         if(itemPersistence == null) {
-            //itemPersistence = new ItemPersistenceStub();
+//            itemPersistence = new ItemPersistenceStub();
             itemPersistence = new ItemPersistenceHSQLDB(Main.getDBPathName());
         }
         return itemPersistence;
