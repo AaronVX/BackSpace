@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.group8.backspace.R;
@@ -21,53 +20,60 @@ public class AdditionalOptions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_additionaloptions);
 
-        AccessItems access = new AccessItems();
+        final AccessItems access = new AccessItems();
 
-        final Item vrNYC = access.getItemByName("New York City");
-        final Item vrWW = access.getItemByName("West World");
-        final Item mealPaste = access.getItemByName("Food paste");
-        final Item mealMeat = access.getItemByName("Irradiated meat");
-        final Item mealDrinks = access.getItemByName("Dried drinks");
+        final Item nyc = access.getItemByName("New York City");
+        final Item ww = access.getItemByName("West World");
+        final Item paste = access.getItemByName("Food paste");
+        final Item meat = access.getItemByName("Irradiated meat");
+        final Item drinks = access.getItemByName("Dried drinks");
 
-        TextView textNYCPrice =  findViewById(R.id.textNYCPrice);
-        TextView textWWPrice =  findViewById(R.id.textWWPrice);
-        TextView textPastePrice =  findViewById(R.id.textPastePrice);
-        TextView textMeatPrice =  findViewById(R.id.textMeatPrice);
-        TextView textDrinksPrice =  findViewById(R.id.textDrinksPrice);
+        final ArrayList<Item> items = new ArrayList();
+        items.add(nyc);
+        items.add(ww);
+        items.add(paste);
+        items.add(meat);
+        items.add(drinks);
 
-        textNYCPrice.setText(vrNYC.getPrice()+"$");
-        textWWPrice.setText(vrWW.getPrice()+"$");
-        textPastePrice.setText(mealPaste.getPrice()+"$");
-        textMeatPrice.setText(mealMeat.getPrice()+"$");
-        textDrinksPrice.setText(mealDrinks.getPrice()+"$");
+        final ArrayList<TextView> texts = new ArrayList();
+        texts.add( (TextView) findViewById(R.id.textNYCPrice));
+        texts.add( (TextView) findViewById(R.id.textWWPrice));
+        texts.add( (TextView) findViewById(R.id.textPastePrice));
+        texts.add( (TextView) findViewById(R.id.textMeatPrice));
+        texts.add( (TextView) findViewById(R.id.textDrinksPrice));
 
+        for (int i = 0; i < texts.size(); i++) {
+            String changed = items.get(i).getPrice()+"$";
+            texts.get(i).setText(changed);
+        }
 
         Button btn_book = findViewById(R.id.btn_purchase);
         btn_book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CheckBox checkNYC = findViewById(R.id.checkNYC);
-                CheckBox checkWW = findViewById(R.id.checkWW);
-                CheckBox checkPaste= findViewById(R.id.checkPaste);
-                CheckBox checkMeat= findViewById(R.id.checkMeat);
-                CheckBox checkDrinks= findViewById(R.id.checkDrinks);
 
-                int itemsPrice = 0;
-                if(checkNYC.isChecked())
-                    itemsPrice+=vrNYC.getPrice();
-                if(checkWW.isChecked())
-                    itemsPrice+=vrWW.getPrice();
-                if(checkPaste.isChecked())
-                    itemsPrice+=mealPaste.getPrice();
-                if(checkMeat.isChecked())
-                    itemsPrice+= mealMeat.getPrice();
-                if(checkDrinks.isChecked())
-                    itemsPrice+=mealDrinks.getPrice();
+                final ArrayList<Item> selectedItems = new ArrayList();
+                if(( (CheckBox) findViewById(R.id.checkNYC)).isChecked()) {
+                    selectedItems.add(nyc);
+                }
+                if(( (CheckBox) findViewById(R.id.checkWW)).isChecked()) {
+                    selectedItems.add(ww);
+                }
+                if(( (CheckBox) findViewById(R.id.checkPaste)).isChecked()) {
+                    selectedItems.add(paste);
+                }
+                if(( (CheckBox) findViewById(R.id.checkMeat)).isChecked()) {
+                    selectedItems.add(meat);
+                }
+                if(( (CheckBox) findViewById(R.id.checkDrinks)).isChecked()) {
+                    selectedItems.add(drinks);
+                }
 
                 int flightNum = getIntent().getIntExtra("FLIGHT_NUM", 0);
-                //need a method to set class price
                 int classPrice = getIntent().getIntExtra("Class_Price", 0);
+                int itemsPrice = access.getTotalPrice(selectedItems);
                 classPrice += itemsPrice;
+
                 Intent detailIntent = new Intent(AdditionalOptions.this, PurchaseTicket.class);
                 detailIntent.putExtra("FLIGHT_NUM", flightNum);
                 detailIntent.putExtra("Class_Price", classPrice);

@@ -8,11 +8,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.group8.backspace.R;
-import com.group8.backspace.logic.AccessFlights;
 import com.group8.backspace.logic.CalculatePrice;
 import com.group8.backspace.logic.CheckCard;
-import com.group8.backspace.logic.CheckDiscountCode;
-import com.group8.backspace.objects.Flight;
+import com.group8.backspace.logic.CheckCoupon;
 
 public class PurchaseTicket extends AppCompatActivity {
 
@@ -50,7 +48,7 @@ public class PurchaseTicket extends AppCompatActivity {
                 TextView newP = (TextView) findViewById(R.id.newPrice);
                 int price = totalP;
                 String code = discountCode.getText().toString();
-                CheckDiscountCode check = new CheckDiscountCode(code, price);
+                CheckCoupon check = new CheckCoupon(code, price);
                 double newPrice = check.checkCode();
                 if(newPrice!=0){
                     newP.setText("new price($): "+newPrice+"");

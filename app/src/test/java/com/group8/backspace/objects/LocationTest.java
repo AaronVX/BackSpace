@@ -13,7 +13,7 @@ public class LocationTest {
 
         System.out.println("\nStarting testLocation");
 
-        location = new Location("mercury","ic_mercury","88 days","-173","427","0","0.39","Mercury");
+        location = new Location("mercury","ic_mercury","88 days","-173","427","0","0.39","Mercury","11");
         assertNotNull(location);
 
         assertTrue("mercury".equals(location.getId()));

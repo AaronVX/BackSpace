@@ -39,8 +39,6 @@ public class ItemPersistenceHSQLDB implements ItemPersistence {
             else {
                 return price;
             }
-
-            //return new Price("fasf","adag",20);
         } catch (final SQLException e) {
             throw new PersistenceException(e);
         }

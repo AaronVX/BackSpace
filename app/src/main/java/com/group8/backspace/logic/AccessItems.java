@@ -2,7 +2,8 @@ package com.group8.backspace.logic;
 import com.group8.backspace.persistence.ItemPersistence;
 import com.group8.backspace.application.Services;
 import com.group8.backspace.objects.Item;
-import com.group8.backspace.persistence.PlanetPersistence;
+import java.util.List;
+
 
 public class AccessItems {
 
@@ -21,4 +22,11 @@ public class AccessItems {
         return itemPersistence.getItem(itemName);
     }
 
+    public int getTotalPrice(List<Item> selectedItems) {
+        int price = 0;
+        for (Item item : selectedItems) {
+            price += item.getPrice();
+        }
+        return price;
+    }
 }
