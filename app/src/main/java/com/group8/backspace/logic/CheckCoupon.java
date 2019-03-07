@@ -1,10 +1,10 @@
 package com.group8.backspace.logic;
 
-public class CheckDiscountCode {
+public class CheckCoupon {
     private String code;
     private int price;
 
-    public CheckDiscountCode(String code, int price){
+    public CheckCoupon(String code, int price){
         this.code = code;
         this.price = price;
     }
