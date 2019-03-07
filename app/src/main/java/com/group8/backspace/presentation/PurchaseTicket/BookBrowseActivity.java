@@ -75,8 +75,6 @@ public class BookBrowseActivity extends AppCompatActivity {
 
                         Intent detailIntent = new Intent(BookBrowseActivity.this, FlightDetailActivity.class);
                         detailIntent.putExtra("FLIGHT_NUM", chosenFlightNum);
-                        detailIntent.putExtra("origin", getIntent().getStringExtra("origin"));
-                        detailIntent.putExtra("destination", getIntent().getStringExtra("destination"));
 
                         startActivity(detailIntent);
                         return;
