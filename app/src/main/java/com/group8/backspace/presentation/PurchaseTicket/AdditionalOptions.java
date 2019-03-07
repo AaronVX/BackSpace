@@ -51,6 +51,7 @@ public class AdditionalOptions extends AppCompatActivity {
         btn_book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 final ArrayList<Item> selectedItems = new ArrayList();
                 if(( (CheckBox) findViewById(R.id.checkNYC)).isChecked()) {
                     selectedItems.add(nyc);
@@ -76,6 +77,7 @@ public class AdditionalOptions extends AppCompatActivity {
                 Intent detailIntent = new Intent(AdditionalOptions.this, PurchaseTicket.class);
                 detailIntent.putExtra("FLIGHT_NUM", flightNum);
                 detailIntent.putExtra("Class_Price", classPrice);
+                //detailIntent.putExtra("Items_Price", itemsPrice);
                 startActivity(detailIntent);
             }
         });

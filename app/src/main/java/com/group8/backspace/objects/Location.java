@@ -10,8 +10,9 @@ public class Location {
     private String population;
     private String distance;
     private String description;
+    private String shortDesc;
 
-    public Location(String id, String src, String yrs, String min, String max, String pop, String dist, String desc) {
+    public Location(String id, String src, String yrs, String min, String max, String pop, String dist, String desc, String shortDesc) {
         this.id = id;
         this.imgSrc = src;
         this.years = yrs;
@@ -20,7 +21,10 @@ public class Location {
         this.population = pop;
         this.distance = dist;
         this.description = desc;
+        this.shortDesc = shortDesc;
     }
+
+    public String getShortDesc() { return this.shortDesc; }
 
     public String getId(){
         return this.id;

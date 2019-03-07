@@ -44,4 +44,5 @@ public class Flight {
     public DateTime getArrival() {
         return arrival;
     }
+
 }
