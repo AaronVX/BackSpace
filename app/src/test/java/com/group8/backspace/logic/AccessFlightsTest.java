@@ -19,13 +19,13 @@ public class AccessFlightsTest {
     @Test
     public void test1(){
         final Flight flight;
-        System.out.println("\nStarting test AccessCourses");
+        System.out.println("\nStarting test AccessFlights");
 
         flight = accessFlights.getFlightByID(1);
         assertNotNull("first flight should not be null", flight);
         assertTrue("earth".equals(flight.getOrigin()));
 
-        System.out.println("Finished test AccessCourses");
+        System.out.println("Finished test AccessFlights");
     }
 
 }
