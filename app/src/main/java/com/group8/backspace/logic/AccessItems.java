@@ -3,6 +3,8 @@ import com.group8.backspace.persistence.ItemPersistence;
 import com.group8.backspace.application.Services;
 import com.group8.backspace.objects.Item;
 
+import java.util.List;
+
 public class AccessItems {
 
     private ItemPersistence itemPersistence;
@@ -15,4 +17,11 @@ public class AccessItems {
         return itemPersistence.getItem(itemName);
     }
 
+    public int getTotalPrice(List<Item> selectedItems) {
+        int price = 0;
+        for (Item item : selectedItems) {
+            price += item.getPrice();
+        }
+        return price;
+    }
 }

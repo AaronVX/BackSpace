@@ -53,8 +53,8 @@ public class FlightDetailActivity extends AppCompatActivity {
         totalTime.setText(handleDates.getTravelTime());
 
         //use the "putExtra" tags for each picture
-        departPlanetPic.setImageResource(getResources().getIdentifier("ic_" + originSrc , "drawable", getPackageName()));
-        destPlanetPic.setImageResource(getResources().getIdentifier("ic_" + destinationSrc , "drawable", getPackageName()));
+        departPlanetPic.setImageResource(getResources().getIdentifier("ic_" + originSrc , "mipmap", getPackageName()));
+        destPlanetPic.setImageResource(getResources().getIdentifier("ic_" + destinationSrc , "mipmap", getPackageName()));
 
         Button btn_travel = (Button) findViewById(R.id.btn_travel);
         btn_travel.setOnClickListener(new View.OnClickListener() {

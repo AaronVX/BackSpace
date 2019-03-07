@@ -1,14 +1,11 @@
 package com.group8.backspace.logic;
 
-import com.group8.backspace.objects.Flight;
-
 public class CalculatePrice {
     private int ticketPrice;
     private int classPrice;
 
     public CalculatePrice(int flightNum, int classPrice){
-        AccessFlights accessor =   new AccessFlights();
-        Flight currFlight = accessor.getFlightByID(flightNum);
+
         // TODO TEMPORARY ticketPrice = currFlight.getTicketPrice();
         ticketPrice = 1000;
         this.classPrice = classPrice;
