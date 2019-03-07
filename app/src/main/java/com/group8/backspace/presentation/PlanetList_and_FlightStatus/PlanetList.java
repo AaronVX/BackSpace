@@ -12,9 +12,6 @@ import java.util.List;
 
 public class PlanetList extends AppCompatActivity {
     ListView simpleList;
-    String Planet[] = {"earth", "venus", "mars"}; //temp info to replace with sql db
-    String Description[] = {"A warm blue and green planet", "A hot hell hole filled with volcanoes and sulphuric acid", "A calm cold red planet covered in dust"};
-    int Icons[] = {R.mipmap.ic_earth, R.mipmap.ic_venus, R.mipmap.ic_mars};
 
     AccessPlanets access = new AccessPlanets();
     List<Location> planetList = access.getPlanets();
@@ -28,9 +25,9 @@ public class PlanetList extends AppCompatActivity {
         String planetDescription[] = new String[planetList.size()];
         int planetIcon[] = new int[planetList.size()];
         for(int i = 0; i < planetList.size(); i++){
-            planetName[i] = planetList.get(i).getId();
-            planetDescription[i] = planetList.get(i).getDescription();
-            planetIcon[i] = Integer.parseInt(planetList.get(i).getImgSrc());
+            planetName[i] = (planetList.get(i)).getId();
+            planetDescription[i] = (planetList.get(i)).getDescription();
+            planetIcon[i] = getResources().getIdentifier((planetList.get(i).getImgSrc()), "mipmap", getPackageName());
         }
 
         simpleList = (ListView)findViewById(R.id.ListView); //makes listview based on info fed in
