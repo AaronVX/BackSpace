@@ -23,14 +23,14 @@
 
     <TextView
         android:id="@+id/flight_view"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="201dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
         android:id="@+id/ticketPrice"
@@ -48,7 +48,6 @@
         android:layout_width="23dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="188dp"
-        android:layout_marginBottom="4dp"
         android:text="+"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/classPrice"
@@ -86,8 +85,10 @@
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toTopOf="@+id/totalPrice"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.687"
         app:layout_constraintStart_toStartOf="@+id/classPrice"
-        app:layout_constraintTop_toBottomOf="@+id/classPrice" />
+        app:layout_constraintTop_toBottomOf="@+id/classPrice"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/cardNum"
@@ -121,7 +122,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Expiry Date E.x 092021"
+        android:hint="Expiry Date E.x 0921"
         android:inputType="date"
         app:layout_constraintStart_toStartOf="@+id/security_code"
         app:layout_constraintTop_toBottomOf="@+id/cardNum" />
@@ -171,8 +172,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="Class Price($):"
+        android:layout_marginEnd="20dp"
+        android:text="Extra Expense($):"
         android:textSize="22sp"
         app:layout_constraintEnd_toStartOf="@+id/classPrice"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -190,14 +191,14 @@
 
     <EditText
         android:id="@+id/code"
-        android:layout_width="291dp"
-        android:layout_height="47dp"
+        android:layout_width="361dp"
+        android:layout_height="46dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
-        android:hint="Have a discount code? Get 10% off!"
+        android:hint="Have a discount code(6 digits)? Get 10% off!"
         android:inputType="numberSigned"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -212,24 +213,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="GO"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/code"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.392" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="110dp"
-        android:layout_height="109dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_book_todo" />
 
     <TextView
         android:id="@+id/newPrice"
@@ -243,5 +232,15 @@
         app:layout_constraintHorizontal_bias="0.918"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/totalPrice" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="152dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backspace_logo" />
 
 </android.support.constraint.ConstraintLayout>
