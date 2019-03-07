@@ -13,6 +13,8 @@ public class Flight {
     private DateTime departure;
     private DateTime arrival;
 
+    private String status;
+
     //private int ticketPrice;
 
     public Flight(int flightID, String origin, String destination, DateTime departure, DateTime arrival) {
@@ -44,5 +46,8 @@ public class Flight {
     public DateTime getArrival() {
         return arrival;
     }
+
+    public String getStatus(){ return status; }
+    public void setStatus( String newStat ){ status = newStat; }
 
 }

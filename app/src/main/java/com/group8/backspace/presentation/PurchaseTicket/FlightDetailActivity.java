@@ -40,8 +40,12 @@ public class FlightDetailActivity extends AppCompatActivity {
         //set each text and picture slots to the given values
         String flightTitle = "Flight #"+currFlightNum;
         title.setText(flightTitle);
-        departPlanetName.setText(currFlight.getOrigin());
-        destPlanetName.setText(currFlight.getDestination());
+        String depName = currFlight.getOrigin();
+        depName = depName.substring(0,1).toUpperCase() + depName.substring(1);
+        departPlanetName.setText(depName);
+        String destName = currFlight.getDestination();
+        destName = destName.substring(0,1).toUpperCase() + destName.substring(1);
+        destPlanetName.setText(destName);
 
         //use the date handler to get nice strings for textviews
         DateHandler handleDates = new DateHandler(currFlight.getDeparture(), currFlight.getArrival());
