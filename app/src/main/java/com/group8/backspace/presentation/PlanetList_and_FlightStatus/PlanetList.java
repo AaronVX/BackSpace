@@ -26,7 +26,7 @@ public class PlanetList extends AppCompatActivity {
         int planetIcon[] = new int[planetList.size()];
         for(int i = 0; i < planetList.size(); i++){
             planetName[i] = (planetList.get(i)).getId();
-            planetDescription[i] = (planetList.get(i)).getDescription();
+            planetDescription[i] = (planetList.get(i)).getShortDesc();
             planetIcon[i] = getResources().getIdentifier((planetList.get(i).getImgSrc()), "mipmap", getPackageName());
         }
 
