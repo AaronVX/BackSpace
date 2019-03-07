@@ -1,15 +1,32 @@
 # Architecture: Source Code Files
 
+## Application
+
+### Main
+Sets the database name
+
+### Services
+Creates and initializes the persistence databases with info
+
 ## Logic
 
 ### AccessFlights
-This contains all the public methods the retrieve all the information about flights
+This contains all the public methods to retrieve all the information about flights
 
-### DateHandler
-This contains all the public methods for retrieving the dates for a specific fights and some slight formatting
+### AccessItems
+This contains all the public methods to retrieve all the information about items
 
-### Services
-This sets up up persistent flights
+### AccessPlanets
+This contains all the public methods to retrieve all the information about planets
+
+### CalculatePrice
+This is the class that will calculate the price for any given flight, this is a placeholder for now
+
+### CheckCard
+This class checks the format of credit card submitted and ensures it is of proper format
+
+### CheckDiscountCode
+This class checks to see if the code entered is valid and applies the discount if it is
 
 ## Objects
 
@@ -19,21 +36,54 @@ Object that contains all the information for a flight
 ### Location
 Object that contains all the information for a location (planet)
 
+### Item
+Object that contains all the information for an item
+
 ## Persistence
+
+### Stub
 
 ### FlightPersistenceStub
 Stub database that holds the flights that are going to depart
 
-### Flight Persistence
-This calls the stub database
+### ItemPersistenceStub
+Stub databse that holds the info on items
+
+### HSQLDB
+
+### FlightPersistenceHSQLDB
+Makes the flight database from the sql database
+
+### ItemPersistenceHSQLDB
+Makes the item database from the sql database
+
+### PlanetPersistenceHSQLDB
+Makes the planet/location databse from the sql database
 
 ## Presentation
+
+### PlanetList\_and\_FlightStatus
+
+### CustomAdapter
+This java file overwrites the the standard list view format to include a picture at the beginning then a title, then a description.
+ It overwrites all the necessary methods and is done in a generic form. This is used for both PlanetList and FlightStatus
+ 
+### Listview
+Placeholder file, does very little, just need to link the related xml file that contains all the real information
+
+### Info
+This page gets called when a flight or planet is selected from flightstatus or planetlist respectively
 
 ### PlanetList
 This contains a list of planets you can go to, with a picture of them and a small piece of information in a custom listview
 
-### Info
-This page gets called when a flight or planet is selected from flightstatus or planetlist respectively
+### FlightStatus
+This activity show the status of current flights in a custom listview
+
+### PurchaseTicket
+
+### AdditionalOptions
+This class creates and sets all the additional options you can choose once a flight is selected
 
 ### BookBrowseActivity
 This gets and then contains the information in the monthly booking view
@@ -44,20 +94,11 @@ This gets and then contains the information for the choose a destination view
 ### BookOriginActivity
 This gets and then contains the information for the choose an origin view
 
-### CustomAdapter
-This java file overwrites the the standard list view format to include a picture at the beginning then a title, then a description. It overwrites all the necessary methods and adds the new data values to the adapter to include all the data needed for the flight status
+### DateHandler
+Calcuates the the travel time based on arrival and departure
 
 ### FlightDetailActivity
 This activity shows details about the currently selected flight in a table layout
-
-### FlightStatus
-This activity show the status of current flights in a custom listview
-
-### Listview
-Placeholder file, does very little, just need to link the related xml file that contains all the real information
-
-### MainActivity
-This activity creates the 2 buttons that lead to other activites, including seeing current flight status and booking a flight
 
 ### PurchaseTicket
 This jave file shows the total price of the ticket and check the format of the Visa card
@@ -65,7 +106,13 @@ This jave file shows the total price of the ticket and check the format of the V
 ### TravelClass
 This gets and then contains the information for the choose a travel class view
 
-## Images
+### MainActivity
+This activity creates the 2 buttons that lead to other activites, including seeing current flight status and booking a flight
+
+### Messages
+Simple class for dealing with errors and warnings
+
+## Res
 
 ### Drawable
 This folder contains vector images for our app, including pictures of earth, venus, etc
@@ -74,6 +121,9 @@ This folder contains vector images for our app, including pictures of earth, ven
 This folder contains raster images for our app, taken from https://icons8.com/icon/set/planet/color
 
 ## Layout
+
+### activity_additionaloptions
+Describes the complex view for additional options (meal plan and virtual reality options)
 
 ### activity_info
 This describes the format for the specific flight or planet page
@@ -106,4 +156,4 @@ This describes the layout and image on the buttons on the main activity
 This describes the layout you see when purchasing a ticket
 
 ### activity\_travel\_class
-This describes the format for the choose a travel class activity
+This describes the format for the choose a travel class
