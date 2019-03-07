@@ -1,8 +1,11 @@
 package com.group8.backspace;
 
-import com.group8.backspace.UI_test.BenTest;
-import com.group8.backspace.UI_test.DateHandlerTest;
-import com.group8.backspace.UI_test.PurchaseTest;
+import com.group8.backspace.logic.AccessFlightsTest;
+import com.group8.backspace.logic.AccessItemsTest;
+import com.group8.backspace.logic.AccessPlanetsTest;
+import com.group8.backspace.objects.FlightTest;
+import com.group8.backspace.objects.ItemTest;
+import com.group8.backspace.objects.LocationTest;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -10,11 +13,13 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        PurchaseTest.class,
-        BenTest.class,
-        DateHandlerTest.class,
+        AccessFlightsTest.class,
+        AccessItemsTest.class,
+        AccessPlanetsTest.class,
+        FlightTest.class,
+        ItemTest.class,
+        LocationTest.class
 })
-public class AllTest
-{
+public class AllTest {
 
 }
