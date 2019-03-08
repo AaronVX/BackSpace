@@ -17,7 +17,7 @@ public class PlanetPersistenceStub implements PlanetPersistence {
     public PlanetPersistenceStub(){
         locations = new ArrayList<Location>();
 
-        Location newLocation = new Location("1","1","1","1","1","1","1","1", "1");
+        Location newLocation = new Location("1","2","3","4","5","6","7","8", "9");
         locations.add(newLocation);
     }
 
