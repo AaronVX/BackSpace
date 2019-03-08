@@ -12,7 +12,8 @@ import com.group8.backspace.objects.Location;
 public class Info extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
@@ -26,10 +27,11 @@ public class Info extends AppCompatActivity {
         String iconName = loc.getImgSrc();
         String desc = loc.getDescription();
         String pop = loc.getPopulation();
-        String low = loc.getMin();
-        String hi = loc.getMax();
         String years = loc.getYears();
         years = planetName+" is "+years+" on Earth.";
+        final String DEGREE  = "\u00b0"+"C";
+        String low = loc.getMin()+DEGREE;
+        String hi = loc.getMax()+DEGREE;
 
         int iconSrc = getResources().getIdentifier(iconName, "mipmap", getPackageName());
 

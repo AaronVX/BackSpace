@@ -17,7 +17,8 @@ public class PlanetList extends AppCompatActivity {
     List<Location> planetList = access.getPlanets();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planet_list);
 

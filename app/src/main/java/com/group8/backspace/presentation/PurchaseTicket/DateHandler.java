@@ -11,18 +11,21 @@ public class DateHandler {
     private DateTime departure;
     private DateTime arrival;
 
-    public DateHandler(DateTime departure, DateTime arrival){
+    public DateHandler(DateTime departure, DateTime arrival)
+    {
         this.departure = departure;
         this.arrival = arrival;
     }
 
-    public String[] getStrings(){
+    public String[] getStrings()
+    {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String[] dates = { dateFormat.format(departure.toDate()), dateFormat.format(arrival.toDate())};
         return dates;
     }
 
-    public String getTravelTime(){
+    public String getTravelTime()
+    {
         long diff = arrival.getMillis() - departure.getMillis();
         String returnString = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS) +" days";
         return returnString;

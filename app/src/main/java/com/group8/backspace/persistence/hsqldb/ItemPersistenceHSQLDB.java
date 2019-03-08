@@ -16,7 +16,8 @@ public class ItemPersistenceHSQLDB implements ItemPersistence {
     }
 
 
-    private Connection connection() throws SQLException {
+    private Connection connection() throws SQLException
+    {
         return DriverManager.getConnection("jdbc:hsqldb:file:" + path, "SA", "");
     }
 
@@ -44,7 +45,8 @@ public class ItemPersistenceHSQLDB implements ItemPersistence {
         }
     }
 
-    private Item fromResultSet(final ResultSet rs) throws SQLException {
+    private Item fromResultSet(final ResultSet rs) throws SQLException
+    {
         String item = rs.getString("item");
         String type = rs.getString("type");
         int price = rs.getInt("price");

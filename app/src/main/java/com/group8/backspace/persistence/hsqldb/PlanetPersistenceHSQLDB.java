@@ -24,12 +24,14 @@ public class PlanetPersistenceHSQLDB implements PlanetPersistence
         this.path = path;
     }
 
-    private Connection connection() throws SQLException {
+    private Connection connection() throws SQLException
+    {
         return DriverManager.getConnection("jdbc:hsqldb:file:" + path, "SA", "");
     }
 
     @Override
-    public List<Location> getPlanets() {
+    public List<Location> getPlanets()
+    {
         final List<Location> planets = new ArrayList<>();
         try (final Connection c = connection())
         {
@@ -52,7 +54,8 @@ public class PlanetPersistenceHSQLDB implements PlanetPersistence
     }
 
     @Override
-    public Location getPlanetByName(String locationName) {
+    public Location getPlanetByName(String locationName)
+    {
         final List<Location> planets = new ArrayList<>();
         try (final Connection c = connection()) {
             final PreparedStatement st = c.prepareStatement("SELECT * FROM locations WHERE LOCATIONID = ?");
@@ -76,7 +79,8 @@ public class PlanetPersistenceHSQLDB implements PlanetPersistence
         }
 }
 
-    private Location fromResultSet(final ResultSet rs) throws SQLException {
+    private Location fromResultSet(final ResultSet rs) throws SQLException
+    {
         final String planetName = rs.getString("LOCATIONID");
         String image = rs.getString("IMAGESRC");
         String years = rs.getString("YEAR");

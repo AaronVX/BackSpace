@@ -9,8 +9,8 @@ public class CalculatePrice {
     private int classPrice;
 
     public CalculatePrice(int flightNum, int classPrice, int itemsPrice){
+        AccessFlights accessor =  new AccessFlights();
 
-        AccessFlights accessor =   new AccessFlights();
         Flight currFlight = accessor.getFlightByID(flightNum);
         String origin = currFlight.getOrigin();
         String destination = currFlight.getDestination();
@@ -36,9 +36,5 @@ public class CalculatePrice {
 
     public int getTotalPrice(){return  ticketPrice + classPrice;}
 
-    public void applyCoupon()
-    {
-        ticketPrice *= 0.9;
-    }
 
 }

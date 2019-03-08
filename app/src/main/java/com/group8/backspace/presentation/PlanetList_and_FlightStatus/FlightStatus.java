@@ -5,6 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
 import com.group8.backspace.R;
+import com.group8.backspace.logic.AccessFlights;
+import com.group8.backspace.logic.AccessPlanets;
+import com.group8.backspace.objects.Flight;
+
+import java.util.List;
 
 /*
     https://www.andrious.com/tutorials/listview-tutorial-with-example-in-android-studio/
@@ -17,28 +22,35 @@ import com.group8.backspace.R;
  */
 
 public class FlightStatus extends AppCompatActivity {
-    // Array of stub data for the flight
-        ListView simpleList;
-        String  Item[] = {"Flight #3045", "Flight #4509", "Flight #4398", "Flight #0986", "Flight #7654"};
-        String  SubItem[] = {"Status: On Time\nFlight Stage: In Orbit\nETA: April 3rd, 2025",
-                "Status: Delayed\nFlight Stage: Deorbiting\nETA: February 17th 2019",
-                "Status: On Time\nFlight Stage: In Transfer\nETA: May 1st 2076",
-                "Status: Early\nFlight Stage: In Transfer\nETA: January 7th 2023",
-                "Status: Crew Dead\nFlight Stage: Unknown\nETA: N/A"};
-        int flags[] = {R.mipmap.ic_earth, R.mipmap.ic_mercury, R.mipmap.ic_venus, R.mipmap.ic_earth, R.mipmap.ic_venus};
+    ListView simpleList;
+    String flightName[];
+    String flightStats[];
+
+    AccessFlights access = new AccessFlights();
+    AccessPlanets pAccess = new AccessPlanets();
+    List<Flight> ongoingFlights = access.getCurrentFlights();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flight_status);
 
+        String flightName[] = new String[ongoingFlights.size()];
+        String flightStats[] = new String[ongoingFlights.size()];
+        int flightIcon[] = new int[ongoingFlights.size()];
+        for(int i = 0; i < ongoingFlights.size(); i++){
+            flightName[i] = "Flight #"+ongoingFlights.get(i).getFlightID();
+            flightStats[i] = ongoingFlights.get(i).getStatus();
+            flightIcon[i] = getResources().getIdentifier(pAccess.getPlanetByName(ongoingFlights.get(i).getDestination()).getImgSrc(), "mipmap", getPackageName());
+        }
         simpleList = (ListView)findViewById(R.id.ListView);
-        CustomAdapter customAdapter = new CustomAdapter(FlightStatus.this, Item, SubItem, flags);
-        simpleList.setAdapter(customAdapter);
+        FlightListAdapter flightAdapter = new FlightListAdapter(FlightStatus.this, flightName, flightStats, flightIcon);
+        simpleList.setAdapter(flightAdapter);
     }
 
     public String[] getItem()
     {
-        return Item;
+        return flightName;
     }
 }

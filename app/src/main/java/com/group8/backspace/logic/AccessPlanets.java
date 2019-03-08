@@ -20,12 +20,8 @@ public class AccessPlanets {
         this.planetPersistence = planetPersistence;
     }
 
-    public List<Location> getPlanets() {
-        return Collections.unmodifiableList(planetPersistence.getPlanets());
-    }
+    public List<Location> getPlanets() { return Collections.unmodifiableList(planetPersistence.getPlanets()); }
 
-    public Location getPlanetByName(String planetName) {
-        return planetPersistence.getPlanetByName(planetName);
-    }
+    public Location getPlanetByName(String planetName) { return planetPersistence.getPlanetByName(planetName); }
 
 }

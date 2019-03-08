@@ -25,12 +25,14 @@ public class FlightPersistenceHSQLDB implements FlightPersistence
         this.path = path;
     }
 
-    private Connection connection() throws SQLException {
+    private Connection connection() throws SQLException
+    {
             return DriverManager.getConnection("jdbc:hsqldb:file:" + path, "SA", "");
     }
 
 
-    private Flight fromResultSet(final ResultSet rs) throws SQLException {
+    private Flight fromResultSet(final ResultSet rs) throws SQLException
+    {
         final int flightID = rs.getInt("FLIGHTID");
         final String origin = rs.getString("ORIGINID");
         final String destination = rs.getString("DESTINATIONID");
@@ -95,7 +97,8 @@ public class FlightPersistenceHSQLDB implements FlightPersistence
     }
 
     @Override
-    public Flight getFlightByID(int flightID) {
+    public Flight getFlightByID(int flightID)
+    {
         final List<Flight> flights = new ArrayList<>();
         try (final Connection c = connection()) {
             final PreparedStatement st = c.prepareStatement("SELECT * FROM flights WHERE flightID = ?");

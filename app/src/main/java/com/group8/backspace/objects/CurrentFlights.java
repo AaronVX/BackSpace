@@ -17,7 +17,7 @@ public class CurrentFlights {
         status = toStatus;
     }
 
-    public String toString ()
+    public String toString()
     {
         return "Flight: " + FlightID + " will arrive on " + Arrival + " the flight is currently " + perCentComplete + " complete and has " + status + " and the ticket cost: " + price;
     }

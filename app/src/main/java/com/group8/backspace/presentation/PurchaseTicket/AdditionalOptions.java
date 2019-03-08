@@ -16,7 +16,8 @@ import java.util.ArrayList;
 public class AdditionalOptions extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_additionaloptions);
 
@@ -78,6 +79,7 @@ public class AdditionalOptions extends AppCompatActivity {
                 detailIntent.putExtra("FLIGHT_NUM", flightNum);
                 detailIntent.putExtra("Class_Price", classPrice);
                 detailIntent.putExtra("Items_Price", itemsPrice);
+
                 startActivity(detailIntent);
             }
         });
