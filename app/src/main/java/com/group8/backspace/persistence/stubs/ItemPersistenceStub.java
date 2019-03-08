@@ -4,8 +4,7 @@ import com.group8.backspace.persistence.ItemPersistence;
 
 public class ItemPersistenceStub implements ItemPersistence {
     @Override
-    public Item getItem(String name)
-    {
+    public Item getItem(String name) {
         if(name.equals("hyper sleep")) {
             return new Item(name,"travel class",10);
         }

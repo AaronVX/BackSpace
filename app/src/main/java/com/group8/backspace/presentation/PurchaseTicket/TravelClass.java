@@ -15,8 +15,7 @@ import com.group8.backspace.objects.Item;
 public class TravelClass extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel_class);
 

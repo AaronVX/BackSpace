@@ -8,8 +8,7 @@ public class Main {
         System.out.println("All done");
     }
 
-    public static void setDBPathName(final String name)
-    {
+    public static void setDBPathName(final String name) {
         try {
             Class.forName("org.hsqldb.jdbcDriver").newInstance(); //database boolean can be found in "Services.java"
         } catch (InstantiationException e) {

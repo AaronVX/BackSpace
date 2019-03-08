@@ -18,8 +18,7 @@ public class AccessPlanetsTest {
     }
 
     @Test
-    public void test1()
-    {
+    public void test1() {
         final Location location;
         System.out.println("\nStarting test AccessPlanets");
 

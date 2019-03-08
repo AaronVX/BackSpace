@@ -6,8 +6,7 @@ import android.content.DialogInterface;
 import com.group8.backspace.R;;
 
 public class Messages {
-    public static void fatalError(final Activity owner, String message)
-    {
+    public static void fatalError(final Activity owner, String message) {
         AlertDialog alertDialog = new AlertDialog.Builder(owner).create();
 
         alertDialog.setTitle(owner.getString(R.string.fatalError));
@@ -21,8 +20,7 @@ public class Messages {
         alertDialog.show();
     }
 
-    public static void warning(Activity owner, String message)
-    {
+    public static void warning(Activity owner, String message) {
         AlertDialog alertDialog = new AlertDialog.Builder(owner).create();
 
         alertDialog.setTitle(owner.getString(R.string.warning));

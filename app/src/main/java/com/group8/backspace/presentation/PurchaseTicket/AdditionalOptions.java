@@ -44,7 +44,7 @@ public class AdditionalOptions extends AppCompatActivity {
         texts.add( (TextView) findViewById(R.id.textDrinksPrice));
 
         for (int i = 0; i < texts.size(); i++) {
-            String changed = items.get(i).getPrice()+"$";
+            String changed = Integer.toString(items.get(i).getPrice())+"$";
             texts.get(i).setText(changed);
         }
 

@@ -1,7 +1,5 @@
 package com.group8.backspace.persistence.hsqldb;
 
-import android.util.Log;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,27 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.group8.backspace.objects.Flight;
-import com.group8.backspace.persistence.CurrentFlightsPersistence;
 import com.group8.backspace.persistence.FlightPersistence;
 
 import org.joda.time.DateTime;
 
-public class FlightPersistenceHSQLDB implements FlightPersistence
-{
+public class FlightPersistenceHSQLDB implements FlightPersistence {
     private final String path;
 
     public FlightPersistenceHSQLDB(final String path) {
         this.path = path;
     }
 
-    private Connection connection() throws SQLException
-    {
+    private Connection connection() throws SQLException {
             return DriverManager.getConnection("jdbc:hsqldb:file:" + path, "SA", "");
     }
 
-
-    private Flight fromResultSet(final ResultSet rs) throws SQLException
-    {
+    private Flight fromResultSet(final ResultSet rs) throws SQLException {
         final int flightID = rs.getInt("FLIGHTID");
         final String origin = rs.getString("ORIGINID");
         final String destination = rs.getString("DESTINATIONID");
@@ -46,15 +39,12 @@ public class FlightPersistenceHSQLDB implements FlightPersistence
     }
 
     @Override
-    public List<Flight> getFlights()
-    {
+    public List<Flight> getFlights() {
         final List<Flight> flights = new ArrayList<>();
-        try (final Connection c = connection())
-        {
+        try (final Connection c = connection()) {
             final Statement st = c.createStatement();
             final ResultSet rs = st.executeQuery("SELECT * FROM flights");
-            while (rs.next())
-            {
+            while (rs.next()) {
                 final Flight flight = fromResultSet(rs);
                 flights.add(flight);
             }
@@ -63,25 +53,21 @@ public class FlightPersistenceHSQLDB implements FlightPersistence
 
             return flights;
         }
-        catch (final SQLException e)
-        {
+        catch (final SQLException e) {
             throw new PersistenceException(e);
         }
     }
 
     @Override
-    public List<Flight> getFlights(String origin, String destination)
-    {
+    public List<Flight> getFlights(String origin, String destination) {
         final List<Flight> flights = new ArrayList<>();
-        try (final Connection c = connection())
-        {
+        try (final Connection c = connection()) {
             final PreparedStatement st = c.prepareStatement("SELECT * FROM flights WHERE originID = ? AND destinationID = ?");
             st.setString(1, origin);
             st.setString(2, destination);
 
             final ResultSet rs = st.executeQuery();
-            while (rs.next())
-            {
+            while (rs.next()) {
                 final Flight flight = fromResultSet(rs);
                 flights.add(flight);
             }
@@ -90,15 +76,13 @@ public class FlightPersistenceHSQLDB implements FlightPersistence
 
             return flights;
         }
-        catch (final SQLException e)
-        {
+        catch (final SQLException e) {
             throw new PersistenceException(e);
         }
     }
 
     @Override
-    public Flight getFlightByID(int flightID)
-    {
+    public Flight getFlightByID(int flightID) {
         final List<Flight> flights = new ArrayList<>();
         try (final Connection c = connection()) {
             final PreparedStatement st = c.prepareStatement("SELECT * FROM flights WHERE flightID = ?");

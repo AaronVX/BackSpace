@@ -23,14 +23,12 @@ public class AccessFlights {
 
     public List<Flight> getFlights() { return Collections.unmodifiableList(flightPersistence.getFlights()); }
 
-    public AccessFlights(final FlightPersistence flightPersistence)
-    {
+    public AccessFlights(final FlightPersistence flightPersistence) {
         this();
         this.flightPersistence = flightPersistence;
     }
 
-    public List<Flight> getCurrentFlights()
-    {
+    public List<Flight> getCurrentFlights() {
         ArrayList<Flight> futureFlights = new ArrayList<>();
         List<Flight> flights = flightPersistence.getFlights();
         DateTime now = DateTime.now();
@@ -72,8 +70,7 @@ public class AccessFlights {
         return Collections.unmodifiableList(futureFlights);
     }
 
-    public List<Flight> getFutureFlights(String origin, String destination)
-    {
+    public List<Flight> getFutureFlights(String origin, String destination){
         ArrayList<Flight> futureFlights = new ArrayList<>();
         List<Flight> flights = flightPersistence.getFlights(origin, destination);
         DateTime now = DateTime.now();
