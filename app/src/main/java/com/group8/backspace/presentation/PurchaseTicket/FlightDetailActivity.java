@@ -10,23 +10,23 @@ import android.widget.TextView;
 
 import com.group8.backspace.R;
 import com.group8.backspace.logic.AccessFlights;
+import com.group8.backspace.logic.AccessPlanets;
 import com.group8.backspace.objects.Flight;
 
 
 public class FlightDetailActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flight_detail);
 
         //get the flight object selected via the flightNum passed by BookBrowseActivity
-        AccessFlights accessor =  new AccessFlights();
+        AccessFlights flightAccessor =  new AccessFlights();
         int currFlightNum = getIntent().getIntExtra("FLIGHT_NUM", 0);
-        String originSrc = getIntent().getStringExtra("origin");
-        String destinationSrc = getIntent().getStringExtra("destination");
 
-        Flight currFlight = accessor.getFlightByID(currFlightNum);
+        Flight currFlight = flightAccessor.getFlightByID(currFlightNum);
         //Get the objects we want to set
         TextView title = (TextView) findViewById(R.id.detail_title);
         TextView departPlanetName = (TextView) findViewById(R.id.detail_depart_planet);
@@ -40,21 +40,26 @@ public class FlightDetailActivity extends AppCompatActivity {
         //set each text and picture slots to the given values
         String flightTitle = "Flight #"+currFlightNum;
         title.setText(flightTitle);
-        departPlanetName.setText(currFlight.getOrigin());
-        destPlanetName.setText(currFlight.getDestination());
+        String depName = currFlight.getOrigin();
+        depName = depName.substring(0,1).toUpperCase() + depName.substring(1);
+        departPlanetName.setText(depName);
+        String destName = currFlight.getDestination();
+        destName = destName.substring(0,1).toUpperCase() + destName.substring(1);
+        destPlanetName.setText(destName);
 
         //use the date handler to get nice strings for textviews
         DateHandler handleDates = new DateHandler(currFlight.getDeparture(), currFlight.getArrival());
         String dates[] = handleDates.getStrings();
-
         departTime.setText(dates[0]);
         arrivalTime.setText(dates[1]);
-
         totalTime.setText(handleDates.getTravelTime());
 
-        //use the "putExtra" tags for each picture
-        departPlanetPic.setImageResource(getResources().getIdentifier("ic_" + originSrc , "mipmap", getPackageName()));
-        destPlanetPic.setImageResource(getResources().getIdentifier("ic_" + destinationSrc , "mipmap", getPackageName()));
+        //get the image sources from the flight object
+        AccessPlanets pAccess = new AccessPlanets();
+        String originSrc = pAccess.getPlanetByName(currFlight.getOrigin()).getImgSrc();
+        String destinationSrc = pAccess.getPlanetByName(currFlight.getDestination()).getImgSrc();
+        departPlanetPic.setImageResource(getResources().getIdentifier(originSrc , "mipmap", getPackageName()));
+        destPlanetPic.setImageResource(getResources().getIdentifier(destinationSrc , "mipmap", getPackageName()));
 
         Button btn_travel = (Button) findViewById(R.id.btn_travel);
         btn_travel.setOnClickListener(new View.OnClickListener() {

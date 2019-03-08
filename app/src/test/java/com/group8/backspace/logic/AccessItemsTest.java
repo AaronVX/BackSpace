@@ -18,7 +18,8 @@ public class AccessItemsTest {
     public void setUp() {accessItems = new AccessItems(new ItemPersistenceStub()); }
 
     @Test
-    public void test1(){
+    public void test1()
+    {
         final Item item;
         System.out.println("\nStarting test AccessItems");
 
