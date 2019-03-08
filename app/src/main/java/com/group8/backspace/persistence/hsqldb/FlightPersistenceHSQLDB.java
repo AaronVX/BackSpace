@@ -1,7 +1,5 @@
 package com.group8.backspace.persistence.hsqldb;
 
-import android.util.Log;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.group8.backspace.objects.Flight;
-import com.group8.backspace.persistence.CurrentFlightsPersistence;
 import com.group8.backspace.persistence.FlightPersistence;
 
 import org.joda.time.DateTime;
