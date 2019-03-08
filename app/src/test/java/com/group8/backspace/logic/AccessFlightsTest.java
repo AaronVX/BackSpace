@@ -17,7 +17,8 @@ public class AccessFlightsTest {
     public void setUp() {accessFlights = new AccessFlights(new FlightPersistenceStub()); }
 
     @Test
-    public void test1(){
+    public void test1()
+    {
         final Flight flight;
         System.out.println("\nStarting test AccessFlights");
 

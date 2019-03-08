@@ -22,7 +22,8 @@ import java.util.List;
 public class BookBrowseActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_browse);
 
@@ -78,9 +79,6 @@ public class BookBrowseActivity extends AppCompatActivity {
 
                         startActivity(detailIntent);
                         return;
-
-                        //testing
-                        //Toast.makeText(getBaseContext(),flight.getDestination().name(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }

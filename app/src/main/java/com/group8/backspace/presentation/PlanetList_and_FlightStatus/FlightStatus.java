@@ -31,7 +31,8 @@ public class FlightStatus extends AppCompatActivity {
     List<Flight> ongoingFlights = access.getCurrentFlights();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flight_status);
 

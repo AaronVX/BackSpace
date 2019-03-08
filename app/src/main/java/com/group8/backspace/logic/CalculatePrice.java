@@ -6,7 +6,8 @@ public class CalculatePrice {
     private int ticketPrice;
     private int classPrice;
     private int INDEX = 10000;
-    public CalculatePrice(int flightNum, int classPrice){
+    public CalculatePrice(int flightNum, int classPrice)
+    {
 
         AccessFlights accessor = new AccessFlights();
         Flight currFlight = accessor.getFlightByID(flightNum);

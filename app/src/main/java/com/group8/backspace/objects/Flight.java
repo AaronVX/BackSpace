@@ -15,16 +15,14 @@ public class Flight {
 
     private String status;
 
-    //private int ticketPrice;
-
-    public Flight(int flightID, String origin, String destination, DateTime departure, DateTime arrival) {
+    public Flight(int flightID, String origin, String destination, DateTime departure, DateTime arrival)
+    {
         this.flightID = flightID;
         this.origin = origin;
         this.destination = destination;
 
         this.departure = departure;
         this.arrival = arrival;
-        //this.ticketPrice = ticketPrice;
     }
 
     public int getFlightID() {

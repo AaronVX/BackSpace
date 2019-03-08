@@ -10,7 +10,8 @@ import com.group8.backspace.R;
 public class BookDestinationActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_destination);
 
@@ -26,7 +27,8 @@ public class BookDestinationActivity extends AppCompatActivity implements View.O
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v)
+    {
         Intent intent = new Intent(getBaseContext(), BookBrowseActivity.class);
         intent.putExtra("origin", getIntent().getStringExtra("origin"));
         intent.putExtra("destination", (String) v.getTag());
