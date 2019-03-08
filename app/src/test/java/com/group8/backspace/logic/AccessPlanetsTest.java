@@ -23,16 +23,15 @@ public class AccessPlanetsTest {
         final Location location;
         System.out.println("\nStarting test AccessPlanets");
 
-        location = accessPlanets.getPlanetByName("1");
+        location = accessPlanets.getPlanetByName("earth");
         assertNotNull("first planet should not be null", location);
 
-        assertTrue("2".equals(location.getImgSrc()));
-        assertTrue("3".equals(location.getYears()));
-        assertTrue("4".equals(location.getMin()));
-        assertTrue("5".equals(location.getMax()));
-        assertTrue("6".equals(location.getPopulation()));
-        assertTrue("7".equals(location.getDistance()));
-        assertTrue("8".equals(location.getDescription()));
+        assertTrue("ic_earth".equals(location.getImgSrc()));
+        assertTrue("365.25 days".equals(location.getYears()));
+        assertTrue("-88".equals(location.getMin()));
+        assertTrue("58".equals(location.getMax()));
+        assertTrue("7.53 billion".equals(location.getPopulation()));
+        assertTrue("1".equals(location.getDistance()));
 
         System.out.println("Finished test AccessPlanets");
     }

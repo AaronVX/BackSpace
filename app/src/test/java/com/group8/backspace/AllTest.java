@@ -15,10 +15,10 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
         AccessFlightsTest.class,
         AccessItemsTest.class,
-        AccessPlanetsTest.class,
+        LocationTest.class,
         FlightTest.class,
         ItemTest.class,
-        LocationTest.class
+        AccessPlanetsTest.class
 })
 public class AllTest {
 
