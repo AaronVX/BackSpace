@@ -44,8 +44,8 @@ public class FlightStatus extends AppCompatActivity {
             flightIcon[i] = getResources().getIdentifier(pAccess.getPlanetByName(ongoingFlights.get(i).getDestination()).getImgSrc(), "mipmap", getPackageName());
         }
         simpleList = (ListView)findViewById(R.id.ListView);
-        CustomAdapter customAdapter = new CustomAdapter(FlightStatus.this, flightName, flightStats, flightIcon);
-        simpleList.setAdapter(customAdapter);
+        FlightListAdapter flightAdapter = new FlightListAdapter(FlightStatus.this, flightName, flightStats, flightIcon);
+        simpleList.setAdapter(flightAdapter);
     }
 
     public String[] getItem()

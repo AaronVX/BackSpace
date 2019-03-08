@@ -12,7 +12,6 @@ import com.group8.backspace.R;
 import com.group8.backspace.logic.AccessFlights;
 import com.group8.backspace.logic.AccessPlanets;
 import com.group8.backspace.objects.Flight;
-import com.group8.backspace.objects.Location;
 
 
 public class FlightDetailActivity extends AppCompatActivity {
