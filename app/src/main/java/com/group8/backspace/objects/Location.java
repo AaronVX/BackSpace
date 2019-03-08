@@ -12,8 +12,7 @@ public class Location {
     private String description;
     private String shortDesc;
 
-    public Location(String id, String src, String yrs, String min, String max, String pop, String dist, String desc, String shortDesc)
-    {
+    public Location(String id, String src, String yrs, String min, String max, String pop, String dist, String desc, String shortDesc) {
         this.id = id;
         this.imgSrc = src;
         this.years = yrs;

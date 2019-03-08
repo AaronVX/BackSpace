@@ -21,11 +21,11 @@ public class CalculatePrice {
         AccessPlanets accessPlanets = new AccessPlanets();
         Location originPlanet = accessPlanets.getPlanetByName(origin);
         Location destinationPlanet = accessPlanets.getPlanetByName(destination);
-        int distance = (int) Math.abs(Double.parseDouble(originPlanet.getDistance()) - Double.parseDouble(destinationPlanet.getDistance()));
+        double distance =  Math.abs(Double.parseDouble(originPlanet.getDistance()) - Double.parseDouble(destinationPlanet.getDistance()));
 
         AccessItems accessItems = new AccessItems();
         int fuelPrice = accessItems.getItemByName("dark matter").getPrice();
-        ticketPrice = distance*fuelPrice;
+        ticketPrice = (int)(distance*fuelPrice);
         this.classPrice = (classPrice+itemsPrice)*duration;
     }
 

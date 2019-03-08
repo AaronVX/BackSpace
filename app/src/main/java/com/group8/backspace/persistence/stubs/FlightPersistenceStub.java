@@ -15,8 +15,7 @@ public class FlightPersistenceStub implements FlightPersistence {
 
     List<Flight> flights;
 
-    public FlightPersistenceStub()
-    {
+    public FlightPersistenceStub() {
         flights = new ArrayList<Flight>();
 
         Flight flight1 = new Flight(1, "earth", "venus", new DateTime(2019,3,25,0,0), new DateTime(2019,5,20,0,0));
@@ -30,8 +29,7 @@ public class FlightPersistenceStub implements FlightPersistence {
     }
 
     @Override
-    public List<Flight> getFlights(String origin, String destination)
-    {
+    public List<Flight> getFlights(String origin, String destination) {
         ArrayList<Flight> flights_r = new ArrayList<>();
         for (Flight flight : flights) {
             if (flight.getOrigin().equals(origin) && flight.getDestination().equals(destination)) {
@@ -42,8 +40,7 @@ public class FlightPersistenceStub implements FlightPersistence {
     }
 
     @Override
-    public Flight getFlightByID(int flightSearchNum )
-    {
+    public Flight getFlightByID(int flightSearchNum ) {
         Flight foundFlight = null;
         for(Flight flight : flights) {
             if(flight.getFlightID() == flightSearchNum ) {

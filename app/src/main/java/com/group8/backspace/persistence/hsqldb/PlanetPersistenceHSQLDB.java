@@ -16,29 +16,24 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlanetPersistenceHSQLDB implements PlanetPersistence
-{
+public class PlanetPersistenceHSQLDB implements PlanetPersistence {
     private final String path;
 
     public PlanetPersistenceHSQLDB(final String path) {
         this.path = path;
     }
 
-    private Connection connection() throws SQLException
-    {
+    private Connection connection() throws SQLException {
         return DriverManager.getConnection("jdbc:hsqldb:file:" + path, "SA", "");
     }
 
     @Override
-    public List<Location> getPlanets()
-    {
+    public List<Location> getPlanets() {
         final List<Location> planets = new ArrayList<>();
-        try (final Connection c = connection())
-        {
+        try (final Connection c = connection()) {
             final Statement st = c.createStatement();
             final ResultSet rs = st.executeQuery("SELECT * FROM LOCATIONS");
-            while (rs.next())
-            {
+            while (rs.next()) {
                 final Location loc = fromResultSet(rs);
                 planets.add(loc);
             }
@@ -47,15 +42,13 @@ public class PlanetPersistenceHSQLDB implements PlanetPersistence
 
             return planets;
         }
-        catch (final SQLException e)
-        {
+        catch (final SQLException e) {
             throw new PersistenceException(e);
         }
     }
 
     @Override
-    public Location getPlanetByName(String locationName)
-    {
+    public Location getPlanetByName(String locationName) {
         final List<Location> planets = new ArrayList<>();
         try (final Connection c = connection()) {
             final PreparedStatement st = c.prepareStatement("SELECT * FROM locations WHERE LOCATIONID = ?");
@@ -79,8 +72,7 @@ public class PlanetPersistenceHSQLDB implements PlanetPersistence
         }
 }
 
-    private Location fromResultSet(final ResultSet rs) throws SQLException
-    {
+    private Location fromResultSet(final ResultSet rs) throws SQLException {
         final String planetName = rs.getString("LOCATIONID");
         String image = rs.getString("IMAGESRC");
         String years = rs.getString("YEAR");

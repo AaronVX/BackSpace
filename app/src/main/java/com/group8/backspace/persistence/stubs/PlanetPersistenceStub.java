@@ -29,8 +29,7 @@ public class PlanetPersistenceStub implements PlanetPersistence {
     }
 
     @Override
-    public Location getPlanetByName(String locationName)
-    {
+    public Location getPlanetByName(String locationName) {
         Location plantFound = null;
         for(Location location : locations) {
             if(location.getId().equals(locationName)) {

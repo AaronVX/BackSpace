@@ -18,8 +18,7 @@ public class FlightListAdapter extends BaseAdapter {
     int flags[]; //images
     LayoutInflater inflter;
 
-    public FlightListAdapter(Context applicationContext, String[] Item, String[] SubItem , int[] flags)
-    { //constructor takes in and sets info
+    public FlightListAdapter(Context applicationContext, String[] Item, String[] SubItem , int[] flags) { //constructor takes in and sets info
         this.context = context;
         this.Item = Item;
         this.SubItem = SubItem;
@@ -43,8 +42,7 @@ public class FlightListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(final int i, View view, ViewGroup viewGroup)
-    { //creates view
+    public View getView(final int i, View view, ViewGroup viewGroup) { //creates view
         view = inflter.inflate(R.layout.activity_listview, null);
         TextView item = (TextView) view.findViewById(R.id.item); //creates textviews and imageviews based on the xml
         TextView subitem = (TextView) view.findViewById(R.id.subitem);
