@@ -7,6 +7,7 @@ import com.group8.backspace.persistence.hsqldb.FlightPersistenceHSQLDB;
 import com.group8.backspace.persistence.hsqldb.PlanetPersistenceHSQLDB;
 import com.group8.backspace.persistence.hsqldb.ItemPersistenceHSQLDB;
 import com.group8.backspace.persistence.stubs.ItemPersistenceStub;
+import com.group8.backspace.persistence.stubs.FlightPersistenceStub;
 
 public class Services {
 
@@ -14,27 +15,41 @@ public class Services {
     private static PlanetPersistence planetPersistence = null;
     private static ItemPersistence itemPersistence = null;
 
+    private static boolean sql = true;
+
     public static synchronized  FlightPersistence getFlightPersistence() {
         if (flightPersistence == null) {
-            flightPersistence = new FlightPersistenceHSQLDB(Main.getDBPathName());
-
-            //flightPersistence = new FlightPersistenceStub();
+            if(sql) {
+                flightPersistence = new FlightPersistenceHSQLDB(Main.getDBPathName());
+            }
+            else{
+                flightPersistence = new FlightPersistenceStub();
+            }
         }
         return flightPersistence;
     }
 
     public static synchronized PlanetPersistence getPlanetPersistence() {
         if(planetPersistence == null) {
-            planetPersistence = new PlanetPersistenceHSQLDB(Main.getDBPathName());
-
+            if(sql){
+                planetPersistence = new PlanetPersistenceHSQLDB(Main.getDBPathName());
+            }
+            else{
+                // TO CHANGE
+                planetPersistence = new PlanetPersistenceHSQLDB(Main.getDBPathName());
+            }
         }
         return planetPersistence;
     }
 
     public static synchronized ItemPersistence getItemPersistence() {
         if(itemPersistence == null) {
-            //itemPersistence = new ItemPersistenceStub();
-            itemPersistence = new ItemPersistenceHSQLDB(Main.getDBPathName());
+            if(sql){
+                itemPersistence = new ItemPersistenceHSQLDB(Main.getDBPathName());
+            }
+            else{
+                itemPersistence = new ItemPersistenceStub();
+            }
         }
         return itemPersistence;
     }

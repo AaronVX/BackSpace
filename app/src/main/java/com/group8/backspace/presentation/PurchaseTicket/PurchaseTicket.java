@@ -23,6 +23,7 @@ public class PurchaseTicket extends AppCompatActivity {
         //get the flight object selected via the flightNum passed by BookBrowseActivity
         int currFlightNum = getIntent().getIntExtra("FLIGHT_NUM", 0);
         int currClassPrice = getIntent().getIntExtra("Class_Price", 0);
+        int currItemsPrice = getIntent().getIntExtra("Items_Price", 0);
 
         TextView flightNum = (TextView) findViewById(R.id.flight_view);
         String flightTitle = "Flight #"+currFlightNum;
@@ -33,8 +34,7 @@ public class PurchaseTicket extends AppCompatActivity {
         TextView classPrice = (TextView) findViewById(R.id.classPrice);
         TextView totalPrice = (TextView) findViewById(R.id.totalPrice);
 
-
-        CalculatePrice total = new CalculatePrice(currFlightNum,currClassPrice);
+        CalculatePrice total = new CalculatePrice(currFlightNum,currClassPrice,currItemsPrice);
 
         ticketPrice.setText(total.getTicketPrice() + "");
         classPrice.setText(total.getClassPrice() + "");
@@ -58,8 +58,6 @@ public class PurchaseTicket extends AppCompatActivity {
                 }
             }
         });
-
-
 
 
         Button purchaseBtn = (Button) findViewById(R.id.btn_purchase);

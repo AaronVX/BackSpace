@@ -22,11 +22,11 @@ public class AdditionalOptions extends AppCompatActivity {
 
         final AccessItems access = new AccessItems();
 
-        final Item nyc = access.getItemByName("New York City");
-        final Item ww = access.getItemByName("West World");
-        final Item paste = access.getItemByName("Food paste");
-        final Item meat = access.getItemByName("Irradiated meat");
-        final Item drinks = access.getItemByName("Dried drinks");
+        final Item nyc = access.getItemByName("new york city");
+        final Item ww = access.getItemByName("west world");
+        final Item paste = access.getItemByName("food paste");
+        final Item meat = access.getItemByName("irradiated meat");
+        final Item drinks = access.getItemByName("dried drinks");
 
         final ArrayList<Item> items = new ArrayList();
         items.add(nyc);
@@ -72,12 +72,12 @@ public class AdditionalOptions extends AppCompatActivity {
                 int flightNum = getIntent().getIntExtra("FLIGHT_NUM", 0);
                 int classPrice = getIntent().getIntExtra("Class_Price", 0);
                 int itemsPrice = access.getTotalPrice(selectedItems);
-                classPrice += itemsPrice;
+
 
                 Intent detailIntent = new Intent(AdditionalOptions.this, PurchaseTicket.class);
                 detailIntent.putExtra("FLIGHT_NUM", flightNum);
                 detailIntent.putExtra("Class_Price", classPrice);
-                //detailIntent.putExtra("Items_Price", itemsPrice);
+                detailIntent.putExtra("Items_Price", itemsPrice);
                 startActivity(detailIntent);
             }
         });

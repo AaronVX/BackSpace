@@ -213,7 +213,7 @@
                     android:id="@+id/textPastePrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="99$"
+                    android:text="0$"
                     android:textSize="18sp"
                     android:paddingHorizontal="30sp"
                     android:paddingVertical="15sp" />

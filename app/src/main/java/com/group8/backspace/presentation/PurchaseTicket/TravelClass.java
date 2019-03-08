@@ -31,7 +31,6 @@ public class TravelClass extends AppCompatActivity {
         ImageButton btn_TravelClassEconomy = findViewById(R.id.imageEconomy);
         ImageButton btn_TravelClassBusiness = findViewById(R.id.imageBusiness);
 
-
         TextView tip_Nutrient = findViewById(R.id.textNutrientTip);
         TextView tip_VR = findViewById(R.id.textVRTip);
         TextView tip_Suit = findViewById(R.id.textSuitTip);
@@ -42,11 +41,11 @@ public class TravelClass extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int flightNum = getIntent().getIntExtra("FLIGHT_NUM", 0);
-                //need a method to set class price
                 int classPrice = economy.getPrice();
-                Intent detailIntent = new Intent(TravelClass.this, AdditionalOptions.class);
+                Intent detailIntent = new Intent(TravelClass.this, PurchaseTicket.class);
                 detailIntent.putExtra("FLIGHT_NUM", flightNum);
                 detailIntent.putExtra("Class_Price", classPrice);
+                detailIntent.putExtra("Items_Price", 0);
                 startActivity(detailIntent);
             }
         });
