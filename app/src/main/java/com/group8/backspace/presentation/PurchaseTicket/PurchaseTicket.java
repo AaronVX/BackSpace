@@ -76,7 +76,7 @@ public class PurchaseTicket extends AppCompatActivity {
                 String date = expiryDate.getText().toString();
                 String code = securityCode.getText().toString();
                 TextView condition = (TextView) findViewById(R.id.condition);
-                CheckCard check = new CheckCard(card, date, code);
+                CheckCard check = new CheckCard();
                 if(check.checkFormat(card,date,code)){
                     condition.setText("Purchase succeed");
                 }

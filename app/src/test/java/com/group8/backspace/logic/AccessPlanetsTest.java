@@ -25,7 +25,14 @@ public class AccessPlanetsTest {
 
         location = accessPlanets.getPlanetByName("1");
         assertNotNull("first planet should not be null", location);
-        assertTrue("1".equals(location.getImgSrc()));
+
+        assertTrue("2".equals(location.getImgSrc()));
+        assertTrue("3".equals(location.getYears()));
+        assertTrue("4".equals(location.getMin()));
+        assertTrue("5".equals(location.getMax()));
+        assertTrue("6".equals(location.getPopulation()));
+        assertTrue("7".equals(location.getDistance()));
+        assertTrue("8".equals(location.getDescription()));
 
         System.out.println("Finished test AccessPlanets");
     }
