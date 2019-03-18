@@ -58,7 +58,7 @@ public class Info extends AppCompatActivity {
         maxView.setText(hi);
         yearView.setText(years);
 
-        Button btn_planetFromView = (Button) findViewById(R.id.planetFromLocations);
+        Button btn_planetFromView = (Button) findViewById(R.id.planetFromLocations); //button to set origin ticket purchase from planet selected
         btn_planetFromView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +69,7 @@ public class Info extends AppCompatActivity {
             }
         });
 
-        Button btn_planetToView = (Button) findViewById(R.id.planetToLocations);
+        Button btn_planetToView = (Button) findViewById(R.id.planetToLocations); //button to set destination ticket purchase from planet selected
         btn_planetToView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
