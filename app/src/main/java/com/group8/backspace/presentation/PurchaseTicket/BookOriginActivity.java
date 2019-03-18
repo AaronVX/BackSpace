@@ -28,9 +28,17 @@ public class BookOriginActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(BookOriginActivity.this, BookDestinationActivity.class);
-        intent.putExtra("origin", (String) v.getTag());
-        startActivity(intent);
+        if(getIntent().getStringExtra("destination") != null) {
+            Intent intent = new Intent(BookOriginActivity.this, BookBrowseActivity.class);
+            intent.putExtra("origin", (String) v.getTag());
+            intent.putExtra("destination", getIntent().getStringExtra("destination"));
+            startActivity(intent);
+        }
+        else {
+            Intent intent = new Intent(BookOriginActivity.this, BookDestinationActivity.class);
+            intent.putExtra("origin", (String) v.getTag());
+            startActivity(intent);
+        }
     }
 
 }

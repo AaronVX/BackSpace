@@ -59,7 +59,7 @@
 
         <LinearLayout
             android:layout_width="263dp"
-            android:layout_height="301dp"
+            android:layout_height="450dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="40dp"
             android:layout_weight="0"
@@ -147,6 +147,50 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TextView"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_margin="15dp">
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Flights from: "
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/planetFromLocations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Here"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_margin="15dp">
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Flights to: "
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/planetToLocations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Here"
                     android:textSize="18sp" />
 
             </TableRow>
