@@ -13,7 +13,7 @@ import com.group8.backspace.R;
 
 public class CustomAdapter extends BaseAdapter {
     Context context;
-    String Item[]; //title
+    String Item[]; //reference
     String SubItem[]; //description
     int flags[]; //images
     LayoutInflater inflter;
@@ -48,7 +48,7 @@ public class CustomAdapter extends BaseAdapter {
         TextView item = (TextView) view.findViewById(R.id.item); //creates textviews and imageviews based on the xml
         TextView subitem = (TextView) view.findViewById(R.id.subitem);
         ImageView image = (ImageView) view.findViewById(R.id.imageID);
-        item.setText(Item[i]); //sets info and image
+        item.setText(Item[i].substring(0,1).toUpperCase() + Item[i].substring(1)); //sets info and image
         subitem.setText(SubItem[i]);
         image.setImageResource(flags[i]);
 
