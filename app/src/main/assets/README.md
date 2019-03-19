@@ -1,38 +1,159 @@
-### Summary
-**BackSpace** is an app that allows you to book shuttles to other planets in the solar system, and manage your accommodations once you arrive.
+# Architecture: Source Code Files
 
-### Capabilities
-This project will allow everyday people to quickly and simply book flights to other planets.
-It will allow you to manage the many aspects of your spaceflight.
-Such as browsing a calendar to find an optimal date and price for your flight.
-Seeing the planet you are interested in traveling to and relevant information.
-Reserving a flight including the process of booking the flight, renting a accommodations once you arrive, renting a space suit for the duration of the flight, and choosing a meal plan.
-Tracking your flights status and seeing updates.
-And keeping track of your points in our promotional program.
-**BackSpace** will allow you to easily book spaceflights to another planet and manage the complicated process of traveling.
-**BackSpace** will also show a sales page when you log in displaying relevant ads for flights based on user history.
+## Application
 
-### Customers
-**BackSpace** is for anyone and everyone who has the captial to travel to another planet.
-This means **BackSpace** has to be accessible for all ages, with the exception of people under the age of 18.
-Parents wishing to travel with their kids can book a ticket for them.
-The Planner will also just be for people who have the means to travel to other planets so the comforts available to these people will be reflected.
+### Main
+Sets the database name
 
-### Value
-**BackSpace** is valuable because it will allow people who have an interest in traveling to other planets to easily book flights.
-It will simplify the complicated process of getting to another planet to a number of steps that the Planner will walk you through.
-The system will be designed so that anyone can go through the steps required to book a flight.
+### Services
+Creates and initializes the persistence databases with info
 
-### Platform
-**BackSpace** will be realized as an android app.
-Allowing users to simply book fares through their phone at anytime without having to be at home/work/school or near a computer to book the flights.
-In the future **BackSpace** will be extended to the IOS operating system and eventually a website to increase the number of users that can have access to simple spaceflight booking.
+## Logic
 
-### Signifigance
-**BackSpace** will be the first interplanetary commercial ticket seller.
-It will also have a focus on simplicity and avoiding the extra time it takes to complete the complicated process of contacting a space agency directly.
-Since the barrier to spaceflight will be significantly reduced, more people will book spaceflight travel as a result of this easy-to-use app.
+### AccessFlights
+This contains all the public methods to retrieve all the information about flights
 
-### Conclusion
-**BackSpace** will be considered a success if the number of space tourists increases by 100% over the next decade.
-Since the number of current space tourists is so low, we expect a huge increase in tourists once the barrier to entry is lowered this significantly.
+### AccessItems
+This contains all the public methods to retrieve all the information about items
+
+### AccessPlanets
+This contains all the public methods to retrieve all the information about planets
+
+### CalculatePrice
+This is the class that will calculate the price for any given flight, this is a placeholder for now
+
+### CheckCard
+This class checks the format of credit card submitted and ensures it is of proper format
+
+### CheckDiscountCode
+This class checks to see if the code entered is valid and applies the discount if it is
+
+## Objects
+
+### Flight
+Object that contains all the information for a flight
+
+### Location
+Object that contains all the information for a location (planet)
+
+### Item
+Object that contains all the information for an item
+
+## Persistence
+
+### Stub
+
+### FlightPersistenceStub
+Stub database that holds the flights that are going to depart
+
+### ItemPersistenceStub
+Stub databse that holds the info on items
+
+### HSQLDB
+
+### FlightPersistenceHSQLDB
+Makes the flight database from the sql database
+
+### ItemPersistenceHSQLDB
+Makes the item database from the sql database
+
+### PlanetPersistenceHSQLDB
+Makes the planet/location databse from the sql database
+
+## Presentation
+
+### PlanetList\_and\_FlightStatus
+
+### CustomAdapter
+This java file overwrites the the standard list view format to include a picture at the beginning then a title, then a description.
+ It overwrites all the necessary methods and is done in a generic form. This is used for both PlanetList and FlightStatus
+ 
+### Listview
+Placeholder file, does very little, just need to link the related xml file that contains all the real information
+
+### Info
+This page gets called when a flight or planet is selected from flightstatus or planetlist respectively
+
+### PlanetList
+This contains a list of planets you can go to, with a picture of them and a small piece of information in a custom listview
+
+### FlightStatus
+This activity show the status of current flights in a custom listview
+
+### PurchaseTicket
+
+### AdditionalOptions
+This class creates and sets all the additional options you can choose once a flight is selected
+
+### BookBrowseActivity
+This gets and then contains the information in the monthly booking view
+
+### BookDestinationActivity
+This gets and then contains the information for the choose a destination view
+
+### BookOriginActivity
+This gets and then contains the information for the choose an origin view
+
+### DateHandler
+Calcuates the the travel time based on arrival and departure
+
+### FlightDetailActivity
+This activity shows details about the currently selected flight in a table layout
+
+### PurchaseTicket
+This jave file shows the total price of the ticket and check the format of the Visa card
+
+### TravelClass
+This gets and then contains the information for the choose a travel class view
+
+### MainActivity
+This activity creates the 2 buttons that lead to other activites, including seeing current flight status and booking a flight
+
+### Messages
+Simple class for dealing with errors and warnings
+
+## Res
+
+### Drawable
+This folder contains vector images for our app, including pictures of earth, venus, etc
+
+### Mipmap-hdpi
+This folder contains raster images for our app, taken from https://icons8.com/icon/set/planet/color
+
+## Layout
+
+### activity_additionaloptions
+Describes the complex view for additional options (meal plan and virtual reality options)
+
+### activity_info
+This describes the format for the specific flight or planet page
+
+### activity\_planet\_list
+This describes the format for the list of possible destination planets
+
+### activity\_book\_browse
+This describes the format for the booking on the calender view activity
+
+### activity\_book\_destination
+This describes the format for the choose a destination view activity
+
+### activity\_book\_origin
+This describes the format for the choose an origin view activity
+
+### activity\_flight\_detail
+This file contains the layout to be used when viewing details of a flight
+
+### activity\_flight\_status
+This file contains just a bit of information on the format of the background
+
+### activity_listview
+This file contains all the information on text size, color, border sizes for the the custom listview
+
+### activity_main
+This describes the layout and image on the buttons on the main activity
+
+### activity\_purchase\_ticket
+This describes the layout you see when purchasing a ticket
+
+### activity\_travel\_class
+This describes the format for the choose a travel class
