@@ -2,15 +2,21 @@
 
 ### Sources of Non-Determinism and Testing
 
-We have struggled with testing and specifically sources of non-determinism.
+#### Random Booleans
+
+We have struggled with testing and specifically sources of non-determinism in iteration 2.
 In iteration 2 in the class AccessFlights we had a random boolean value that choose the value of flight status (either 'on-time' or 'delayed').
 Since the value was choosen by a random value this mean that the value could not be consistently determined for testing.
+
+#### Changing Date-Times
+
 Another source of non-determinism was the date. 
 The date was used in reference to the flights to see whether they were in progress already.
-Since the current date is changing current flights would also be changin, meaning that our test cases were constantly changing.
+Flights would listed as 'in progress' if there departure date was before the current date.
+Since the current date is changing current flights would also be changing, meaning that our test cases were constantly changing.
 These changing test cases made writing tests for these sections of code impossible.
 This meant that we had no way of knowing if the code was working properly since no tests could be implemented for those sections.
-Making this code and future code for iteration 3 to eliminate these untestable sections will be a priority
+Making this code and future code for iteration 3 to eliminate these untestable sections will be a priority.
 
 ### Improving in Iteration 3
 
