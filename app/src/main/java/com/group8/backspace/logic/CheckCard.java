@@ -1,18 +1,13 @@
 package com.group8.backspace.logic;
 
 public class CheckCard {
-    private String cardNum;
-    private String date;
-    private String securityNum;
+    private final int CARD_LENGTH = 16;
+    private final int DATE_LENGTH = 4;
+    private final int SECURITY_LENGTH = 3;
 
-    public CheckCard(String cardNum, String date, String securityNum){
-        this.cardNum = cardNum;
-        this.date = date;
-        this.securityNum = securityNum;
-    }
 
     public boolean checkFormat(String cardNum, String date, String securityNum){
-        if(cardNum.length()==16&&date.length()==4&&securityNum.length()==3){
+        if(cardNum.length()==CARD_LENGTH&&date.length()==DATE_LENGTH&&securityNum.length()==SECURITY_LENGTH){
             return true;
         }
         else

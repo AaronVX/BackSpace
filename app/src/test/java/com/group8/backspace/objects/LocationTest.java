@@ -25,6 +25,6 @@ public class LocationTest {
         assertTrue("0.39".equals(location.getDistance()));
         assertTrue("Mercury".equals(location.getDescription()));
 
-        System.out.println("Finished testFlight");
+        System.out.println("Finished testLocation");
     }
 }
