@@ -36,9 +36,9 @@ public class PurchaseTicket extends AppCompatActivity {
 
         CalculatePrice total = new CalculatePrice(currFlightNum,currClassPrice,currItemsPrice);
 
-        ticketPrice.setText(total.getTicketPrice() + "");
-        classPrice.setText(total.getClassPrice() + "");
-        totalPrice.setText(total.getTotalPrice() + "");
+        ticketPrice.setText(Integer.toString(total.getTicketPrice()));
+        classPrice.setText(Integer.toString(total.getClassPrice()));
+        totalPrice.setText(Integer.toString(total.getTotalPrice()));
         final int totalP = total.getTotalPrice();
         Button checkCode = (Button) findViewById(R.id.btn_code);
         checkCode.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +73,7 @@ public class PurchaseTicket extends AppCompatActivity {
                 String date = expiryDate.getText().toString();
                 String code = securityCode.getText().toString();
                 TextView condition = (TextView) findViewById(R.id.condition);
-                CheckCard check = new CheckCard(card, date, code);
+                CheckCard check = new CheckCard();
                 if(check.checkFormat(card,date,code)){
                     condition.setText("Purchase succeed");
                 }
