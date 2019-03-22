@@ -15,7 +15,7 @@ public class CheckCoupon {
         if(code.length()==LENGTH) {
             return price * RATIO;
         }
-        else
+        else{
             return 0;
         }
     }
