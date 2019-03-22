@@ -10,12 +10,13 @@ import org.joda.time.DateTime;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
 public class AccessFlights {
 
-    FlightPersistence flightPersistence;
+    private FlightPersistence flightPersistence;
     private Random rand;
     private DateTime statusTime;
 
@@ -36,11 +37,8 @@ public class AccessFlights {
     public List<Flight> getFlights() { return Collections.unmodifiableList(flightPersistence.getFlights()); }
 
     public List<Flight> getCurrentFlights() {
-        ArrayList<Flight> futureFlights = new ArrayList<>();
+        ArrayList<Flight> currFlights = new ArrayList<>();
         List<Flight> flights = flightPersistence.getFlights();
-
-        DateTime now = DateTime.now();
-        Random rand = new Random();
 
         for (Flight flight : flights) {
             if (flight.getDeparture().compareTo(statusTime) < 0) {
@@ -72,10 +70,10 @@ public class AccessFlights {
                     }
                     flight.setStatus(newStatus);
                 }
-                futureFlights.add(flight);
+                currFlights.add(flight);
             }
         }
-        return Collections.unmodifiableList(futureFlights);
+        return Collections.unmodifiableList(currFlights);
     }
 
     public List<Flight> getFutureFlights(String origin, String destination){
@@ -89,14 +87,14 @@ public class AccessFlights {
             }
         }
 
-        return Collections.unmodifiableList(flights);
+        return Collections.unmodifiableList(futureFlights);
     }
 
     public Flight getFlightByID(int searchFlightNum) { return flightPersistence.getFlightByID(searchFlightNum); }
 
 
-    public DateTime helper(){
-        return DateTime.now();
-    }
+    public DateTime helper(){ return DateTime.now(); }
+    public void setRand(Random random){ this.rand = random; }
+    public void setStatusTime(DateTime time) { this.statusTime = time; }
 
 }
