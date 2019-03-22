@@ -1,10 +1,7 @@
-package com.group8.backspace.persistence.stubs;
+package com.group8.backspace.stubs;
 
-import com.group8.backspace.objects.Flight;
 import com.group8.backspace.objects.Location;
 import com.group8.backspace.persistence.PlanetPersistence;
-
-import org.joda.time.DateTime;
 
 import java.util.ArrayList;
 import java.util.Collections;

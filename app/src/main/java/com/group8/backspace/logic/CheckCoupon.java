@@ -17,7 +17,6 @@ public class CheckCoupon {
         }
         else
             return 0;
-        }
     }
-
 }
+

@@ -6,9 +6,7 @@ import com.group8.backspace.persistence.PlanetPersistence;
 import com.group8.backspace.persistence.hsqldb.FlightPersistenceHSQLDB;
 import com.group8.backspace.persistence.hsqldb.ItemPersistenceHSQLDB;
 import com.group8.backspace.persistence.hsqldb.PlanetPersistenceHSQLDB;
-import com.group8.backspace.persistence.stubs.FlightPersistenceStub;
-import com.group8.backspace.persistence.stubs.ItemPersistenceStub;
-import com.group8.backspace.persistence.stubs.PlanetPersistenceStub;
+
 
 
 public class Services {
@@ -23,8 +21,6 @@ public class Services {
         if (flightPersistence == null) {
             if (HSQLDB)
                 flightPersistence = new FlightPersistenceHSQLDB(Main.getDBPathName());
-            else
-                flightPersistence = new FlightPersistenceStub();
         }
         return flightPersistence;
     }
@@ -33,8 +29,7 @@ public class Services {
         if(planetPersistence == null) {
             if(HSQLDB)
                 planetPersistence = new PlanetPersistenceHSQLDB(Main.getDBPathName());
-            else
-                planetPersistence = new PlanetPersistenceStub();
+
         }
         return planetPersistence;
     }
@@ -43,8 +38,6 @@ public class Services {
         if(itemPersistence == null) {
             if(HSQLDB)
                 itemPersistence = new ItemPersistenceHSQLDB(Main.getDBPathName());
-            else
-                itemPersistence = new ItemPersistenceStub();
         }
         return itemPersistence;
     }

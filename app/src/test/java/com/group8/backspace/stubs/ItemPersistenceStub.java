@@ -1,4 +1,4 @@
-package com.group8.backspace.persistence.stubs;
+package com.group8.backspace.stubs;
 import com.group8.backspace.objects.Item;
 import com.group8.backspace.persistence.ItemPersistence;
 

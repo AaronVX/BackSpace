@@ -16,7 +16,6 @@ import java.util.Random;
 public class AccessFlights {
 
     FlightPersistence flightPersistence;
-    private Random rand;
 
     public AccessFlights() {
         flightPersistence = Services.getFlightPersistence();
@@ -33,7 +32,7 @@ public class AccessFlights {
         ArrayList<Flight> futureFlights = new ArrayList<>();
         List<Flight> flights = flightPersistence.getFlights();
         DateTime now = DateTime.now();
-//        Random rand = new Random();
+        Random rand = new Random();
 
         for (Flight flight : flights) {
             if (flight.getDeparture().compareTo(now) < 0) {
@@ -87,10 +86,4 @@ public class AccessFlights {
 
     public Flight getFlightByID(int searchFlightNum) { return flightPersistence.getFlightByID(searchFlightNum); }
 
-    public DateTime helper(){
-        return DateTime.now();
-    }
-    public void setRandom(Random random){
-        rand = random;
-    }
 }
