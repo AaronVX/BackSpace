@@ -11,12 +11,12 @@ public class CheckCoupon {
         this.price = price;
     }
 
-    public double checkCode(){
-        if(code.length()==LENGTH) {
+    public double checkCode() {
+        if (code.length() == LENGTH) {
             return price * RATIO;
-        }
-        else{
+        } else {
             return 0;
+        }
     }
 }
 
