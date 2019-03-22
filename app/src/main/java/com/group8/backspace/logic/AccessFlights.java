@@ -16,26 +16,34 @@ import java.util.Random;
 public class AccessFlights {
 
     FlightPersistence flightPersistence;
+    private Random rand;
+    private DateTime statusTime;
+
 
     public AccessFlights() {
         flightPersistence = Services.getFlightPersistence();
+        this.rand = new Random();
+        this.statusTime = helper();
     }
-
-    public List<Flight> getFlights() { return Collections.unmodifiableList(flightPersistence.getFlights()); }
 
     public AccessFlights(final FlightPersistence flightPersistence) {
         this();
         this.flightPersistence = flightPersistence;
+        this.rand = new Random();
+        this.statusTime = helper();
     }
+
+    public List<Flight> getFlights() { return Collections.unmodifiableList(flightPersistence.getFlights()); }
 
     public List<Flight> getCurrentFlights() {
         ArrayList<Flight> futureFlights = new ArrayList<>();
         List<Flight> flights = flightPersistence.getFlights();
+
         DateTime now = DateTime.now();
         Random rand = new Random();
 
         for (Flight flight : flights) {
-            if (flight.getDeparture().compareTo(now) < 0) {
+            if (flight.getDeparture().compareTo(statusTime) < 0) {
                 if(flight.getStatus() == null) {
                     String newStatus = "Status: ";
                     int isDead = rand.nextInt(17);
@@ -54,9 +62,9 @@ public class AccessFlights {
                         String etaString = dateHandle.getStrings()[1];
 
                         long quarterTime = (eta.getMillis() - depart.getMillis()) / 4;
-                        if ((quarterTime + depart.getMillis()) > now.getMillis()) {    //just leaving
+                        if ((quarterTime + depart.getMillis()) > statusTime.getMillis()) {    //just leaving
                             newStatus += "Leaving Orbit\nETA: " + etaString;
-                        } else if ((eta.getMillis() - quarterTime) < now.getMillis()) {   //just arriving
+                        } else if ((eta.getMillis() - quarterTime) < statusTime.getMillis()) {   //just arriving
                             newStatus += "Deorbiting\nETA: " + etaString;
                         } else {       //in the middle of the journey
                             newStatus += "In Transfer\nETA: " + etaString;
@@ -85,5 +93,10 @@ public class AccessFlights {
     }
 
     public Flight getFlightByID(int searchFlightNum) { return flightPersistence.getFlightByID(searchFlightNum); }
+
+
+    public DateTime helper(){
+        return DateTime.now();
+    }
 
 }
