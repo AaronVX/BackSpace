@@ -12,20 +12,11 @@ public class Location {
     private String description;
     private String shortDesc;
 
-    public Location(String id, String src, String yrs, String min, String max, String pop, String dist, String desc, String shortDesc) {
+    public Location(String id) {
         this.id = id;
-        this.imgSrc = src;
-        this.years = yrs;
-        this.minTemp = min;
-        this.maxTemp = max;
-        this.population = pop;
-        this.distance = dist;
-        this.description = desc;
-        this.shortDesc = shortDesc;
     }
 
-    public String getShortDesc() { return this.shortDesc; }
-
+    //Accessors
     public String getId(){
         return this.id;
     }
@@ -43,4 +34,23 @@ public class Location {
     public String getDistance(){ return distance; }
 
     public String getDescription() { return description; }
+
+    public String getShortDesc() { return this.shortDesc; }
+
+    //Mutators
+    public void setImgSrc(String newSrc) { this.imgSrc = newSrc; }
+
+    public void setYears(String newYears) { this.years = newYears; }
+
+    public void setMinTemp(String newMin) { this.minTemp = newMin; }
+
+    public void setMaxTemp(String newMax) {this.maxTemp = newMax; }
+
+    public void setPopulation(String newPopulation) { this.population = newPopulation; }
+
+    public void setDistance(String newDistance) { this.distance = newDistance; }
+
+    public void setDescription(String newDescription) { this.description = newDescription; }
+
+    public void setShortDesc(String newShortDesc) { this.shortDesc = newShortDesc; }
 }

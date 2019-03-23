@@ -40,7 +40,6 @@ public class AccessFlights {
         for (Flight flight : flights) {
             if ( (flight.getDeparture().compareTo(statusTime) < 0) && (flight.getArrival().compareTo(statusTime) > 0) ) {
                 if(flight.getStatus() == 0) {
-                    //String newStatus = "Status: ";
                     int isDead = rand.nextInt(17);
                     boolean onTime = rand.nextBoolean();
                     if (isDead == 0) {

@@ -83,7 +83,17 @@ public class PlanetPersistenceHSQLDB implements PlanetPersistence {
         String desc = rs.getString("DESCRIPTION");
         String shortDesc = rs.getString("SHORTDESC");
 
-        return new Location(planetName, image, years, min, max, pop, dist, desc, shortDesc);
+        Location newLocation = new Location(planetName);
+        newLocation.setImgSrc(image);
+        newLocation.setYears(years);
+        newLocation.setMinTemp(min);
+        newLocation.setMaxTemp(max);
+        newLocation.setPopulation(pop);
+        newLocation.setDistance(dist);
+        newLocation.setDescription(desc);
+        newLocation.setShortDesc(shortDesc);
+
+        return newLocation;
     }
 
 }
