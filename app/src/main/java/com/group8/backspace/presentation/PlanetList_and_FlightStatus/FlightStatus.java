@@ -8,6 +8,7 @@ import com.group8.backspace.R;
 import com.group8.backspace.logic.AccessFlights;
 import com.group8.backspace.logic.AccessPlanets;
 import com.group8.backspace.objects.Flight;
+import com.group8.backspace.presentation.DateHandler;
 
 import java.util.List;
 
@@ -38,10 +39,35 @@ public class FlightStatus extends AppCompatActivity {
         String flightName[] = new String[ongoingFlights.size()];
         String flightStats[] = new String[ongoingFlights.size()];
         int flightIcon[] = new int[ongoingFlights.size()];
+        Flight currFlight;
         for(int i = 0; i < ongoingFlights.size(); i++){
-            flightName[i] = "Flight #"+ongoingFlights.get(i).getFlightID();
-            flightStats[i] = ongoingFlights.get(i).getStatus();
-            flightIcon[i] = getResources().getIdentifier(pAccess.getPlanetByName(ongoingFlights.get(i).getDestination()).getImgSrc(), "mipmap", getPackageName());
+            currFlight = ongoingFlights.get(i);
+            flightName[i] = "Flight #"+currFlight.getFlightID();
+            flightIcon[i] = getResources().getIdentifier(pAccess.getPlanetByName(currFlight.getDestination()).getImgSrc(), "mipmap", getPackageName());
+
+            //build flight stats string
+            String stats = "Status: ";
+            if(currFlight.isDead()){
+                stats = stats + "Crew Dead\nFlight Stage: Failure\nETA: Unknown";
+            } else{
+                if(currFlight.isDelayed()){
+                    stats += "Delayed\nFlight Stage: ";
+                } else {
+                    stats += "On Time\nFlight Stage: ";
+                }
+
+                if(currFlight.getStatus() == 1) {
+                    stats += "Leaving Orbit\nETA: ";
+                } else if( currFlight.getStatus() == 2) {
+                    stats += "In Transfer\nETA: ";
+                } else if( currFlight.getStatus() == 3){
+                    stats += "Deorbiting\nETA: ";
+                }
+
+                DateHandler dateHandle = new DateHandler(currFlight.getDeparture(), currFlight.getArrival());
+                stats += dateHandle.getStrings()[1];
+            }
+            flightStats[i] = stats;
         }
         simpleList = (ListView)findViewById(R.id.ListView);
         FlightListAdapter flightAdapter = new FlightListAdapter(FlightStatus.this, flightName, flightStats, flightIcon);

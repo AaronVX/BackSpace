@@ -2,15 +2,12 @@ package com.group8.backspace.logic;
 
 import com.group8.backspace.application.Services;
 import com.group8.backspace.objects.Flight;
-import com.group8.backspace.objects.Location;
 import com.group8.backspace.persistence.FlightPersistence;
-import com.group8.backspace.presentation.PurchaseTicket.DateHandler;
 
 import org.joda.time.DateTime;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -41,34 +38,29 @@ public class AccessFlights {
         List<Flight> flights = flightPersistence.getFlights();
 
         for (Flight flight : flights) {
-            if (flight.getDeparture().compareTo(statusTime) < 0) {
-                if(flight.getStatus() == null) {
-                    String newStatus = "Status: ";
+            if ( (flight.getDeparture().compareTo(statusTime) < 0) && (flight.getArrival().compareTo(statusTime) > 0) ) {
+                if(flight.getStatus() == 0) {
+                    //String newStatus = "Status: ";
                     int isDead = rand.nextInt(17);
                     boolean onTime = rand.nextBoolean();
                     if (isDead == 0) {
-                        newStatus = "Status: Crew Dead\nFlight Stage: Failure\nETA: Unknown";
+                        flight.kill();
                     } else {
-                        if (onTime) {
-                            newStatus += "On Time\nFlight Stage: ";
-                        } else {
-                            newStatus += "Delayed\nFlight Stage: ";
+                        if (!onTime) {
+                            flight.delay();
                         }
                         DateTime depart = flight.getDeparture();
                         DateTime eta = flight.getArrival();
-                        DateHandler dateHandle = new DateHandler(depart, eta);
-                        String etaString = dateHandle.getStrings()[1];
 
                         long quarterTime = (eta.getMillis() - depart.getMillis()) / 4;
-                        if ((quarterTime + depart.getMillis()) > statusTime.getMillis()) {    //just leaving
-                            newStatus += "Leaving Orbit\nETA: " + etaString;
-                        } else if ((eta.getMillis() - quarterTime) < statusTime.getMillis()) {   //just arriving
-                            newStatus += "Deorbiting\nETA: " + etaString;
-                        } else {       //in the middle of the journey
-                            newStatus += "In Transfer\nETA: " + etaString;
+                        if ((quarterTime + depart.getMillis()) > statusTime.getMillis()) {
+                            flight.setStatus(1); //leaving
+                        } else if ((eta.getMillis() - quarterTime) < statusTime.getMillis()) {
+                            flight.setStatus(3); //arriving
+                        } else {
+                            flight.setStatus(2); //middle of trip
                         }
                     }
-                    flight.setStatus(newStatus);
                 }
                 currFlights.add(flight);
             }

@@ -1,4 +1,4 @@
-package com.group8.backspace.presentation.PurchaseTicket;
+package com.group8.backspace.presentation;
 
 import org.joda.time.DateTime;
 
