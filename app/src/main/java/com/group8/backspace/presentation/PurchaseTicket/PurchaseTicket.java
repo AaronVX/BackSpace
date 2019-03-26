@@ -49,9 +49,8 @@ public class PurchaseTicket extends AppCompatActivity {
                 int price = totalP;
                 String code = discountCode.getText().toString();
                 CheckCoupon check = new CheckCoupon(code, price);
-                double newPrice = check.checkCode();
-                if(newPrice!=0){
-                    newP.setText("new price($): "+newPrice+"");
+                if(check.checkCode()){
+                    newP.setText("new price($): "+check.getDiscount()+"");
                 }
                 else{
                     newP.setText("Sorry, the code is invalid!");
