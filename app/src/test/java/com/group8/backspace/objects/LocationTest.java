@@ -16,6 +16,13 @@ public class LocationTest {
         location = new Location("mercury");
         assertNotNull(location);
 
+        location.setImgSrc("ic_mercury");
+        location.setYears("88 days");
+        location.setMinTemp("-173");
+        location.setMaxTemp("427");
+        location.setPopulation("0");
+        location.setDistance("0.39");
+
         assertTrue("mercury".equals(location.getId()));
         assertTrue("ic_mercury".equals(location.getImgSrc()));
         assertTrue("88 days".equals(location.getYears()));
