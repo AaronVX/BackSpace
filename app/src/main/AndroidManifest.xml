@@ -24,6 +24,9 @@
             android:label="@string/title_activity_planet_info"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".presentation.PlanetList_and_FlightStatus.StatusDetail"
+            android:label="StatusDetail" />
+        <activity
             android:name=".presentation.PlanetList_and_FlightStatus.PlanetList"
             android:label="@string/title_activity_planet_list"
             android:theme="@style/AppTheme.NoActionBar" />

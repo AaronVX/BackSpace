@@ -14,6 +14,7 @@ import java.util.Random;
 public class AccessFlights {
 
     private FlightPersistence flightPersistence;
+    private static ArrayList<Flight> currFlights = null;
     private Random rand;
     private DateTime statusTime;
 
@@ -34,34 +35,36 @@ public class AccessFlights {
     public List<Flight> getFlights() { return Collections.unmodifiableList(flightPersistence.getFlights()); }
 
     public List<Flight> getCurrentFlights() {
-        ArrayList<Flight> currFlights = new ArrayList<>();
-        List<Flight> flights = flightPersistence.getFlights();
+        if(currFlights == null) {
+            List<Flight> flights = flightPersistence.getFlights();
+            currFlights = new ArrayList<>();
 
-        for (Flight flight : flights) {
-            if ( (flight.getDeparture().compareTo(statusTime) < 0) && (flight.getArrival().compareTo(statusTime) > 0) ) {
-                if(flight.getStatus() == 0) {
-                    int isDead = rand.nextInt(17);
-                    boolean onTime = rand.nextBoolean();
-                    if (isDead == 0) {
-                        flight.kill();
-                    } else {
-                        if (!onTime) {
-                            flight.delay();
-                        }
-                        DateTime depart = flight.getDeparture();
-                        DateTime eta = flight.getArrival();
-
-                        long quarterTime = (eta.getMillis() - depart.getMillis()) / 4;
-                        if ((quarterTime + depart.getMillis()) > statusTime.getMillis()) {
-                            flight.setStatus(1); //leaving
-                        } else if ((eta.getMillis() - quarterTime) < statusTime.getMillis()) {
-                            flight.setStatus(3); //arriving
+            for (Flight flight : flights) {
+                if ((flight.getDeparture().compareTo(statusTime) < 0) && (flight.getArrival().compareTo(statusTime) > 0)) {
+                    if (flight.getStatus() == 0) {
+                        int isDead = rand.nextInt(17);
+                        boolean onTime = rand.nextBoolean();
+                        if (isDead == 0) {
+                            flight.kill();
                         } else {
-                            flight.setStatus(2); //middle of trip
+                            if (!onTime) {
+                                flight.delay();
+                            }
+                            DateTime depart = flight.getDeparture();
+                            DateTime eta = flight.getArrival();
+
+                            long quarterTime = (eta.getMillis() - depart.getMillis()) / 4;
+                            if ((quarterTime + depart.getMillis()) > statusTime.getMillis()) {
+                                flight.setStatus(1); //leaving
+                            } else if ((eta.getMillis() - quarterTime) < statusTime.getMillis()) {
+                                flight.setStatus(3); //arriving
+                            } else {
+                                flight.setStatus(2); //middle of trip
+                            }
                         }
                     }
+                    currFlights.add(flight);
                 }
-                currFlights.add(flight);
             }
         }
         return Collections.unmodifiableList(currFlights);
@@ -82,6 +85,15 @@ public class AccessFlights {
     }
 
     public Flight getFlightByID(int searchFlightNum) { return flightPersistence.getFlightByID(searchFlightNum); }
+
+    public Flight getCurrFlightByID(int searchFlightNum) {
+        for(Flight currFlight : currFlights) {
+            if(currFlight.getFlightID() == searchFlightNum) {
+                return currFlight;
+            }
+        }
+        return null;
+    }
 
 
     public DateTime helper(){ return DateTime.now(); }

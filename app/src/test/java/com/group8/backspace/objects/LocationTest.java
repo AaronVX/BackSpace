@@ -23,7 +23,7 @@ public class LocationTest {
         assertTrue("427".equals(location.getMax()));
         assertTrue("0".equals(location.getPopulation()));
         assertTrue("0.39".equals(location.getDistance()));
-        assertTrue("Mercury".equals(location.getDescription()));
+
 
         System.out.println("Finished testLocation");
     }

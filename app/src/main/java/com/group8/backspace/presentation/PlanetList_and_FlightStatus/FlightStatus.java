@@ -25,7 +25,6 @@ import java.util.List;
 public class FlightStatus extends AppCompatActivity {
     ListView simpleList;
     String flightName[];
-    String flightStats[];
 
     AccessFlights access = new AccessFlights();
     AccessPlanets pAccess = new AccessPlanets();
@@ -36,20 +35,20 @@ public class FlightStatus extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flight_status);
 
-        String flightName[] = new String[ongoingFlights.size()];
+        int flightNum[] = new int[ongoingFlights.size()];
         String flightStats[] = new String[ongoingFlights.size()];
         int flightIcon[] = new int[ongoingFlights.size()];
         Flight currFlight;
         for(int i = 0; i < ongoingFlights.size(); i++){
             currFlight = ongoingFlights.get(i);
-            flightName[i] = "Flight #"+currFlight.getFlightID();
+            flightNum[i] = currFlight.getFlightID();
             flightIcon[i] = getResources().getIdentifier(pAccess.getPlanetByName(currFlight.getDestination()).getImgSrc(), "mipmap", getPackageName());
 
             //build flight stats string
             String stats = "Status: ";
             if(currFlight.isDead()){
                 stats = stats + "Crew Dead\nFlight Stage: Failure\nETA: Unknown";
-            } else{
+            } else {
                 if(currFlight.isDelayed()){
                     stats += "Delayed\nFlight Stage: ";
                 } else {
@@ -70,7 +69,7 @@ public class FlightStatus extends AppCompatActivity {
             flightStats[i] = stats;
         }
         simpleList = (ListView)findViewById(R.id.ListView);
-        FlightListAdapter flightAdapter = new FlightListAdapter(FlightStatus.this, flightName, flightStats, flightIcon);
+        FlightListAdapter flightAdapter = new FlightListAdapter(FlightStatus.this, flightNum, flightStats, flightIcon);
         simpleList.setAdapter(flightAdapter);
     }
 
