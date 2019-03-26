@@ -28,8 +28,8 @@ public class AccessPlanetsTest {
 
         storageTest = new ArrayList<>();
 
-        location1 = new Location("earth","2","3","4","5","6","7","8","9");
-        location2 = new Location("neptune","21","31","41","51","61","71","81","91");
+        location1 = new Location("earth");
+        location2 = new Location("neptune");
 
         storageTest.add(location1);
         storageTest.add(location2);
