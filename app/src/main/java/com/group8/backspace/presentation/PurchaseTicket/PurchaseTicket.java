@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.group8.backspace.R;
-import com.group8.backspace.logic.CalculatePrice;
+import com.group8.backspace.logic.AccessPrice;
 import com.group8.backspace.logic.CheckCard;
 import com.group8.backspace.logic.CheckCoupon;
 
@@ -34,7 +34,7 @@ public class PurchaseTicket extends AppCompatActivity {
         TextView classPrice = (TextView) findViewById(R.id.classPrice);
         TextView totalPrice = (TextView) findViewById(R.id.totalPrice);
 
-        CalculatePrice total = new CalculatePrice(currFlightNum,currClassPrice,currItemsPrice);
+        AccessPrice total = new AccessPrice(currFlightNum,currClassPrice,currItemsPrice);
 
         ticketPrice.setText(Integer.toString(total.getTicketPrice()));
         classPrice.setText(Integer.toString(total.getClassPrice()));

@@ -4,13 +4,13 @@ import com.group8.backspace.objects.Location;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 
-public class CalculatePrice {
+public class AccessPrice {
     private int ticketPrice;
     private int classPrice;
     private int flightNum;
     private int itemsPrice;
 
-    public CalculatePrice(int flightNum, int classPrice, int itemsPrice){
+    public AccessPrice(int flightNum, int classPrice, int itemsPrice){
         this.flightNum = flightNum;
         this.classPrice = classPrice;
         this.itemsPrice = itemsPrice;
@@ -22,7 +22,7 @@ public class CalculatePrice {
 
     public int getClassPrice(){return classPrice;}
 
-    public int getTotalPrice(){
+    public void calculatePrice(){
         AccessFlights accessor =  new AccessFlights();
 
         Flight currFlight = accessor.getFlightByID(flightNum);
@@ -41,6 +41,9 @@ public class CalculatePrice {
         int fuelPrice = accessItems.getItemByName("dark matter").getPrice();
         ticketPrice = (int)(distance*fuelPrice);
         this.classPrice = (classPrice+itemsPrice)*duration;
+    }
+    public int getTotalPrice(){
+        calculatePrice();
         return  ticketPrice + classPrice;
     }
 }
