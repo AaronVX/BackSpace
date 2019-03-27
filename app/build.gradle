@@ -33,5 +33,5 @@ dependencies {
     implementation 'joda-time:joda-time:2.10.1'
     implementation 'org.hsqldb:hsqldb:2.4.1'
     implementation 'org.mockito:mockito-core:2.25.1'
-    //implementation 'com.google.guava:guava:27.1-jre'
+    implementation 'com.google.guava:guava:27.1-jre'
 }

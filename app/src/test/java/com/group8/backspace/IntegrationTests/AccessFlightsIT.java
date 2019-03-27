@@ -39,4 +39,9 @@ public class AccessFlightsIT {
 
         System.out.println("End testing GetFlightByID");
     }
+
+    @Test
+    public void test(){
+
+    }
 }
