@@ -16,10 +16,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".presentation.PurchaseTicket.AdditionalOptions"
-            android:label="@string/title_activity_meal_plan"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
             android:name=".presentation.PlanetList_and_FlightStatus.Info"
             android:label="@string/title_activity_planet_info"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -52,6 +48,14 @@
         <activity
             android:name=".presentation.PurchaseTicket.FlightDetailActivity"
             android:label="@string/title_activity_flight_detail" />
+        <activity
+            android:name=".presentation.PurchaseTicket.AdditionalOptions"
+            android:label="@string/title_activity_additional_options"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".presentation.PurchaseTicket.BookReview"
+            android:label="@string/title_activity_book_review"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".presentation.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

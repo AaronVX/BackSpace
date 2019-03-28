@@ -42,7 +42,8 @@ public class TravelClass extends AppCompatActivity {
             public void onClick(View v) {
                 int flightNum = getIntent().getIntExtra("FLIGHT_NUM", 0);
                 int classPrice = economy.getPrice();
-                Intent detailIntent = new Intent(TravelClass.this, PurchaseTicket.class);
+                Intent detailIntent = new Intent(TravelClass.this, BookReview.class);
+                detailIntent.putExtra("Class_Name", "hyper sleep");
                 detailIntent.putExtra("FLIGHT_NUM", flightNum);
                 detailIntent.putExtra("Class_Price", classPrice);
                 detailIntent.putExtra("Items_Price", 0);
@@ -58,6 +59,7 @@ public class TravelClass extends AppCompatActivity {
                 int classPrice = business.getPrice();
                 Intent detailIntent = new Intent(TravelClass.this, AdditionalOptions.class);
                 detailIntent.putExtra("FLIGHT_NUM", flightNum);
+                detailIntent.putExtra("Class_Name", "activities");
                 detailIntent.putExtra("Class_Price", classPrice);
                 startActivity(detailIntent);
             }

@@ -72,11 +72,13 @@ public class AdditionalOptions extends AppCompatActivity {
 
                 int flightNum = getIntent().getIntExtra("FLIGHT_NUM", 0);
                 int classPrice = getIntent().getIntExtra("Class_Price", 0);
+                String className = getIntent().getStringExtra("Class_Name");
                 int itemsPrice = access.getTotalPrice(selectedItems);
 
 
-                Intent detailIntent = new Intent(AdditionalOptions.this, PurchaseTicket.class);
+                Intent detailIntent = new Intent(AdditionalOptions.this, BookReview.class);
                 detailIntent.putExtra("FLIGHT_NUM", flightNum);
+                detailIntent.putExtra("Class_Name", className);
                 detailIntent.putExtra("Class_Price", classPrice);
                 detailIntent.putExtra("Items_Price", itemsPrice);
 

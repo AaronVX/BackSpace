@@ -5,45 +5,70 @@ import org.joda.time.DateTime;
 import org.joda.time.Days;
 
 public class AccessPrice {
-    private int ticketPrice;
-    private int classPrice;
-    private int flightNum;
-    private int itemsPrice;
+    private int fuelUnitPrice;
+    private int classDailyPrice;
+    private int itemsDailyPrice;
 
-    public AccessPrice(int flightNum, int classPrice, int itemsPrice){
-        this.flightNum = flightNum;
-        this.classPrice = classPrice;
-        this.itemsPrice = itemsPrice;
+    private int duration;
+    private int prepaidDays;
+    private double distance;
 
-    }
+    public AccessPrice(Flight currFlight, int classPrice, int itemsPrice){
 
-
-    public int getTicketPrice(){return ticketPrice;}
-
-    public int getClassPrice(){return classPrice;}
-
-    public void calculatePrice(){
-        AccessFlights accessor =  new AccessFlights();
-
-        Flight currFlight = accessor.getFlightByID(flightNum);
         String origin = currFlight.getOrigin();
         String destination = currFlight.getDestination();
+
+        // set total duration of the flight
         DateTime departure = currFlight.getDeparture();
         DateTime arrival = currFlight.getArrival();
-        int duration = Days.daysBetween(departure.toLocalDate(), arrival.toLocalDate()).getDays();
+        this.duration = Days.daysBetween(departure.toLocalDate(), arrival.toLocalDate()).getDays();
+        this.prepaidDays = this.duration;
 
+        // set total distance
         AccessPlanets accessPlanets = new AccessPlanets();
         Location originPlanet = accessPlanets.getPlanetByName(origin);
         Location destinationPlanet = accessPlanets.getPlanetByName(destination);
-        double distance =  Math.abs(Double.parseDouble(originPlanet.getDistance()) - Double.parseDouble(destinationPlanet.getDistance()));
+        this.distance =  Math.abs(Double.parseDouble(originPlanet.getDistance()) - Double.parseDouble(destinationPlanet.getDistance()));
 
+        // set basic prices
         AccessItems accessItems = new AccessItems();
-        int fuelPrice = accessItems.getItemByName("dark matter").getPrice();
-        ticketPrice = (int)(distance*fuelPrice);
-        this.classPrice = (classPrice+itemsPrice)*duration;
+        this.fuelUnitPrice = accessItems.getItemByName("dark matter").getPrice();
+        this.classDailyPrice = classPrice;
+        this.itemsDailyPrice = itemsPrice;
     }
+
+
+    public void setPrepaidPercentage(int percentage){
+        if (percentage > 100) {
+            this.prepaidDays = duration;
+        }
+        if (percentage <= 0) {
+            this.prepaidDays = 0;
+        }
+        else{
+            double multiplier = (double) percentage / 100;
+            this.prepaidDays = (int)(this.duration*multiplier);
+        }
+    }
+
+    // Getters
+
+    public int getFuelPrice(){
+        return (int)(distance*fuelUnitPrice);
+    }
+
+    public int getClassPrice(){
+        return classDailyPrice*duration;
+    }
+
+    public int getItemsPrice(){
+        return itemsDailyPrice*prepaidDays;
+    }
+
     public int getTotalPrice(){
-        calculatePrice();
-        return  ticketPrice + classPrice;
+        return  getFuelPrice()+getClassPrice()+getItemsPrice();
     }
+
+    public int getTotalDuration(){return duration;}
+    public int getPrepaidDays(){return prepaidDays;}
 }
