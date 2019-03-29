@@ -1,7 +1,10 @@
 package com.group8.backspace.presentation.PurchaseTicket;
 
 import android.content.Intent;
+<<<<<<< HEAD
 import android.graphics.drawable.Drawable;
+=======
+>>>>>>> 213ff6487983585bd7de61380907553f0371125f
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,20 +15,30 @@ import android.widget.TextView;
 
 import com.group8.backspace.R;
 import com.group8.backspace.logic.AccessFlights;
+<<<<<<< HEAD
 import com.group8.backspace.logic.AccessPlanets;
 import com.group8.backspace.logic.AccessPrice;
 import com.group8.backspace.objects.Flight;
 import com.group8.backspace.presentation.DateHandler;
 
 // seekBar usage example...
+=======
+import com.group8.backspace.logic.AccessPrice;
+import com.group8.backspace.objects.Flight;
+
+// seekBar ...
+>>>>>>> 213ff6487983585bd7de61380907553f0371125f
 // https://stackoverflow.com/questions/8629535/implementing-a-slider-seekbar-in-android
 
 public class BookReview extends AppCompatActivity{
 
+<<<<<<< HEAD
     // TODO, too much code duplication... Probably need a session object
     // TODO, use DateHandler
     // TODO, fix transition to PurchaseTicket page
     // TODO, add a tooltip
+=======
+>>>>>>> 213ff6487983585bd7de61380907553f0371125f
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +111,7 @@ public class BookReview extends AppCompatActivity{
         AccessFlights flightAccessor =  new AccessFlights();
         Flight currFlight = flightAccessor.getFlightByID(currFlightNum);
         AccessPrice priceAccessor = new AccessPrice(currFlight,basicClassPrice,basicItemsPrice);
+<<<<<<< HEAD
         AccessPlanets pAccess = new AccessPlanets();
         DateHandler handleDates = new DateHandler(currFlight.getDeparture(), currFlight.getArrival());
 
@@ -116,6 +130,8 @@ public class BookReview extends AppCompatActivity{
         btn_origin.setText(dates[0]);
         btn_destination.setText(dates[1]);
         //totalTime.setText(handleDates.getTravelTime());
+=======
+>>>>>>> 213ff6487983585bd7de61380907553f0371125f
 
         int progress = seekBar.getProgress();
         priceAccessor.setPrepaidPercentage(progress);
@@ -140,7 +156,11 @@ public class BookReview extends AppCompatActivity{
         additional_days.setText("Days: " + priceAccessor.getPrepaidDays());
 
 
+<<<<<<< HEAD
         // react to changes
+=======
+        // React to changes
+>>>>>>> 213ff6487983585bd7de61380907553f0371125f
         SeekBar.OnSeekBarChangeListener seekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
