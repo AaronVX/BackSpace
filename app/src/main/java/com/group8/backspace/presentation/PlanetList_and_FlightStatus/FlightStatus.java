@@ -42,7 +42,7 @@ public class FlightStatus extends AppCompatActivity {
         for(int i = 0; i < ongoingFlights.size(); i++){
             currFlight = ongoingFlights.get(i);
             flightNum[i] = currFlight.getFlightID();
-            flightIcon[i] = getResources().getIdentifier(pAccess.getPlanetByName(currFlight.getDestination()).getImgSrc(), "mipmap", getPackageName());
+            flightIcon[i] = getResources().getIdentifier(pAccess.getPlanetByName(currFlight.getDestination()).getImgSrc(), "drawable", getPackageName());
 
             //build flight stats string
             String stats = "Status: ";

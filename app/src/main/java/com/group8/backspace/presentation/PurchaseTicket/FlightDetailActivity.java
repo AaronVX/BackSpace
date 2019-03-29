@@ -58,8 +58,8 @@ public class FlightDetailActivity extends AppCompatActivity {
         AccessPlanets pAccess = new AccessPlanets();
         String originSrc = pAccess.getPlanetByName(currFlight.getOrigin()).getImgSrc();
         String destinationSrc = pAccess.getPlanetByName(currFlight.getDestination()).getImgSrc();
-        departPlanetPic.setImageResource(getResources().getIdentifier(originSrc , "mipmap", getPackageName()));
-        destPlanetPic.setImageResource(getResources().getIdentifier(destinationSrc , "mipmap", getPackageName()));
+        departPlanetPic.setImageResource(getResources().getIdentifier(originSrc , "drawable", getPackageName()));
+        destPlanetPic.setImageResource(getResources().getIdentifier(destinationSrc , "drawable", getPackageName()));
 
         Button btn_travel = (Button) findViewById(R.id.btn_travel);
         btn_travel.setOnClickListener(new View.OnClickListener() {

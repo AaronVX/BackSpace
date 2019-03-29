@@ -40,7 +40,7 @@ public class Info extends AppCompatActivity {
         String low = loc.getMin()+DEGREE;
         String hi = loc.getMax()+DEGREE;
 
-        int iconSrc = getResources().getIdentifier(iconName, "mipmap", getPackageName());
+        int iconSrc = getResources().getIdentifier(iconName, "drawable", getPackageName());
 
         TextView titleView = (TextView) findViewById(R.id.planetTitle);
         ImageView iconView = (ImageView) findViewById(R.id.planetIcon);

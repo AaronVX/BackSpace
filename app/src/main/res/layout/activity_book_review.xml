@@ -48,13 +48,13 @@ android:fillViewport="true">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Earth"
-                android:textColor="@color/blue"
+                android:textColor="@color/black"
                 android:textSize="20sp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="origin"
-                android:textColor="@color/blue_light"
+                android:textColor="@color/black_light"
                 android:textSize="16sp" />
         </LinearLayout>
         <!--origin text end-->
@@ -109,7 +109,7 @@ android:fillViewport="true">
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:drawableTop="@drawable/ic_saturn"
+            android:drawableTop="@drawable/ic_jupiter"
             android:drawablePadding="10dp"
             android:text="01 SEP 2021"
             android:textColor="@color/black"
@@ -129,13 +129,13 @@ android:fillViewport="true">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Jupiter"
-                android:textColor="@color/blue"
+                android:textColor="@color/black"
                 android:textSize="20sp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="destination"
-                android:textColor="@color/blue_light"
+                android:textColor="@color/black_light"
                 android:textSize="16sp" />
         </LinearLayout>
         <!--destination text end-->

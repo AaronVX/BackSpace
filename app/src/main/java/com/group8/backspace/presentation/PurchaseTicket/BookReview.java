@@ -1,6 +1,7 @@
 package com.group8.backspace.presentation.PurchaseTicket;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,14 +12,20 @@ import android.widget.TextView;
 
 import com.group8.backspace.R;
 import com.group8.backspace.logic.AccessFlights;
+import com.group8.backspace.logic.AccessPlanets;
 import com.group8.backspace.logic.AccessPrice;
 import com.group8.backspace.objects.Flight;
+import com.group8.backspace.presentation.DateHandler;
 
-// seekBar ...
+// seekBar usage example...
 // https://stackoverflow.com/questions/8629535/implementing-a-slider-seekbar-in-android
 
 public class BookReview extends AppCompatActivity{
 
+    // TODO, too much code duplication... Probably need a session object
+    // TODO, use DateHandler
+    // TODO, fix transition to PurchaseTicket page
+    // TODO, add a tooltip
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +98,24 @@ public class BookReview extends AppCompatActivity{
         AccessFlights flightAccessor =  new AccessFlights();
         Flight currFlight = flightAccessor.getFlightByID(currFlightNum);
         AccessPrice priceAccessor = new AccessPrice(currFlight,basicClassPrice,basicItemsPrice);
+        AccessPlanets pAccess = new AccessPlanets();
+        DateHandler handleDates = new DateHandler(currFlight.getDeparture(), currFlight.getArrival());
+
+        //get the image sources from the flight object
+        String originSrc = pAccess.getPlanetByName(currFlight.getOrigin()).getImgSrc();
+        String destinationSrc = pAccess.getPlanetByName(currFlight.getDestination()).getImgSrc();
+        int resID;
+        resID = getResources().getIdentifier(originSrc , "drawable", getPackageName());
+        btn_origin.setCompoundDrawablesWithIntrinsicBounds(0, resID, 0, 0);
+        resID = getResources().getIdentifier(destinationSrc , "drawable", getPackageName());
+        btn_destination.setCompoundDrawablesWithIntrinsicBounds(0, resID, 0, 0);
+
+        //use the date handler to get nice strings for textviews
+
+        String dates[] = handleDates.getStrings(); // TODO, Dependency inversion.. I need to know indexes of the dates
+        btn_origin.setText(dates[0]);
+        btn_destination.setText(dates[1]);
+        //totalTime.setText(handleDates.getTravelTime());
 
         int progress = seekBar.getProgress();
         priceAccessor.setPrepaidPercentage(progress);
@@ -115,7 +140,7 @@ public class BookReview extends AppCompatActivity{
         additional_days.setText("Days: " + priceAccessor.getPrepaidDays());
 
 
-        // React to changes
+        // react to changes
         SeekBar.OnSeekBarChangeListener seekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {

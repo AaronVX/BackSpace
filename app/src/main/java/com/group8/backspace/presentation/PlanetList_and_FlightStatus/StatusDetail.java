@@ -28,8 +28,8 @@ public class StatusDetail extends AppCompatActivity {
         Location destination = accessP.getPlanetByName(currFlight.getDestination());
 
         final String displayName = "Flight#"+currFlight.getFlightID();
-        int originSrc =  getResources().getIdentifier(origin.getImgSrc(), "mipmap", getPackageName());
-        int destSrc =  getResources().getIdentifier(destination.getImgSrc(), "mipmap", getPackageName());
+        int originSrc =  getResources().getIdentifier(origin.getImgSrc(), "drawable", getPackageName());
+        int destSrc =  getResources().getIdentifier(destination.getImgSrc(), "drawable", getPackageName());
 
         TextView titleView = (TextView) findViewById(R.id.flightNum);
         ImageView departView = (ImageView) findViewById(R.id.departPic);
