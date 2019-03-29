@@ -100,7 +100,7 @@ public class BookReview extends AppCompatActivity{
         // setup accessors
         AccessFlights flightAccessor =  new AccessFlights(Services.getFlightPersistence());
         Flight currFlight = flightAccessor.getFlightByID(currFlightNum);
-        AccessPrice priceAccessor = new AccessPrice(currFlight,basicClassPrice,basicItemsPrice);
+        AccessPrice priceAccessor = new AccessPrice(currFlight,basicClassPrice,basicItemsPrice, Services.getPlanetPersistence());
 
         AccessPlanets pAccess = new AccessPlanets(Services.getPlanetPersistence());
         DateHandler handleDates = new DateHandler(currFlight.getDeparture(), currFlight.getArrival());
@@ -122,7 +122,7 @@ public class BookReview extends AppCompatActivity{
         //totalTime.setText(handleDates.getTravelTime());
 
         int progress = seekBar.getProgress();
-        priceAccessor.setPrepaidPercentage(progress);
+//        priceAccessor.setPrepaidPercentage(progress);
         // Dependency inversion issue
         // "prices" need to know that "progress" is from 0 to 100.
         // Not sure how to solve this...
@@ -137,11 +137,11 @@ public class BookReview extends AppCompatActivity{
         name = name.substring(0,1).toUpperCase() + name.substring(1);
         destination_name.setText(name);
 
-        btn_travel_class.setText("Days: "+priceAccessor.getTotalDuration());
-        btn_purchase.setText(priceAccessor.getTotalPrice() + " $");
-        items_price.setText(priceAccessor.getItemsPrice()+" $");
-        fuel_price.setText(priceAccessor.getFuelPrice() + " $");
-        additional_days.setText("Days: " + priceAccessor.getPrepaidDays());
+//        btn_travel_class.setText("Days: "+priceAccessor.getTotalDuration());
+//        btn_purchase.setText(priceAccessor.getTotalPrice() + " $");
+//        items_price.setText(priceAccessor.getItemsPrice()+" $");
+//        fuel_price.setText(priceAccessor.getFuelPrice() + " $");
+//        additional_days.setText("Days: " + priceAccessor.getPrepaidDays());
 
 
         // react to changes
@@ -149,9 +149,9 @@ public class BookReview extends AppCompatActivity{
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 // updated continuously as the user slides the thumb
-                priceAccessor.setPrepaidPercentage(progress);
-                items_price.setText(priceAccessor.getItemsPrice()+" $");
-                additional_days.setText("Days: " + priceAccessor.getPrepaidDays());
+//                priceAccessor.setPrepaidPercentage(progress);
+//                items_price.setText(priceAccessor.getItemsPrice()+" $");
+//                additional_days.setText("Days: " + priceAccessor.getPrepaidDays());
                 btn_purchase.setText(priceAccessor.getTotalPrice() + " $");
             }
             @Override

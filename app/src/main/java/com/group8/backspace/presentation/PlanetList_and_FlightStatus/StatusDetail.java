@@ -22,7 +22,7 @@ public class StatusDetail extends AppCompatActivity {
         int flightNum = getIntent().getIntExtra("flightNum", 0);
 
         AccessFlights accessF = new AccessFlights(Services.getFlightPersistence());
-        AccessPlanets accessP = new AccessPlanets();
+        AccessPlanets accessP = new AccessPlanets(Services.getPlanetPersistence());
 
         Flight currFlight = accessF.getCurrFlightByID(flightNum);
         Location origin = accessP.getPlanetByName(currFlight.getOrigin());

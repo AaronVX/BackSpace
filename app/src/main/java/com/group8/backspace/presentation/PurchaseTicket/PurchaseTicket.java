@@ -39,10 +39,10 @@ public class PurchaseTicket extends AppCompatActivity {
 
         AccessFlights flightAccessor =  new AccessFlights(Services.getFlightPersistence());
         Flight currFlight = flightAccessor.getFlightByID(currFlightNum);
-        AccessPrice total = new AccessPrice(currFlight,currClassPrice,currItemsPrice);
-
-        fuelPrice.setText(Integer.toString(total.getFuelPrice()));
-        classPrice.setText(Integer.toString(total.getClassPrice()));
+        AccessPrice total = new AccessPrice(currFlight,currClassPrice,currItemsPrice,Services.getPlanetPersistence());
+        total.calculatePrice();
+        fuelPrice.setText(Integer.toString(total.getTicketPrice()));
+        classPrice.setText(Integer.toString(total.getExtraExpense()));
         totalPrice.setText(Integer.toString(total.getTotalPrice()));
         final int totalP = total.getTotalPrice();
         Button checkCode = (Button) findViewById(R.id.btn_code);
