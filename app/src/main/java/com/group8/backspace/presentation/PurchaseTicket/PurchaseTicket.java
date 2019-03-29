@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.group8.backspace.R;
+import com.group8.backspace.application.Services;
 import com.group8.backspace.logic.AccessFlights;
 import com.group8.backspace.logic.AccessPrice;
 import com.group8.backspace.objects.Flight;
@@ -36,7 +37,7 @@ public class PurchaseTicket extends AppCompatActivity {
         TextView classPrice = (TextView) findViewById(R.id.classPrice);
         TextView totalPrice = (TextView) findViewById(R.id.totalPrice);
 
-        AccessFlights flightAccessor =  new AccessFlights();
+        AccessFlights flightAccessor =  new AccessFlights(Services.getFlightPersistence());
         Flight currFlight = flightAccessor.getFlightByID(currFlightNum);
         AccessPrice total = new AccessPrice(currFlight,currClassPrice,currItemsPrice);
 

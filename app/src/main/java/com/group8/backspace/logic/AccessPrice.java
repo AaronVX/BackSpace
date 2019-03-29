@@ -1,4 +1,5 @@
 package com.group8.backspace.logic;
+import com.group8.backspace.application.Services;
 import com.group8.backspace.objects.Flight;
 import com.group8.backspace.objects.Location;
 import org.joda.time.DateTime;
@@ -25,13 +26,13 @@ public class AccessPrice {
         this.prepaidDays = this.duration;
 
         // set total distance
-        AccessPlanets accessPlanets = new AccessPlanets();
+        AccessPlanets accessPlanets = new AccessPlanets(Services.getPlanetPersistence());
         Location originPlanet = accessPlanets.getPlanetByName(origin);
         Location destinationPlanet = accessPlanets.getPlanetByName(destination);
         this.distance =  Math.abs(Double.parseDouble(originPlanet.getDistance()) - Double.parseDouble(destinationPlanet.getDistance()));
 
         // set basic prices
-        AccessItems accessItems = new AccessItems();
+        AccessItems accessItems = new AccessItems(Services.getItemPersistence());
         this.fuelUnitPrice = accessItems.getItemByName("dark matter").getPrice();
         this.classDailyPrice = classPrice;
         this.itemsDailyPrice = itemsPrice;

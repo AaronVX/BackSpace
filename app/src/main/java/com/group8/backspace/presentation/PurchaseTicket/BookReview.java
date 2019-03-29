@@ -11,6 +11,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.group8.backspace.R;
+import com.group8.backspace.application.Services;
 import com.group8.backspace.logic.AccessFlights;
 import com.group8.backspace.logic.AccessPlanets;
 import com.group8.backspace.logic.AccessPrice;
@@ -97,11 +98,11 @@ public class BookReview extends AppCompatActivity{
         int basicItemsPrice = getIntent().getIntExtra("Items_Price", 0);
 
         // setup accessors
-        AccessFlights flightAccessor =  new AccessFlights();
+        AccessFlights flightAccessor =  new AccessFlights(Services.getFlightPersistence());
         Flight currFlight = flightAccessor.getFlightByID(currFlightNum);
         AccessPrice priceAccessor = new AccessPrice(currFlight,basicClassPrice,basicItemsPrice);
 
-        AccessPlanets pAccess = new AccessPlanets();
+        AccessPlanets pAccess = new AccessPlanets(Services.getPlanetPersistence());
         DateHandler handleDates = new DateHandler(currFlight.getDeparture(), currFlight.getArrival());
 
         //get the image sources from the flight object

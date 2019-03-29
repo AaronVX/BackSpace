@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.group8.backspace.R;
+import com.group8.backspace.application.Services;
 import com.group8.backspace.logic.AccessFlights;
 import com.group8.backspace.logic.AccessPlanets;
 import com.group8.backspace.objects.Flight;
@@ -23,7 +24,7 @@ public class FlightDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_flight_detail);
 
         //get the flight object selected via the flightNum passed by BookBrowseActivity
-        AccessFlights flightAccessor =  new AccessFlights();
+        AccessFlights flightAccessor =  new AccessFlights(Services.getFlightPersistence());
         int currFlightNum = getIntent().getIntExtra("FLIGHT_NUM", 0);
 
         Flight currFlight = flightAccessor.getFlightByID(currFlightNum);
@@ -55,7 +56,7 @@ public class FlightDetailActivity extends AppCompatActivity {
         totalTime.setText(handleDates.getTravelTime());
 
         //get the image sources from the flight object
-        AccessPlanets pAccess = new AccessPlanets();
+        AccessPlanets pAccess = new AccessPlanets(Services.getPlanetPersistence());
         String originSrc = pAccess.getPlanetByName(currFlight.getOrigin()).getImgSrc();
         String destinationSrc = pAccess.getPlanetByName(currFlight.getDestination()).getImgSrc();
         departPlanetPic.setImageResource(getResources().getIdentifier(originSrc , "drawable", getPackageName()));

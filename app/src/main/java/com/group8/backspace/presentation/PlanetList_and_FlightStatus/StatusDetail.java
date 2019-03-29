@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.group8.backspace.R;
+import com.group8.backspace.application.Services;
 import com.group8.backspace.logic.AccessFlights;
 import com.group8.backspace.logic.AccessPlanets;
 import com.group8.backspace.objects.Flight;
@@ -20,7 +21,7 @@ public class StatusDetail extends AppCompatActivity {
 
         int flightNum = getIntent().getIntExtra("flightNum", 0);
 
-        AccessFlights accessF = new AccessFlights();
+        AccessFlights accessF = new AccessFlights(Services.getFlightPersistence());
         AccessPlanets accessP = new AccessPlanets();
 
         Flight currFlight = accessF.getCurrFlightByID(flightNum);

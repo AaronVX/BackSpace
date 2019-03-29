@@ -87,11 +87,14 @@ public class AccessFlightsTest {
 
         when(flightPersistence.getFlights()).thenReturn(storageTest1);
 
-        Random ran = new Random();
-        ran = mock(Random.class);
-        accessFlights.setRand(ran);
-        when(ran.nextInt(17)).thenReturn(0);
-        when(ran.nextBoolean()).thenReturn(true);
+        accessFlights.setRand(new Random(){
+            public boolean nextBoolean(){
+                return true;
+            }
+            public int nextInt(int i){
+                return 0;
+            }
+        });
 
         accessFlights.setStatusTime(new DateTime(1546797801));
 
@@ -109,14 +112,5 @@ public class AccessFlightsTest {
         verify(flightPersistence).getFlights();
         System.out.println("End testing GetFlightByID");
     }
-
-    public List<Flight> cloneList(List<Flight> copy){
-        List<Flight> clonedList = new ArrayList<Flight>(copy.size());
-        for (Flight flight : copy) {
-            clonedList.add(flight);
-        }
-        return clonedList;
-    }
-
 
 }

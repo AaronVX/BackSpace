@@ -23,6 +23,5 @@ public class AccessPriceTest {
         flight = new Flight(1, "earth", "venus", new DateTime(1546797600), new DateTime(1546797700));
     }
 
-    @Test
-    public void
+
 }

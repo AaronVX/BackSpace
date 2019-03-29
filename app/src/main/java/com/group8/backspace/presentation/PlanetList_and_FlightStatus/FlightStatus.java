@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
 import com.group8.backspace.R;
+import com.group8.backspace.application.Services;
 import com.group8.backspace.logic.AccessFlights;
 import com.group8.backspace.logic.AccessPlanets;
 import com.group8.backspace.objects.Flight;
@@ -26,8 +27,8 @@ public class FlightStatus extends AppCompatActivity {
     ListView simpleList;
     String flightName[];
 
-    AccessFlights access = new AccessFlights();
-    AccessPlanets pAccess = new AccessPlanets();
+    AccessFlights access = new AccessFlights(Services.getFlightPersistence());
+    AccessPlanets pAccess = new AccessPlanets(Services.getPlanetPersistence());
     List<Flight> ongoingFlights = access.getCurrentFlights();
 
     @Override

@@ -19,14 +19,13 @@ public class AccessFlights {
     private DateTime statusTime;
 
 
-    public AccessFlights() {
-        flightPersistence = Services.getFlightPersistence();
-        this.rand = new Random();
-        this.statusTime = helper();
-    }
+//    public AccessFlights() {
+//        flightPersistence = Services.getFlightPersistence();
+//        this.rand = new Random();
+//        this.statusTime = helper();
+//    }
 
     public AccessFlights(final FlightPersistence flightPersistence) {
-        this();
         this.flightPersistence = flightPersistence;
         this.rand = new Random();
         this.statusTime = helper();

@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.group8.backspace.R;
+import com.group8.backspace.application.Services;
 import com.group8.backspace.logic.AccessItems;
 import com.group8.backspace.objects.Item;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class AdditionalOptions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_additionaloptions);
 
-        final AccessItems access = new AccessItems();
+        final AccessItems access = new AccessItems(Services.getItemPersistence());
 
         final Item nyc = access.getItemByName("new york city");
         final Item ww = access.getItemByName("west world");

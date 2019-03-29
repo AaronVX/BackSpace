@@ -11,12 +11,11 @@ public class AccessPlanets {
 
     private PlanetPersistence planetPersistence;
 
-    public AccessPlanets() {
-        planetPersistence = Services.getPlanetPersistence();
-    }
+//    public AccessPlanets() {
+//        planetPersistence = Services.getPlanetPersistence();
+//    }
 
     public AccessPlanets(final PlanetPersistence planetPersistence) {
-        this();
         this.planetPersistence = planetPersistence;
     }
 

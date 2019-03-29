@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
 import com.group8.backspace.R;
+import com.group8.backspace.application.Services;
 import com.group8.backspace.logic.AccessPlanets;
 import com.group8.backspace.objects.Location;
 
@@ -13,7 +14,7 @@ import java.util.List;
 public class PlanetList extends AppCompatActivity {
     ListView simpleList;
 
-    AccessPlanets access = new AccessPlanets();
+    AccessPlanets access = new AccessPlanets(Services.getPlanetPersistence());
     List<Location> planetList = access.getPlanets();
 
     @Override

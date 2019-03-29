@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.group8.backspace.R;
 
+import com.group8.backspace.application.Services;
 import com.group8.backspace.logic.AccessItems;
 import com.group8.backspace.objects.Item;
 
@@ -19,7 +20,7 @@ public class TravelClass extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel_class);
 
-        AccessItems access = new AccessItems();
+        AccessItems access = new AccessItems(Services.getItemPersistence());
 
         final Item economy = access.getItemByName("hyper sleep");
         final Item business = access.getItemByName("activities");

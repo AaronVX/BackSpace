@@ -9,12 +9,12 @@ public class AccessItems {
 
     private ItemPersistence itemPersistence;
 
-    public AccessItems() {
-        itemPersistence = Services.getItemPersistence();
-    }
+//    public AccessItems() {
+//        itemPersistence = Services.getItemPersistence();
+//    }
 
     public AccessItems(final ItemPersistence itemPersistence) {
-        this();
+
         this.itemPersistence = itemPersistence;
     }
 

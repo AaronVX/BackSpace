@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.group8.backspace.R;
+import com.group8.backspace.application.Services;
 import com.group8.backspace.logic.AccessPlanets;
 import com.group8.backspace.objects.Location;
 import com.group8.backspace.presentation.MainActivity;
@@ -25,7 +26,7 @@ public class Info extends AppCompatActivity {
 
         String nameFromList = getIntent().getStringExtra("planetName");
 
-        AccessPlanets access = new AccessPlanets();
+        AccessPlanets access = new AccessPlanets(Services.getPlanetPersistence());
 
         Location loc = access.getPlanetByName(nameFromList);
         String planetName = loc.getId();

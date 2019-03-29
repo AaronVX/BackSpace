@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.group8.backspace.R;
+import com.group8.backspace.application.Services;
 import com.group8.backspace.logic.AccessFlights;
 import com.group8.backspace.objects.Flight;
 import com.group8.backspace.objects.Location;
@@ -35,7 +36,7 @@ public class BookBrowseActivity extends AppCompatActivity {
         ImageView destination_view = (ImageView) findViewById(R.id.destination);
         destination_view.setImageResource(getResources().getIdentifier("ic_" + destination , "drawable", getPackageName()));
 
-        AccessFlights accessFlights = new AccessFlights();
+        AccessFlights accessFlights = new AccessFlights(Services.getFlightPersistence());
 
         //temp
         final List<Flight> temp = accessFlights.getFlights();
