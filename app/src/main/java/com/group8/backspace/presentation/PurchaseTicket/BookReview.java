@@ -18,6 +18,8 @@ import com.group8.backspace.logic.CalculatePrices;
 import com.group8.backspace.objects.Flight;
 import com.group8.backspace.presentation.DateHandler;
 
+import net.bytebuddy.implementation.bytecode.Addition;
+
 // seekBar usage example...
 // https://stackoverflow.com/questions/8629535/implementing-a-slider-seekbar-in-android
 
@@ -33,6 +35,7 @@ public class BookReview extends AppCompatActivity{
         Button btn_destination = findViewById(R.id.btn_destination);
         Button btn_travel_class = findViewById(R.id.btn_travel_class);
         Button btn_purchase = findViewById(R.id.btn_purchase);
+        Button btn_additional_days = findViewById(R.id.btn_additional_days);
 
         // find texts
         TextView origin_name = findViewById(R.id.origin_name);
@@ -40,7 +43,6 @@ public class BookReview extends AppCompatActivity{
         TextView items_price = findViewById(R.id.items_price);
         TextView fuel_price = findViewById(R.id.fuel_price);
         TextView class_price = findViewById(R.id.class_price);
-        TextView additional_days = findViewById(R.id.additional_days);
 
         // find seekBar
         SeekBar seekBar = findViewById(R.id.seekBarDays);
@@ -59,7 +61,6 @@ public class BookReview extends AppCompatActivity{
             hide2.setVisibility(View.GONE);
             hide3.setVisibility(View.GONE);
         }
-
 
         // setup accessors
         AccessFlights flightAccessor =  new AccessFlights(Services.getFlightPersistence());
@@ -109,7 +110,7 @@ public class BookReview extends AppCompatActivity{
         items_price.setText(prices.calculatePrepaidPrice()+" $");
         class_price.setText(prices.calculateClassPrice()+ " $");
         fuel_price.setText(prices.calculateFuelPrice() + " $");
-        additional_days.setText("Days: " + prices.getPrepaidDays());
+        btn_additional_days.setText("Days: " + prices.getPrepaidDays());
 
 
         // react to changes
@@ -119,7 +120,7 @@ public class BookReview extends AppCompatActivity{
                 // updated continuously as the user slides the thumb
                 prices.setPrepaidDays(progress);
                 items_price.setText(prices.calculatePrepaidPrice()+" $");
-                additional_days.setText("Days: " + prices.getPrepaidDays());
+                btn_additional_days.setText("Days: " + prices.getPrepaidDays());
                 btn_purchase.setText(prices.calculateTotalPrice() + " $");
             }
             @Override
@@ -138,36 +139,44 @@ public class BookReview extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(BookReview.this, BookOriginActivity.class));
-
             }
         });
         btn_destination.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BookReview.this, BookDestinationActivity.class));
-
+                Intent next = new Intent(BookReview.this, BookDestinationActivity.class);
+                next.putExtra("origin", currFlight.getOrigin());
+                startActivity(next);
             }
         });
         btn_travel_class.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BookReview.this, TravelClass.class));
-
+                Intent next = new Intent(BookReview.this, TravelClass.class);
+                next.putExtra("FLIGHT_NUM", currFlightNum);
+                startActivity(next);
             }
         });
+
+        btn_additional_days.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent next = new Intent(BookReview.this, AdditionalOptions.class);
+                next.putExtra("FLIGHT_NUM", currFlightNum);
+                next.putExtra("Class_Name", getIntent().getStringExtra("Class_Name"));
+                next.putExtra("Class_Price", getIntent().getStringExtra("Class_Price"));
+                startActivity(next);
+            }
+        });
+
         btn_purchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                int flightNum = getIntent().getIntExtra("FLIGHT_NUM", 0);
                 int price = prices.calculateTotalPrice();
-
                 Intent next = new Intent(BookReview.this, PurchaseTicket.class);
-                next.putExtra("FLIGHT_NUM", flightNum);
+                next.putExtra("FLIGHT_NUM", currFlightNum);
                 next.putExtra("Total_Price", price);
-
                 startActivity(next);
-
             }
         });
     }
