@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.group8.backspace.R;
 import com.group8.backspace.application.Services;
 import com.group8.backspace.logic.AccessFlights;
-import com.group8.backspace.logic.AccessPrice;
+import com.group8.backspace.logic.CalculatePrices;
 import com.group8.backspace.objects.Flight;
 import com.group8.backspace.logic.CheckCard;
 import com.group8.backspace.logic.CheckCoupon;
@@ -25,26 +25,30 @@ public class PurchaseTicket extends AppCompatActivity {
 
         //get the flight object selected via the flightNum passed by BookBrowseActivity
         int currFlightNum = getIntent().getIntExtra("FLIGHT_NUM", 0);
-        int currClassPrice = getIntent().getIntExtra("Class_Price", 0);
-        int currItemsPrice = getIntent().getIntExtra("Items_Price", 0);
+//        int currClassPrice = getIntent().getIntExtra("Class_Price", 0);
+//        int currItemsPrice = getIntent().getIntExtra("Items_Price", 0);
 
         TextView flightNum = (TextView) findViewById(R.id.flight_view);
         String flightTitle = "Flight #"+currFlightNum;
         flightNum.setText(flightTitle);
 
         //calculate total price
-        TextView fuelPrice = (TextView) findViewById(R.id.ticketPrice);
-        TextView classPrice = (TextView) findViewById(R.id.classPrice);
+//        TextView fuelPrice = (TextView) findViewById(R.id.ticketPrice);
+//        TextView classPrice = (TextView) findViewById(R.id.classPrice);
         TextView totalPrice = (TextView) findViewById(R.id.totalPrice);
+//
+//        AccessFlights flightAccessor =  new AccessFlights(Services.getFlightPersistence());
+//        Flight currFlight = flightAccessor.getFlightByID(currFlightNum);
+//        CalculatePrices total = new CalculatePrices(currFlight,currClassPrice,currItemsPrice,Services.getPlanetPersistence());
+//        total.calculatePrice();
+//        fuelPrice.setText(Integer.toString(total.getTicketPrice()));
+//        classPrice.setText(Integer.toString(total.getExtraExpense()));
+//        totalPrice.setText(Integer.toString(total.getTotalPrice()));
+//        final int totalP = total.getTotalPrice();
 
-        AccessFlights flightAccessor =  new AccessFlights(Services.getFlightPersistence());
-        Flight currFlight = flightAccessor.getFlightByID(currFlightNum);
-        AccessPrice total = new AccessPrice(currFlight,currClassPrice,currItemsPrice,Services.getPlanetPersistence());
-        total.calculatePrice();
-        fuelPrice.setText(Integer.toString(total.getTicketPrice()));
-        classPrice.setText(Integer.toString(total.getExtraExpense()));
-        totalPrice.setText(Integer.toString(total.getTotalPrice()));
-        final int totalP = total.getTotalPrice();
+        int totalP = getIntent().getIntExtra("Total_Price", 0);
+        totalPrice.setText(Integer.toString(totalP));
+
         Button checkCode = (Button) findViewById(R.id.btn_code);
         checkCode.setOnClickListener(new View.OnClickListener() {
             @Override
