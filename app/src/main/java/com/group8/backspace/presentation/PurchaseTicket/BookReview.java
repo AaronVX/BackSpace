@@ -164,8 +164,10 @@ public class BookReview extends AppCompatActivity{
 
                 Intent next = new Intent(BookReview.this, PurchaseTicket.class);
                 next.putExtra("FLIGHT_NUM", flightNum);
-                next.putExtra("Total_Price", price);
 
+                next.putExtra("Total_Price", price);
+                next.putExtra("Ticket_Price",prices.calculateFuelPrice());
+                next.putExtra("Extra",prices.calculateClassPrice()+prices.calculatePrepaidPrice());
                 startActivity(next);
 
             }
