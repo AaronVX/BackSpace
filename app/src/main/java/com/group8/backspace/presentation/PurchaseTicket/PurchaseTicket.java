@@ -33,8 +33,8 @@ public class PurchaseTicket extends AppCompatActivity {
         flightNum.setText(flightTitle);
 
         //calculate total price
-//        TextView fuelPrice = (TextView) findViewById(R.id.ticketPrice);
-//        TextView classPrice = (TextView) findViewById(R.id.classPrice);
+        TextView fuelPrice = (TextView) findViewById(R.id.ticketPrice);
+        TextView extraPrice = (TextView) findViewById(R.id.classPrice);
         TextView totalPrice = (TextView) findViewById(R.id.totalPrice);
 //
 //        AccessFlights flightAccessor =  new AccessFlights(Services.getFlightPersistence());
@@ -47,8 +47,12 @@ public class PurchaseTicket extends AppCompatActivity {
 //        final int totalP = total.getTotalPrice();
 
         int totalP = getIntent().getIntExtra("Total_Price", 0);
-        totalPrice.setText(Integer.toString(totalP));
+        int ticket = getIntent().getIntExtra("Ticket_Price", 0);
+        int extra = getIntent().getIntExtra("Extra", 0);
 
+        totalPrice.setText(Integer.toString(totalP));
+        fuelPrice.setText(Integer.toString(ticket));
+        extraPrice.setText(Integer.toString(extra));
         Button checkCode = (Button) findViewById(R.id.btn_code);
         checkCode.setOnClickListener(new View.OnClickListener() {
             @Override

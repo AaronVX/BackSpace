@@ -172,10 +172,11 @@ public class BookReview extends AppCompatActivity{
         btn_purchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int price = prices.calculateTotalPrice();
                 Intent next = new Intent(BookReview.this, PurchaseTicket.class);
                 next.putExtra("FLIGHT_NUM", currFlightNum);
-                next.putExtra("Total_Price", price);
+                next.putExtra("Total_Price", prices.calculateTotalPrice());
+                next.putExtra("Ticket_Price",prices.calculateFuelPrice());
+                next.putExtra("Extra",prices.calculateClassPrice()+prices.calculatePrepaidPrice());
                 startActivity(next);
             }
         });
