@@ -1,10 +1,8 @@
 package com.group8.backspace.logic;
 
 
-import com.group8.backspace.objects.Flight;
 import com.group8.backspace.objects.Item;
 import com.group8.backspace.persistence.ItemPersistence;
-import com.group8.backspace.stubs.ItemPersistenceStub;
 
 import org.junit.Before;
 import org.junit.Test;

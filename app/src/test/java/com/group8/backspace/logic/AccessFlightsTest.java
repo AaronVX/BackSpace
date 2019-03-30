@@ -29,6 +29,7 @@ public class AccessFlightsTest {
     private Flight flight4;
 
     private List<Flight> storageTest1;
+    private List<Flight> storageTest2;
 
     @Before
     public void setUp() {
@@ -36,17 +37,20 @@ public class AccessFlightsTest {
         accessFlights = new AccessFlights(flightPersistence);
 
         flight1 = new Flight(1, "earth", "venus", new DateTime(1546797600), new DateTime(1546797700));
-        flight2 = new Flight(2, "neptune", "venus", new DateTime(1546797600), new DateTime(1546797800));
+        flight2 = new Flight(2, "earth", "venus", new DateTime(1546797600), new DateTime(1546797800));
         flight3 = new Flight(3, "neptune", "venus", new DateTime(1546797600), new DateTime(1546797900));
         flight4 = new Flight(4, "neptune", "venus", new DateTime(1546797600), new DateTime(1546797950));
 
         storageTest1 = new ArrayList<>();
+        storageTest2 = new ArrayList<>();
 
         storageTest1.add(flight1);
         storageTest1.add(flight2);
         storageTest1.add(flight3);
         storageTest1.add(flight4);
 
+        storageTest2.add(flight1);
+        storageTest2.add(flight2);
     }
 
     @Test
@@ -82,6 +86,15 @@ public class AccessFlightsTest {
     }
 
     @Test
+    public void testGetCurrFlightByID(){
+        List<Flight> temp = accessFlights.getCurrentFlights();
+        Flight test =  accessFlights.getCurrFlightByID(3);
+        assertNotNull(test);
+        assertNotNull(temp);
+        assertEquals(3,test.getFlightID());
+    }
+
+    @Test
     public void testGetCurrentFlights(){
         System.out.println("Start testing GetCurrentFlights");
 
@@ -92,7 +105,7 @@ public class AccessFlightsTest {
                 return true;
             }
             public int nextInt(int i){
-                return 0;
+                return 1;
             }
         });
 
@@ -101,16 +114,35 @@ public class AccessFlightsTest {
         List<Flight> test = accessFlights.getCurrentFlights();
 
         //clone storageTest1 and change the status to the specific Flight
-        List<Flight> curr = new ArrayList<>();
-        curr.add(flight3);
-        curr.add(flight4);
-        curr.get(0).kill();
-        curr.get(1).kill();
+        List<Flight> temp = new ArrayList<>();
+        temp.add(flight3);
+        temp.add(flight4);
+        temp.get(0).setStatus(2);
+        temp.get(1).setStatus(2);
 
-        assertNotNull(curr);
-        assertEquals(curr,test);
+        assertNotNull(temp);
+        assertEquals(temp,test);
+
         verify(flightPersistence).getFlights();
         System.out.println("End testing GetFlightByID");
     }
+
+    @Test
+    public void testGetFutureFlights(){
+        when(flightPersistence.getFlights("earth","venus")).thenReturn(storageTest2);
+        List<Flight> temp = new ArrayList<>();
+        temp.add(flight2);
+
+        accessFlights.setStatusTime(new DateTime(1546797600));
+        List<Flight> test = accessFlights.getFutureFlights("earth","venus");
+        assertNotNull(test);
+        assertTrue(test.size()==0);
+
+        verify(flightPersistence).getFlights("earth","venus");
+
+        System.out.println("End testing GetFutureFlights");
+    }
+
+
 
 }

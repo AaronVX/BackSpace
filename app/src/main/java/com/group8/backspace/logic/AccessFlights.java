@@ -19,12 +19,6 @@ public class AccessFlights {
     private DateTime statusTime;
 
 
-//    public AccessFlights() {
-//        flightPersistence = Services.getFlightPersistence();
-//        this.rand = new Random();
-//        this.statusTime = helper();
-//    }
-
     public AccessFlights(final FlightPersistence flightPersistence) {
         this.flightPersistence = flightPersistence;
         this.rand = new Random();
@@ -72,7 +66,7 @@ public class AccessFlights {
     public List<Flight> getFutureFlights(String origin, String destination){
         ArrayList<Flight> futureFlights = new ArrayList<>();
         List<Flight> flights = flightPersistence.getFlights(origin, destination);
-        DateTime now = DateTime.now();
+        DateTime now = statusTime;
 
         for (Flight flight : flights) {
             if (flight.getDeparture().compareTo(now) > 0) {
