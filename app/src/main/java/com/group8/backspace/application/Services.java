@@ -1,5 +1,8 @@
 package com.group8.backspace.application;
 
+import com.group8.backspace.logic.AccessFlights;
+import com.group8.backspace.logic.AccessItems;
+import com.group8.backspace.logic.AccessPlanets;
 import com.group8.backspace.persistence.FlightPersistence;
 import com.group8.backspace.persistence.ItemPersistence;
 import com.group8.backspace.persistence.PlanetPersistence;
@@ -25,6 +28,8 @@ public class Services {
         return flightPersistence;
     }
 
+    public static AccessFlights getAccessFlight(){return new AccessFlights(getFlightPersistence());}
+
     public static synchronized PlanetPersistence getPlanetPersistence() {
         if(planetPersistence == null) {
             if(HSQLDB)
@@ -34,6 +39,8 @@ public class Services {
         return planetPersistence;
     }
 
+    public static AccessPlanets getAccessPlanet(){return new AccessPlanets(getPlanetPersistence());}
+
     public static synchronized ItemPersistence getItemPersistence() {
         if(itemPersistence == null) {
             if(HSQLDB)
@@ -42,4 +49,11 @@ public class Services {
         return itemPersistence;
     }
 
+    public static AccessItems getAccessItem(){return new AccessItems(getItemPersistence());}
+
+    public static void resetAccess(){
+        FlightPersistence flightPersistence = null;
+        PlanetPersistence planetPersistence = null;
+        ItemPersistence itemPersistence = null;
+    }
 }
