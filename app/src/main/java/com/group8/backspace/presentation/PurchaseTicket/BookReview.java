@@ -105,12 +105,12 @@ public class BookReview extends AppCompatActivity{
         destination_name.setText(name);
 
         // set prices
-        btn_travel_class.setText("Days: "+analyseFlight.getDuration());
-        btn_purchase.setText(prices.calculateTotalPrice() + " $");
-        items_price.setText(prices.calculatePrepaidPrice()+" $");
-        class_price.setText(prices.calculateClassPrice()+ " $");
-        fuel_price.setText(prices.calculateFuelPrice() + " $");
-        btn_additional_days.setText("Days: " + prices.getPrepaidDays());
+        btn_travel_class.setText("Days: ".concat(Integer.toString(analyseFlight.getDuration())));
+        btn_purchase.setText(Integer.toString(prices.calculateTotalPrice()).concat(" $") );
+        items_price.setText(Integer.toString(prices.calculatePrepaidPrice()).concat(" $"));
+        class_price.setText(Integer.toString(prices.calculateClassPrice()).concat(" $"));
+        fuel_price.setText(Integer.toString(prices.calculateFuelPrice()).concat(" $"));
+        btn_additional_days.setText("Days: ".concat(Integer.toString(prices.getPrepaidDays())));
 
 
         // react to changes
