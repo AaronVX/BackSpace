@@ -11,7 +11,7 @@ public class CheckCoupon {
         this.price = price;
     }
 
-    public boolean checkCode() {
+    public boolean checkCode() throws CouponException{
         if (code.length() == LENGTH) {
             return true;
         } else {
@@ -19,8 +19,8 @@ public class CheckCoupon {
         }
     }
 
-    public double getDiscount(){
-        return price*RATIO;
+    public int getDiscount(){
+        return (int)(price*RATIO);
     }
 }
 

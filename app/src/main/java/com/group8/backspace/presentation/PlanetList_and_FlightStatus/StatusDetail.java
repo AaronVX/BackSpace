@@ -28,7 +28,7 @@ public class StatusDetail extends AppCompatActivity {
         Location origin = accessP.getPlanetByName(currFlight.getOrigin());
         Location destination = accessP.getPlanetByName(currFlight.getDestination());
 
-        final String displayName = "Flight#"+currFlight.getFlightID();
+        final String displayName = "Flight#".concat(Integer.toString(currFlight.getFlightID()));
         int originSrc =  getResources().getIdentifier(origin.getImgSrc(), "drawable", getPackageName());
         int destSrc =  getResources().getIdentifier(destination.getImgSrc(), "drawable", getPackageName());
 

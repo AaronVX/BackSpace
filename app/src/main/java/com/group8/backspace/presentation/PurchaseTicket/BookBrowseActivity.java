@@ -39,7 +39,7 @@ public class BookBrowseActivity extends AppCompatActivity {
         AccessFlights accessFlights = new AccessFlights(Services.getFlightPersistence());
 
         //temp
-        final List<Flight> temp = accessFlights.getFlights();
+//        final List<Flight> temp = accessFlights.getFlights();
 
         final List<Flight> flights = accessFlights.getFutureFlights(origin, destination);
 

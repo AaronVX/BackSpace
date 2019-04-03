@@ -63,7 +63,7 @@ public class PurchaseTicket extends AppCompatActivity {
                 String code = discountCode.getText().toString();
                 CheckCoupon check = new CheckCoupon(code, price);
                 if(check.checkCode()){
-                    newP.setText("new price($): "+check.getDiscount()+"");
+                    newP.setText("new price($): ".concat(Integer.toString(check.getDiscount())));
                 }
                 else{
                     newP.setText("Sorry, the code is invalid!");
@@ -90,7 +90,7 @@ public class PurchaseTicket extends AppCompatActivity {
                     condition.setText("Purchase succeed");
                 }
                 else{
-                    condition.setText("Purchase failed");
+                    condition.setText("Purchase failed. Please provide a valid credit card.");
                 }
 
             }

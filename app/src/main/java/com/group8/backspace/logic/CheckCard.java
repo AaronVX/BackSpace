@@ -6,7 +6,7 @@ public class CheckCard {
     private final int SECURITY_LENGTH = 3;
 
 
-    public boolean checkFormat(String cardNum, String date, String securityNum){
+    public boolean checkFormat(String cardNum, String date, String securityNum) throws CardException{
         if(cardNum.length()==CARD_LENGTH&&date.length()==DATE_LENGTH&&securityNum.length()==SECURITY_LENGTH){
             return true;
         }
