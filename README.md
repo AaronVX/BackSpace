@@ -31,4 +31,4 @@ On Virtual Device Nexus 7
 
 [Architecture](https://code.cs.umanitoba.ca/comp3350-winter2019/BackSpace/blob/master/Architecture.md)
 
-[Project Velocity](https://code.cs.umanitoba.ca/comp3350-winter2019/BackSpace/blob/master/ProjectVelocity.png)
+[Project Velocity](https://code.cs.umanitoba.ca/comp3350-winter2019/BackSpace/blob/master/ProjectVelocity.PNG)
