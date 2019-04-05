@@ -42,6 +42,7 @@ public class BrowseFlightsTest {
         onView(withId(R.id.btn_book)).perform(click());
         onView(withId(R.id.btn_saturn)).perform(click());
         onView(withId(R.id.btn_jupiter)).perform(click());
+//        onData(CoreMatchers.anything()).inAdapterView(withId(R.id.calendar)).onChildView(R.layout.activity_old_calendarview)
 
 //        onView(withId(R.id.calendar)).getChildAt(1).perform(click());
 //        CalendarView view = (CalendarView) getActivity().findViewById(R.id.calendar);

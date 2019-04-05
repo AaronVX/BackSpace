@@ -47,7 +47,6 @@ public class BookBrowseActivity extends AppCompatActivity {
         calendar.setSelectionMode(MaterialCalendarView.SELECTION_MODE_MULTIPLE);
 
 
-
         for (Flight flight : flights) {
             DateTime departure = flight.getDeparture();
             int year = departure.getYear();

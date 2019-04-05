@@ -8,9 +8,7 @@ import android.support.test.runner.AndroidJUnit4;
 import android.widget.CalendarView;
 
 import com.group8.backspace.presentation.MainActivity;
-import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
-import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -31,7 +29,9 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.anything;
 
 @RunWith(AndroidJUnit4.class)
-public class ReviewBookTest {
+@LargeTest
+public class BookReviewTest {
+
     @Rule
     public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class);
     @Rule
@@ -59,17 +59,47 @@ public class ReviewBookTest {
     }
 
     @Test
+    public void bookReviewTest(){
+
+        flightReviewTest();
+        classReviewTest();
+        totalPriceReviewTest();
+    }
+
     public void flightReviewTest(){
         onView(withId(R.id.origin_name)).check(matches(withText("Saturn")));
         onView(withId(R.id.destination_name)).check(matches(withText("Jupiter")));
+        final String FUEL_PRICE = "13007 $";
+        onView(withId(R.id.fuel_price)).check(matches(withText(FUEL_PRICE)));
+
         onView(withId(R.id.btn_origin)).perform(click());
+        onView(withId(R.id.btn_mars)).perform(click());
+        onView(withId(R.id.btn_uranus)).perform(click());
         onView(isRoot()).perform(ViewActions.pressBack());
+        onView(isRoot()).perform(ViewActions.pressBack());
+        onView(isRoot()).perform(ViewActions.pressBack());
+
         onView(withId(R.id.btn_destination)).perform(click());
+        onView(withId(R.id.btn_earth)).perform(click());
         onView(isRoot()).perform(ViewActions.pressBack());
-        onView(withId(R.id.btn_travel_class)).perform(click());
         onView(isRoot()).perform(ViewActions.pressBack());
-        onView(withId(R.id.btn_additional_days)).perform(click());
-        onView(isRoot()).perform(ViewActions.pressBack());
-        onView(withId(R.id.btn_purchase)).perform(click());
+
     }
+
+    public void classReviewTest(){
+        final String CLASS_PRICE = "396 $";
+        onView(withId(R.id.class_price)).check(matches(withText(CLASS_PRICE)));
+
+        onView(withId(R.id.btn_travel_class)).perform(click());
+        onView(withId(R.id.imageEconomy)).perform(click());
+        onView(isRoot()).perform(ViewActions.pressBack());
+        onView(isRoot()).perform(ViewActions.pressBack());
+    }
+
+    public void totalPriceReviewTest(){
+        final String TOTAL_PRICE = "13403 $";
+        onView(withId(R.id.btn_purchase)).check(matches(withText(TOTAL_PRICE)));
+    }
+
+
 }

@@ -11,16 +11,15 @@ public class CheckCoupon {
         this.price = price;
     }
 
-    public boolean checkCode() throws CouponException{
+    public String getDiscount() throws CouponException{
+        int discountPrice = (int)(price*RATIO);
         if (code.length() == LENGTH) {
-            return true;
+            return "new price($): ".concat(Integer.toString(discountPrice));
         } else {
-            return false;
+            return "Sorry, the code is invalid!";
         }
     }
 
-    public int getDiscount(){
-        return (int)(price*RATIO);
-    }
+
 }
 
