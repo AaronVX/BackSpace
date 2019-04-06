@@ -1,6 +1,7 @@
 package com.group8.backspace.logic;
 
 
+import com.group8.backspace.logic.accessors.AccessItems;
 import com.group8.backspace.objects.Item;
 import com.group8.backspace.persistence.ItemPersistence;
 

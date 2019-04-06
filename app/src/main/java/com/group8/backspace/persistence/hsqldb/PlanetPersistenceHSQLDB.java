@@ -51,7 +51,8 @@ public class PlanetPersistenceHSQLDB implements PlanetPersistence {
     public Location getPlanetByName(String locationName) {
         final List<Location> planets = new ArrayList<>();
         try (final Connection c = connection()) {
-            final PreparedStatement st = c.prepareStatement("SELECT * FROM locations WHERE LOCATIONID = ?");
+            final PreparedStatement st = c.prepareStatement(
+                    "SELECT * FROM locations WHERE LOCATIONID = ?");
             st.setString(1, locationName);
 
             final ResultSet rs = st.executeQuery();

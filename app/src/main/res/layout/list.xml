@@ -19,8 +19,8 @@
             android:layout_height="match_parent"
             android:gravity="center|center"
             android:layout_marginBottom="0dp"
-            android:text="List of Destinations"
-            android:textSize="46dp"
+            android:text="Title"
+            android:textSize="52dp"
             android:textColor="@android:color/black"
             android:textStyle="bold"
             android:divider="@color/material_blue_grey_800"
@@ -40,6 +40,6 @@
         android:layout_height="wrap_content"
         android:divider="@color/material_blue_grey_800"
         android:dividerHeight="2dp"
-        android:footerDividersEnabled="true"></ListView>
+        android:footerDividersEnabled="true" />
 
 </LinearLayout>

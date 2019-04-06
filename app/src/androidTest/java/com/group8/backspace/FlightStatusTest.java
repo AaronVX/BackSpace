@@ -1,15 +1,12 @@
 package com.group8.backspace;
 
-import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.group8.backspace.application.Services;
-import com.group8.backspace.logic.AccessFlights;
+import com.group8.backspace.logic.accessors.AccessFlights;
 import com.group8.backspace.objects.Flight;
 import com.group8.backspace.presentation.MainActivity;
-import com.prolificinteractive.materialcalendarview.CalendarDay;
-import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
 import org.joda.time.DateTime;
 import org.junit.Before;
@@ -24,7 +21,6 @@ import java.util.List;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;

@@ -1,7 +1,7 @@
 package com.group8.backspace.IntegrationTests;
 
 import com.group8.backspace.application.Services;
-import com.group8.backspace.logic.AccessPlanets;
+import com.group8.backspace.logic.accessors.AccessPlanets;
 import com.group8.backspace.utils.TestUtils;
 
 import com.group8.backspace.objects.Location;

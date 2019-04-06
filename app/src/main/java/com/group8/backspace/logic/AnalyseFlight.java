@@ -26,18 +26,16 @@ public class AnalyseFlight {
 
         Location originPlanet = planetPersistence.getPlanetByName(origin);
         Location destinationPlanet = planetPersistence.getPlanetByName(destination);
-        distance =  Math.abs(Double.parseDouble(originPlanet.getDistance()) - Double.parseDouble(destinationPlanet.getDistance()));
+        double sunToOrigin = Double.parseDouble(originPlanet.getDistance());
+        double sunToDestination = Double.parseDouble(destinationPlanet.getDistance());
+        distance =  Math.abs(sunToOrigin - sunToDestination );
 
         DateTime departure = currFlight.getDeparture();
         DateTime arrival = currFlight.getArrival();
         duration = Days.daysBetween(departure.toLocalDate(), arrival.toLocalDate()).getDays();
     }
 
-    public double getDistance() {
-        return distance;
-    }
+    public double getDistance() { return distance; }
 
-    public int getDuration() {
-        return duration;
-    }
+    public int getDuration() { return duration; }
 }

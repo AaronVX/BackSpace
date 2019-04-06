@@ -32,9 +32,7 @@ public class CalculatePrices {
         }
     }
 
-    public int getPrepaidDays(){
-        return prepaidDays;
-    }
+    public int getPrepaidDays(){ return prepaidDays; }
 
     // Calculate price dynamically
     public int calculateFuelPrice(){
