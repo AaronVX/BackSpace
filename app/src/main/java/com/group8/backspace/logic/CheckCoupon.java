@@ -13,16 +13,6 @@ public class CheckCoupon {
         this.price = price;
     }
 
-<<<<<<< HEAD
-    public double checkCode(){
-        if(code.length()==LENGTH) {
-            return price * RATIO;
-        }
-        else{
-            return 0;
-        }
-    }
-=======
     public String getDiscount() throws CouponException {
         int discountPrice = (int)(price*RATIO);
         if (code.length() == LENGTH) {
@@ -31,8 +21,5 @@ public class CheckCoupon {
             return "Sorry, the code is invalid!";
         }
     }
-
-
->>>>>>> ce7a919f7e6ef87c777e74181f73b10df63b3acf
 }
 
