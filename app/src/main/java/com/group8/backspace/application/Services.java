@@ -1,8 +1,8 @@
 package com.group8.backspace.application;
 
-import com.group8.backspace.logic.AccessFlights;
-import com.group8.backspace.logic.AccessItems;
-import com.group8.backspace.logic.AccessPlanets;
+import com.group8.backspace.logic.accessors.AccessFlights;
+import com.group8.backspace.logic.accessors.AccessItems;
+import com.group8.backspace.logic.accessors.AccessPlanets;
 import com.group8.backspace.persistence.FlightPersistence;
 import com.group8.backspace.persistence.ItemPersistence;
 import com.group8.backspace.persistence.PlanetPersistence;
@@ -49,7 +49,9 @@ public class Services {
         return itemPersistence;
     }
 
-    public static AccessItems getAccessItem(){return new AccessItems(getItemPersistence());}
+    public static AccessItems getAccessItem(){
+        return new AccessItems(getItemPersistence());
+    }
 
     public static void resetAccess(){
         FlightPersistence flightPersistence = null;

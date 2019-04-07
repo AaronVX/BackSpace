@@ -1,10 +1,8 @@
 package com.group8.backspace.IntegrationTests;
 
 import com.group8.backspace.application.Services;
-import com.group8.backspace.logic.AccessItems;
+import com.group8.backspace.logic.accessors.AccessItems;
 import com.group8.backspace.objects.Item;
-import com.group8.backspace.persistence.ItemPersistence;
-import com.group8.backspace.persistence.hsqldb.ItemPersistenceHSQLDB;
 import com.group8.backspace.utils.TestUtils;
 
 import org.junit.After;

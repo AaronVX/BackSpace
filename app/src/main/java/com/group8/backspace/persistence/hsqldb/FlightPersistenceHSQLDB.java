@@ -62,7 +62,8 @@ public class FlightPersistenceHSQLDB implements FlightPersistence {
     public List<Flight> getFlights(String origin, String destination) {
         final List<Flight> flights = new ArrayList<>();
         try (final Connection c = connection()) {
-            final PreparedStatement st = c.prepareStatement("SELECT * FROM flights WHERE originID = ? AND destinationID = ?");
+            final PreparedStatement st = c.prepareStatement(
+                    "SELECT * FROM flights WHERE originID = ? AND destinationID = ?");
             st.setString(1, origin);
             st.setString(2, destination);
 
@@ -85,7 +86,8 @@ public class FlightPersistenceHSQLDB implements FlightPersistence {
     public Flight getFlightByID(int flightID) {
         final List<Flight> flights = new ArrayList<>();
         try (final Connection c = connection()) {
-            final PreparedStatement st = c.prepareStatement("SELECT * FROM flights WHERE flightID = ?");
+            final PreparedStatement st = c.prepareStatement(
+                    "SELECT * FROM flights WHERE flightID = ?");
             st.setInt(1, flightID);
 
             final ResultSet rs = st.executeQuery();

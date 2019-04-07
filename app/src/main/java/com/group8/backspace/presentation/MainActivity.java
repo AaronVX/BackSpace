@@ -7,15 +7,14 @@ import android.view.View;
 import android.widget.Button;
 
 import com.group8.backspace.R;
-import com.group8.backspace.presentation.PurchaseTicket.BookOriginActivity;
+import com.group8.backspace.presentation.book_flight.browse_flights.SelectOrigin;
 
 
 // to import db
 import com.group8.backspace.application.Main;
-import com.group8.backspace.presentation.PlanetList_and_FlightStatus.FlightStatus;
-import com.group8.backspace.presentation.PlanetList_and_FlightStatus.PlanetList;
-import com.group8.backspace.presentation.PurchaseTicket.FlightDetailActivity;
-import com.group8.backspace.presentation.PurchaseTicket.TravelClass;
+import com.group8.backspace.presentation.track_flights.FlightStatusList;
+import com.group8.backspace.presentation.browse_planets.PlanetList;
+import com.group8.backspace.presentation.util.Messages;
 
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         btn_book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, BookOriginActivity.class));
+                startActivity(new Intent(MainActivity.this, SelectOrigin.class));
 
             }
         });
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         btn_track.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, FlightStatus.class));
+                startActivity(new Intent(MainActivity.this, FlightStatusList.class));
             }
         });
 
@@ -81,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
             Main.setDBPathName(dataDirectory.toString() + "/" + Main.getDBPathName());
 
         } catch (final IOException ioe) {
-            Messages.warning(this, "Unable to access application data: " + ioe.getMessage());
+            Messages.warning(
+                    this, "Unable to access application data: " + ioe.getMessage());
         }
     }
 

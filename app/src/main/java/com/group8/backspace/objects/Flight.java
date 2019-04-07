@@ -17,7 +17,8 @@ public class Flight {
     private boolean delayed;
     private boolean dead;
 
-    public Flight(int flightID, String origin, String destination, DateTime departure, DateTime arrival) {
+    public Flight(int flightID, String origin, String destination,
+                  DateTime departure, DateTime arrival) {
         this.flightID = flightID;
         this.origin = origin;
         this.destination = destination;
@@ -30,32 +31,25 @@ public class Flight {
         this.dead = false;
     }
 
-    public int getFlightID() {
-        return flightID;
-    }
+    public int getFlightID() { return flightID; }
 
-    public String getOrigin() {
-        return origin;
-    }
+    public String getOrigin() { return origin; }
 
-    public String getDestination() {
-        return destination;
-    }
+    public String getDestination() { return destination; }
 
-    public DateTime getDeparture() {
-        return departure;
-    }
+    public DateTime getDeparture() { return departure; }
 
-    public DateTime getArrival() {
-        return arrival;
-    }
+    public DateTime getArrival() { return arrival; }
 
     public int getStatus(){ return status; }
+
     public void setStatus( int newStat ){ this.status = newStat; }
 
     public boolean isDelayed() { return delayed; }
+
     public void delay() { this.delayed = true; }
 
     public boolean isDead() { return dead; }
+
     public void kill() { this.dead = true; }
 }

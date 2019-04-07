@@ -1,5 +1,6 @@
 package com.group8.backspace.logic;
 
+import com.group8.backspace.logic.accessors.AccessPlanets;
 import com.group8.backspace.objects.Location;
 import com.group8.backspace.persistence.PlanetPersistence;
 
