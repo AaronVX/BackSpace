@@ -1,10 +1,12 @@
-package com.group8.backspace;
+package com.group8.backspace.systemTests;
 
 import android.support.test.espresso.action.ViewActions;
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.group8.backspace.R;
 import com.group8.backspace.presentation.MainActivity;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
@@ -38,7 +40,7 @@ public class PlanetViewTest {
 
     @Test
     public void viewPlanet(){
-        onView(withId(R.id.btn_planets)).perform(click());
+        onView(ViewMatchers.withId(R.id.btn_planets)).perform(click());
         onData(anything()).inAdapterView(withId(R.id.ListView)).atPosition(0).onChildView(withId(R.id.item)).check(matches(withText("Earth")));
         onData(anything()).inAdapterView(withId(R.id.ListView)).atPosition(1).onChildView(withId(R.id.item)).check(matches(withText("Jupiter")));
         onData(anything()).inAdapterView(withId(R.id.ListView)).atPosition(2).onChildView(withId(R.id.item)).check(matches(withText("Mars")));

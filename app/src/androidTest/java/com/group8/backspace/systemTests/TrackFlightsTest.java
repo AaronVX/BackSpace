@@ -1,6 +1,9 @@
-package com.group8.backspace;
+package com.group8.backspace.systemTests;
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+
+import com.group8.backspace.R;
 import com.group8.backspace.objects.Flight;
 
 import com.group8.backspace.application.Services;
@@ -37,7 +40,7 @@ public class TrackFlightsTest {
 
     @Test
     public void trackFlights(){
-        onView(withId(R.id.btn_track)).perform(click());
+        onView(ViewMatchers.withId(R.id.btn_track)).perform(click());
         onData(anything()).inAdapterView(withId(R.id.ListView)).atPosition(0).perform(click());
         AccessFlights flights = new AccessFlights(Services.getFlightPersistence());
         List<Flight> list = flights.getCurrentFlights();

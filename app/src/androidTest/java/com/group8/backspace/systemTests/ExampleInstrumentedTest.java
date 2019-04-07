@@ -1,4 +1,4 @@
-package com.group8.backspace;
+package com.group8.backspace.systemTests;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

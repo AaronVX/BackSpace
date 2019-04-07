@@ -1,4 +1,4 @@
-package com.group8.backspace;
+package com.group8.backspace.systemTests;
 
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.action.CoordinatesProvider;
@@ -6,14 +6,15 @@ import android.support.test.espresso.action.GeneralClickAction;
 import android.support.test.espresso.action.Press;
 import android.support.test.espresso.action.Tap;
 import android.support.test.espresso.action.ViewActions;
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
 
+import com.group8.backspace.R;
 import com.group8.backspace.presentation.MainActivity;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
-import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -35,7 +36,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.CoreMatchers.anything;
 
 @RunWith(AndroidJUnit4.class)
-public class CouponTest {
+public class PurchaseTest {
     @Rule
     public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class);
     @Rule
@@ -47,7 +48,7 @@ public class CouponTest {
 
     @Before
     public void setup() {
-        onView(withId(R.id.btn_book)).perform(click());
+        onView(ViewMatchers.withId(R.id.btn_book)).perform(click());
         onView(withId(R.id.btn_earth)).perform(click());
         onView(withId(R.id.btn_saturn)).perform(click());
         onView(withId(R.id.btn_calendar_view)).perform(click());
@@ -55,25 +56,32 @@ public class CouponTest {
         final float x = 0.1F;
         final float y = 0.8F;
         onView(withId(R.id.calendar)).perform(scrollTo(),clickPercent(x,y));
+
         onView(withId(R.id.btn_travel)).perform(click());
         onView(withId(R.id.imageEconomy)).perform(click());
         onView(withId(R.id.btn_purchase)).perform(click());
     }
 
     @Test
-    public void couponTest() {
+    public void purchaseTest(){
+        // purchase succeed
+        onView(withId(R.id.cardNum)).perform(typeText("1234567890123456"));
         closeSoftKeyboard();
-        onView(withId(R.id.code)).perform(typeText("12346"));
+        onView(withId(R.id.expiry_date)).perform(typeText("0419"));
         closeSoftKeyboard();
-        onView(withId(R.id.btn_code)).perform(click());
-        onView(withId(R.id.newPrice)).check(matches(withText("Sorry, the code is invalid!")));
-        onView(withId(R.id.code)).perform(typeText("1"));
+        onView(withId(R.id.security_code)).perform(typeText("011"));
         closeSoftKeyboard();
-        onView(withId(R.id.btn_code)).perform(click());
-
-        final String DISCOUNT_PRICE = "23109";
-        onView(withId(R.id.newPrice)).check(matches(withText("new price($): ".concat(DISCOUNT_PRICE))));
-
+        onView(withId(R.id.btn_purchase)).perform(click());
+        onView(withId(R.id.condition)).check(matches(withText("Purchase succeed")));
+        //purchase failed
+        onView(withId(R.id.cardNum)).perform(typeText("1"));
+        closeSoftKeyboard();
+        onView(withId(R.id.expiry_date)).perform(typeText("1"));
+        closeSoftKeyboard();
+        onView(withId(R.id.security_code)).perform(typeText("1"));
+        closeSoftKeyboard();
+        onView(withId(R.id.btn_purchase)).perform(click());
+        onView(withId(R.id.condition)).check(matches(withText("Purchase failed. Please provide a valid credit card.")));
     }
 
     public static ViewAction clickPercent(final float pctX, final float pctY){
@@ -100,6 +108,4 @@ public class CouponTest {
                 },
                 Press.FINGER);
     }
-
-
 }
