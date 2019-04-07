@@ -1,18 +1,18 @@
 # Architecture
 
 We use a 3-tier architecture:
-*  [Logic](#)
-*  [Persistence](#)
-*  [Presentation](#)
+*  [Logic](#logic)
+*  [Persistence](#persistence)
+*  [Presentation](#presentation)
 
 Other
-*  [Application](#)
-*  [Objects](#)
-*  [Resources](#)
-*  [Layout](#)
+*  [Application](#application)
+*  [Objects](#objects)
+*  [Resources](#resources)
+*  [Layout](#layout)
 
 
-
+<a name="#application"></a>
 ## Application
 
 ```
@@ -20,6 +20,7 @@ Main.java - sets the database name
 Services.java` - creates and initializes the persistence databases with info
 ```
 
+<a name="#logic"></a>
 ## Logic
 
 *Accessors*
@@ -40,6 +41,8 @@ AnalyseDates.java - extracts specific dates from a list of flights
 CardException.java
 CouponJavaException.java
 ```
+
+<a name="#objects"></a>
 ## Objects
 
 ```
@@ -48,6 +51,7 @@ Location.java - contains all the information for a location (planet)
 Item.java - contains all the information for an item
 ```
 
+<a name="#persistnece"></a>
 ## Persistence
 
 *Interfaces*
@@ -63,8 +67,7 @@ ItemPersistenceHSQLDB.java - makes the item database from the sql database
 PlanetPersistenceHSQLDB.java - makes the planet/location databse from the sql database
 ```
 
-
-<a name="#3"></a>
+<a name="#presentation"></a>
 ## Presentation
 
 ```
@@ -109,49 +112,38 @@ PlanetListAdapter.java
 ```
 DateHandler.java - calcuates the the travel time based on arrival and departure
 Messages.java - simple class for dealing with errors and warnings
-
 ```
 
-## Res
+<a name="#resources"></a>
+## Resources
 
 ### Drawable
-This folder contains vector images for our app, including pictures of earth, venus, etc
+This folder contains vector images for our app, including pictures of earth, venus, etc.
+All images are free and available here: https://www.flaticon.com/
 
-
-## `Layout`
-
-### activity_additionaloptions
-Describes the complex view for additional options (meal plan and virtual reality options)
-
-### activity_info
-This describes the format for the specific flight or planet page
-
-### activity\_planet\_list
-This describes the format for the list of possible destination planets
-
-### activity\_book\_browse
-This describes the format for the booking on the calender view activity
-
-### activity\_book\_destination
-This describes the format for the choose a destination view activity
-
-### activity\_book\_origin
-This describes the format for the choose an origin view activity
-
-### activity\_flight\_detail
-This file contains the layout to be used when viewing details of a flight
-
-### activity\_flight\_status
-This file contains just a bit of information on the format of the background
-
-### activity_listview
-This file contains all the information on text size, color, border sizes for the the custom listview
-
-### activity_main
-This describes the layout and image on the buttons on the main activity
-
-### activity\_purchase\_ticket
-This describes the layout you see when purchasing a ticket
-
-### activity\_travel\_class
-This describes the format for the choose a travel class
+<a name="#layout"></a>
+### Layout
+```
+activity_main.xml - describes the layout and image on the buttons on the main activity
+```
+*Booking*
+```
+activity_book_select_planet.xml - describes the format for the choose an origin or destination view activity
+activity_book_browse_list.xml - describes the format for the booking on the list view activity
+activity_book_browse_calendar.xml - describes  format for the booking on the calender view activity
+activity_book_flight_detail.xml - contains the layout to be used when viewing details of a flight
+activity_book_select_travel_class.xml - describes the format for the choose a travel class
+activity_book_select_items.xml - describes the complex view for additional options (meal plan and virtual reality options)
+activity_book_review.xml - describes the layout when reviewing a booking
+activity_book_purchase.xml - describes the layout you see when purchasing a ticket
+```
+*Detailed*
+```
+activity_flight_status_detail.xml - a detailed description of an ongoing flight
+activity_planet_info.xml - a detailed description of a planet
+```
+*Other*
+```
+activity_listview.xml - contains all the information on text size, color, border sizes for the the custom listview
+list.xml - describes the format for the list of possible destination planets or flights
+```
