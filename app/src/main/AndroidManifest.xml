@@ -49,10 +49,11 @@
             android:label="@string/title_activity_additional_options"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".presentation.book_flight.purchase.ReviewBooking"
+            android:name=".presentation.book_flight.ReviewBooking"
             android:label="@string/title_activity_book_review"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".presentation.book_flight.purchase.PurchaseTicket"
+        <activity android:name=".presentation.book_flight.PurchaseTicket"
+            android:label="@string/title_activity_purchase_ticket"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <!--Browse Planets-->
@@ -75,11 +76,6 @@
             android:label="@string/title_activity_flight_info"
             android:theme="@style/AppTheme.NoActionBar"/>
 
-        <!--Util-->
-        <activity
-            android:name=".presentation.util.list.Listview"
-            android:label="@string/title_activity_listview"
-            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

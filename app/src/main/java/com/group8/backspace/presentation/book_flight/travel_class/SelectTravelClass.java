@@ -12,7 +12,7 @@ import com.group8.backspace.R;
 import com.group8.backspace.application.Services;
 import com.group8.backspace.logic.accessors.AccessItems;
 import com.group8.backspace.objects.Item;
-import com.group8.backspace.presentation.book_flight.purchase.ReviewBooking;
+import com.group8.backspace.presentation.book_flight.ReviewBooking;
 
 public class SelectTravelClass extends AppCompatActivity {
 

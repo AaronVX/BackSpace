@@ -1,4 +1,4 @@
-package com.group8.backspace.presentation.book_flight.purchase;
+package com.group8.backspace.presentation.book_flight;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,9 +16,9 @@ import com.group8.backspace.logic.accessors.AccessPlanets;
 import com.group8.backspace.logic.AnalyseFlight;
 import com.group8.backspace.logic.CalculatePrices;
 import com.group8.backspace.objects.Flight;
+import com.group8.backspace.presentation.book_flight.browse_flights.SelectOrigin;
 import com.group8.backspace.presentation.book_flight.travel_class.SelectDailyExpenses;
 import com.group8.backspace.presentation.book_flight.browse_flights.SelectDestination;
-import com.group8.backspace.presentation.book_flight.browse_flights.SelectOrigin;
 import com.group8.backspace.presentation.book_flight.travel_class.SelectTravelClass;
 import com.group8.backspace.presentation.util.DateHandler;
 
@@ -88,7 +88,7 @@ public class ReviewBooking extends AppCompatActivity{
 
         //use the date handler to get nice strings for textviews
 
-        String dates[] = handleDates.getStrings(); // TODO, change
+        String dates[] = handleDates.getStrings();
         btn_origin.setText(dates[0]);
         btn_destination.setText(dates[1]);
         //totalTime.setText(handleDates.getTravelTime());

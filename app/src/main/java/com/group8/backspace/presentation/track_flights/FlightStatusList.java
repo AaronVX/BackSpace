@@ -3,6 +3,7 @@ package com.group8.backspace.presentation.track_flights;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.group8.backspace.R;
 import com.group8.backspace.application.Services;
@@ -10,14 +11,14 @@ import com.group8.backspace.logic.accessors.AccessFlights;
 import com.group8.backspace.logic.accessors.AccessPlanets;
 import com.group8.backspace.objects.Flight;
 import com.group8.backspace.presentation.util.DateHandler;
-import com.group8.backspace.presentation.util.list.FlightListAdapter;
+import com.group8.backspace.presentation.util.list_adapters.FlightListAdapter;
 
 import java.util.List;
 
 /*
     https://www.andrious.com/tutorials/listview-tutorial-with-example-in-android-studio/
     this tutorial helped shape the FlightStatus.java, Listview.java CustomAdapter,java activity_listview.xml,
-    and activity_flight_status.xml
+    and activity_list.xml
 
     The code copied was the the new customer adapter that overwrites viewlist to show a picture, title, and information
 
@@ -35,7 +36,10 @@ public class FlightStatusList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flight_status);
+        setContentView(R.layout.list);
+
+        TextView title = findViewById(R.id.title);
+        title.setText(getString(R.string.title_activity_flight_status));
 
         int flightNum[] = new int[ongoingFlights.size()];
         String flightStats[] = new String[ongoingFlights.size()];
@@ -78,7 +82,7 @@ public class FlightStatusList extends AppCompatActivity {
         }
         simpleList = (ListView)findViewById(R.id.ListView);
         FlightListAdapter flightAdapter = new FlightListAdapter(
-                FlightStatusList.this, flightNum, flightStats, flightIcon);
+                FlightStatusList.this, StatusDetail.class, flightNum, flightStats, flightIcon);
         simpleList.setAdapter(flightAdapter);
     }
 

@@ -1,4 +1,4 @@
-package com.group8.backspace.presentation.util.list;
+package com.group8.backspace.presentation.util.list_adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,14 +12,14 @@ import android.widget.TextView;
 import com.group8.backspace.R;
 import com.group8.backspace.presentation.browse_planets.Info;
 
-public class CustomAdapter extends BaseAdapter {
+public class PlanetListAdapter extends BaseAdapter {
     Context context;
     String Item[]; //reference
     String SubItem[]; //description
     int flags[]; //images
     LayoutInflater inflter;
 
-    public CustomAdapter(Context applicationContext, String[] Item, String[] SubItem , int[] flags) { //constructor takes in and sets info
+    public PlanetListAdapter(Context applicationContext, String[] Item, String[] SubItem , int[] flags) { //constructor takes in and sets info
         this.context = context;
         this.Item = Item;
         this.SubItem = SubItem;

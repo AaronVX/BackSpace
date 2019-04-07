@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Additional daily expenses"
+            android:text="@string/title_activity_additional_options"
             android:textSize="24sp"
             android:padding="20sp"/>
 
@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="scroll down"
+            android:text="@string/action_scroll_down"
             android:textSize="20sp"
             android:paddingBottom="30sp"
             android:textColor="#80707070"/>
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Virtual Reality"
+            android:text="@string/title_vr"
             android:textSize="20sp"
             android:padding="20sp"
             android:textColor="#0588CC"/>

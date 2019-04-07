@@ -1,4 +1,4 @@
-package com.group8.backspace.presentation.util.list;
+package com.group8.backspace.presentation.util.list_adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,9 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.group8.backspace.R;
-import com.group8.backspace.presentation.book_flight.browse_flights.BrowseFlightsList;
 
-public class ListAdapter extends BaseAdapter {
+public class FlightListAdapter extends BaseAdapter {
     Context context;
     int Item[]; //flight numbers
     String SubItem[]; //description
@@ -20,8 +19,8 @@ public class ListAdapter extends BaseAdapter {
     LayoutInflater inflter;
     Class next;
 
-    public ListAdapter(Context applicationContext, Class next,
-                       int[] Item, String[] SubItem , int[] flags) { //constructor takes in and sets info
+    public FlightListAdapter(Context applicationContext, Class next,
+                             int[] Item, String[] SubItem , int[] flags) { //constructor takes in and sets info
         this.context = context;
         this.Item = Item;
         this.SubItem = SubItem;
@@ -61,8 +60,8 @@ public class ListAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) { //makes a button, that when pressed goes to StatusDetail.class the title of the textview clicked
 //                Intent intent = new Intent(v.getContext(), next);
-                Intent intent = new Intent(v.getContext(), BrowseFlightsList.class);
-                intent.putExtra("flightNum", Item[i]);
+                Intent intent = new Intent(v.getContext(), next);
+                intent.putExtra("FLIGHT_NUM", Item[i]);
                 v.getContext().startActivity(intent);
             }
         });

@@ -1,4 +1,4 @@
-package com.group8.backspace.presentation.book_flight.purchase;
+package com.group8.backspace.presentation.book_flight;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

@@ -19,7 +19,7 @@ public class StatusDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flight_status_detail);
 
-        int flightNum = getIntent().getIntExtra("flightNum", 0);
+        int flightNum = getIntent().getIntExtra("FLIGHT_NUM", 0);
 
         AccessFlights accessF = new AccessFlights(Services.getFlightPersistence());
         AccessPlanets accessP = new AccessPlanets(Services.getPlanetPersistence());

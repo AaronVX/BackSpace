@@ -12,7 +12,7 @@ import com.group8.backspace.R;
 import com.group8.backspace.application.Services;
 import com.group8.backspace.logic.accessors.AccessItems;
 import com.group8.backspace.objects.Item;
-import com.group8.backspace.presentation.book_flight.purchase.ReviewBooking;
+import com.group8.backspace.presentation.book_flight.ReviewBooking;
 
 import java.util.ArrayList;
 
@@ -32,14 +32,14 @@ public class SelectDailyExpenses extends AppCompatActivity {
         final Item meat = access.getItemByName("irradiated meat");
         final Item drinks = access.getItemByName("dried drinks");
 
-        final ArrayList<Item> items = new ArrayList();
+        final ArrayList<Item> items = new ArrayList<Item>();
         items.add(nyc);
         items.add(ww);
         items.add(paste);
         items.add(meat);
         items.add(drinks);
 
-        final ArrayList<TextView> texts = new ArrayList();
+        final ArrayList<TextView> texts = new ArrayList<TextView>();
         texts.add( (TextView) findViewById(R.id.textNYCPrice));
         texts.add( (TextView) findViewById(R.id.textWWPrice));
         texts.add( (TextView) findViewById(R.id.textPastePrice));
@@ -56,7 +56,7 @@ public class SelectDailyExpenses extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                final ArrayList<Item> selectedItems = new ArrayList();
+                final ArrayList<Item> selectedItems = new ArrayList<Item>();
                 if(( (CheckBox) findViewById(R.id.checkNYC)).isChecked()) {
                     selectedItems.add(nyc);
                 }

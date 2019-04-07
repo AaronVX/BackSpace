@@ -31,7 +31,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
             android:scaleType="fitXY"
-            app:srcCompat="@mipmap/ic_jupiter"
+            app:srcCompat="@drawable/ic_jupiter"
             tools:layout_editor_absoluteX="404dp"
             tools:layout_editor_absoluteY="72dp" />
     </LinearLayout>
@@ -105,7 +105,7 @@
             android:adjustViewBounds="true"
             android:cropToPadding="true"
             android:scaleType="fitXY"
-            app:srcCompat="@mipmap/ic_earth"
+            app:srcCompat="@drawable/ic_earth"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="602dp" />
 

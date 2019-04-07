@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.group8.backspace.R;
@@ -55,6 +57,18 @@ public class BrowseFlightsCalendar extends AppCompatActivity {
             
             calendar.setDateSelected(CalendarDay.from(year, month, day), true);
         }
+
+        // transitions
+        Button btn_list_view = findViewById(R.id.btn_list_view);
+        btn_list_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent next = new Intent(BrowseFlightsCalendar.this, BrowseFlightsList.class);
+                next.putExtra("origin", getIntent().getStringExtra("origin"));
+                next.putExtra("destination", getIntent().getStringExtra("destination"));
+                startActivity(next);
+            }
+        });
 
 
 
