@@ -26,7 +26,7 @@ import static org.hamcrest.CoreMatchers.anything;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class PlantViewTest {
+public class PlanetViewTest {
     @Rule
     public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class);
     @Rule
@@ -50,11 +50,12 @@ public class PlantViewTest {
         onData(anything()).inAdapterView(withId(R.id.ListView)).atPosition(8).onChildView(withId(R.id.item)).check(matches(withText("Venus")));
 
         onData(anything()).inAdapterView(withId(R.id.ListView)).atPosition(0).perform(click());
-
+        moveToPurchasePage();
 
 
     }
-    @Test void moveToPurchasePage(){
+
+    public void moveToPurchasePage(){
         onView(withId(R.id.planetFromLocations)).perform(click());
         onView(isRoot()).perform(ViewActions.pressBack());
         onView(withId(R.id.planetToLocations)).perform(click());
