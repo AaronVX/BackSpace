@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.group8.backspace.R;
 import com.group8.backspace.application.Services;
+import com.group8.backspace.logic.AnalyseDates;
 import com.group8.backspace.logic.accessors.AccessFlights;
 import com.group8.backspace.objects.Flight;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
@@ -18,6 +19,7 @@ import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 import org.joda.time.DateTime;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BrowseFlightsCalendar extends AppCompatActivity {
@@ -38,27 +40,25 @@ public class BrowseFlightsCalendar extends AppCompatActivity {
         destination_view.setImageResource(getResources().getIdentifier(
                 "ic_" + destination , "drawable", getPackageName()));
 
+        // Find flights
         AccessFlights accessFlights = new AccessFlights(Services.getFlightPersistence());
-
-        //temp
-//        final List<Flight> temp = accessFlights.getFlights();
-
         final List<Flight> flights = accessFlights.getFutureFlights(origin, destination);
 
         MaterialCalendarView calendar = (MaterialCalendarView) findViewById(R.id.calendar);
         calendar.setSelectionMode(MaterialCalendarView.SELECTION_MODE_MULTIPLE);
 
+        // Add available days to the calendar
+        AnalyseDates analyseDates = new AnalyseDates(flights);
+        ArrayList<DateTime> dates = analyseDates.extractUniqueDepartures();
 
-        for (Flight flight : flights) {
-            DateTime departure = flight.getDeparture();
-            int year = departure.getYear();
-            int month = departure.getMonthOfYear();
-            int day = departure.getDayOfMonth();
-            
+        for (DateTime date : dates) {
+            int year = date.getYear();
+            int month = date.getMonthOfYear();
+            int day = date.getDayOfMonth();
             calendar.setDateSelected(CalendarDay.from(year, month, day), true);
         }
 
-        // transitions
+        // transition
         Button btn_list_view = findViewById(R.id.btn_list_view);
         btn_list_view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +69,6 @@ public class BrowseFlightsCalendar extends AppCompatActivity {
                 startActivity(next);
             }
         });
-
 
 
         calendar.setOnDateChangedListener(new OnDateSelectedListener() {
@@ -92,7 +91,7 @@ public class BrowseFlightsCalendar extends AppCompatActivity {
                                 FlightDetailActivity.class);
                         detailIntent.putExtra("FLIGHT_NUM", chosenFlightNum);
 
-                        startActivity(detailIntent);
+                        startActivity(detailIntent); // TODO, 2 or more flights on the same day
                         return;
                     }
                 }
