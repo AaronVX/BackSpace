@@ -1,10 +1,16 @@
 package com.group8.backspace;
 
+import android.support.test.espresso.ViewAction;
+import android.support.test.espresso.action.CoordinatesProvider;
+import android.support.test.espresso.action.GeneralClickAction;
+import android.support.test.espresso.action.Press;
+import android.support.test.espresso.action.Tap;
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.view.View;
 import android.widget.CalendarView;
 
 import com.group8.backspace.presentation.MainActivity;
@@ -44,10 +50,11 @@ public class BookReviewTest {
     @Before
     public void setUp(){
         onView(withId(R.id.btn_book)).perform(click());
+        onView(withId(R.id.btn_earth)).perform(click());
         onView(withId(R.id.btn_saturn)).perform(click());
-        onView(withId(R.id.btn_jupiter)).perform(click());
-
-        onView(withId(R.id.calendar)).perform(click());
+        final float x = 0.01F;
+        final float y = 0.99F;
+        onView(withId(R.id.calendar)).perform(clickPercent(x,y));
         onView(withId(R.id.btn_travel)).perform(click());
         onView(withId(R.id.imageBusiness)).perform(click());
 
@@ -67,9 +74,9 @@ public class BookReviewTest {
     }
 
     public void flightReviewTest(){
-        onView(withId(R.id.origin_name)).check(matches(withText("Saturn")));
-        onView(withId(R.id.destination_name)).check(matches(withText("Jupiter")));
-        final String FUEL_PRICE = "13007 $";
+        onView(withId(R.id.origin_name)).check(matches(withText("Earth")));
+        onView(withId(R.id.destination_name)).check(matches(withText("Saturn")));
+        final String FUEL_PRICE = "25617 $";
         onView(withId(R.id.fuel_price)).check(matches(withText(FUEL_PRICE)));
 
         onView(withId(R.id.btn_origin)).perform(click());
@@ -87,7 +94,7 @@ public class BookReviewTest {
     }
 
     public void classReviewTest(){
-        final String CLASS_PRICE = "396 $";
+        final String CLASS_PRICE = "594 $";
         onView(withId(R.id.class_price)).check(matches(withText(CLASS_PRICE)));
 
         onView(withId(R.id.btn_travel_class)).perform(click());
@@ -97,8 +104,33 @@ public class BookReviewTest {
     }
 
     public void totalPriceReviewTest(){
-        final String TOTAL_PRICE = "13403 $";
+        final String TOTAL_PRICE = "26211 $";
         onView(withId(R.id.btn_purchase)).check(matches(withText(TOTAL_PRICE)));
+    }
+
+    public static ViewAction clickPercent(final float pctX, final float pctY){
+        return new GeneralClickAction(
+                Tap.SINGLE,
+                new CoordinatesProvider() {
+                    @Override
+                    public float[] calculateCoordinates(View view) {
+
+                        final int[] screenPos = new int[2];
+                        view.getLocationOnScreen(screenPos);
+                        int w = view.getWidth();
+                        int h = view.getHeight();
+
+                        float x = w * pctX;
+                        float y = h * pctY;
+
+                        final float screenX = screenPos[0] + x;
+                        final float screenY = screenPos[1] + y;
+                        float[] coordinates = {screenX, screenY};
+
+                        return coordinates;
+                    }
+                },
+                Press.FINGER);
     }
 
 

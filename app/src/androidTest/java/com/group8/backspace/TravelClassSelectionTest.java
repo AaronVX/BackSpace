@@ -1,8 +1,14 @@
 package com.group8.backspace;
 
+import android.support.test.espresso.ViewAction;
+import android.support.test.espresso.action.CoordinatesProvider;
+import android.support.test.espresso.action.GeneralClickAction;
+import android.support.test.espresso.action.Press;
+import android.support.test.espresso.action.Tap;
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.view.View;
 
 import com.group8.backspace.presentation.MainActivity;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
@@ -38,10 +44,11 @@ public class TravelClassSelectionTest {
     @Before
     public void setup() {
         onView(withId(R.id.btn_book)).perform(click());
+        onView(withId(R.id.btn_earth)).perform(click());
         onView(withId(R.id.btn_saturn)).perform(click());
-        onView(withId(R.id.btn_jupiter)).perform(click());
-
-        onView(withId(R.id.calendar)).perform(click());
+        final float x = 0.01F;
+        final float y = 0.99F;
+        onView(withId(R.id.calendar)).perform(clickPercent(x,y));
     }
 
     @Test
@@ -52,5 +59,29 @@ public class TravelClassSelectionTest {
         onView(withId(R.id.imageBusiness)).perform(click());
     }
 
+    public static ViewAction clickPercent(final float pctX, final float pctY){
+        return new GeneralClickAction(
+                Tap.SINGLE,
+                new CoordinatesProvider() {
+                    @Override
+                    public float[] calculateCoordinates(View view) {
+
+                        final int[] screenPos = new int[2];
+                        view.getLocationOnScreen(screenPos);
+                        int w = view.getWidth();
+                        int h = view.getHeight();
+
+                        float x = w * pctX;
+                        float y = h * pctY;
+
+                        final float screenX = screenPos[0] + x;
+                        final float screenY = screenPos[1] + y;
+                        float[] coordinates = {screenX, screenY};
+
+                        return coordinates;
+                    }
+                },
+                Press.FINGER);
+    }
 
 }

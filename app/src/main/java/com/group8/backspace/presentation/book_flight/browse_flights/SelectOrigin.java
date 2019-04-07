@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.group8.backspace.R;
+import com.group8.backspace.logic.CheckPlanetList;
 
 public class SelectOrigin extends AppCompatActivity implements View.OnClickListener {
 
@@ -31,13 +32,24 @@ public class SelectOrigin extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if(getIntent().getStringExtra("destination") != null) { //if sent here by PlanetList
+
+        CheckPlanetList checkOrigin = new CheckPlanetList(); //check planet object
+        String destination = ""; //hold destination
+        try {
+            destination = getIntent().getStringExtra("destination"); //tries to get destination
+        }
+        catch (NullPointerException e)
+        {
+        }
+        checkOrigin.setDestination(destination); //sets destination
+
+        if(checkOrigin.hasOrigin()) { //if sent here by PlanetList and already has an destination
             Intent intent = new Intent(SelectOrigin.this, BrowseFlightsCalendar.class);
             intent.putExtra("origin", (String) v.getTag());
             intent.putExtra("destination", getIntent().getStringExtra("destination"));
             startActivity(intent);
         }
-        else { //if sent here by main activity
+        else { //if sent here by main activity, and needs a destination
             Intent intent = new Intent(SelectOrigin.this, SelectDestination.class);
             intent.putExtra("origin", (String) v.getTag());
             startActivity(intent);
