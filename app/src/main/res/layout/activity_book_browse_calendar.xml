@@ -119,13 +119,13 @@ android:fillViewport="true">
         android:id="@+id/btn_list_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_bullet_list"
         android:layout_marginHorizontal="160dp"
         android:layout_marginBottom="20dp"
+        android:background="@null"
+        android:drawableStart="@drawable/ic_bullet_list"
         android:text="SWITCH TO LIST VIEW"
         android:textColor="@color/black_light"
-        android:textSize="16sp"
-        android:background="@null"/>
+        android:textSize="16sp" />
 
     <View
         android:layout_width="match_parent"

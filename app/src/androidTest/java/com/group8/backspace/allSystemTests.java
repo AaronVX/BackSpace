@@ -1,6 +1,5 @@
 package com.group8.backspace;
 
-import com.group8.backspace.presentation.PurchaseTicket.BookReview;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

@@ -5,15 +5,14 @@ import android.support.test.espresso.action.CoordinatesProvider;
 import android.support.test.espresso.action.GeneralClickAction;
 import android.support.test.espresso.action.Press;
 import android.support.test.espresso.action.Tap;
+import android.support.test.espresso.action.ViewActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
-import android.widget.CalendarView;
 
 import com.group8.backspace.presentation.MainActivity;
-import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
-import org.hamcrest.CoreMatchers;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestRule;
@@ -24,7 +23,10 @@ import org.junit.runner.RunWith;
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.scrollTo;
+import static android.support.test.espresso.matcher.ViewMatchers.isRoot;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static org.hamcrest.CoreMatchers.anything;
 
 @RunWith(AndroidJUnit4.class)
 
@@ -39,13 +41,24 @@ public class BrowseFlightsTest {
     };
 
     @Test
-    public void bookFlight(){
+    public void bookFlightThroughCalendar(){
         onView(withId(R.id.btn_book)).perform(click());
         onView(withId(R.id.btn_earth)).perform(click());
         onView(withId(R.id.btn_saturn)).perform(click());
-        final float x = 0.01F;
-        final float y = 0.99F;
-        onView(withId(R.id.calendar)).perform(clickPercent(x,y));
+        onView(withId(R.id.btn_calendar_view)).perform(click());
+
+        final float x = 0.1F;
+        final float y = 0.8F;
+        onView(withId(R.id.calendar)).perform(scrollTo(),clickPercent(x,y));
+        onView(isRoot()).perform(ViewActions.pressBack());
+        onView(withId(R.id.btn_list_view)).perform(click());
+        bookFlightThroughList();
+    }
+
+
+    public void bookFlightThroughList(){
+        onData(anything()).inAdapterView(withId(R.id.ListView)).atPosition(0).perform(click());
+
     }
 
     public static ViewAction clickPercent(final float pctX, final float pctY){

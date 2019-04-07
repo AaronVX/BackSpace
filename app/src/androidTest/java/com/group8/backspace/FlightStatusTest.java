@@ -20,6 +20,7 @@ import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.scrollTo;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
@@ -40,9 +41,11 @@ public class FlightStatusTest {
         onView(withId(R.id.btn_book)).perform(click());
         onView(withId(R.id.btn_earth)).perform(click());
         onView(withId(R.id.btn_saturn)).perform(click());
-        final float x = 0.01F;
-        final float y = 0.99F;
-        onView(withId(R.id.calendar)).perform(clickPercent(x,y));
+        onView(withId(R.id.btn_calendar_view)).perform(click());
+
+        final float x = 0.1F;
+        final float y = 0.8F;
+        onView(withId(R.id.calendar)).perform(scrollTo(),clickPercent(x,y));
     }
 
     @Test
