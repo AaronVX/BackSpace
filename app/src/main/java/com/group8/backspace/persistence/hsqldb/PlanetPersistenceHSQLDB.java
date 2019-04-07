@@ -51,7 +51,8 @@ public class PlanetPersistenceHSQLDB implements PlanetPersistence {
     public Location getPlanetByName(String locationName) {
         final List<Location> planets = new ArrayList<>();
         try (final Connection c = connection()) {
-            final PreparedStatement st = c.prepareStatement("SELECT * FROM locations WHERE LOCATIONID = ?");
+            final PreparedStatement st = c.prepareStatement(
+                    "SELECT * FROM locations WHERE LOCATIONID = ?");
             st.setString(1, locationName);
 
             final ResultSet rs = st.executeQuery();
@@ -83,7 +84,17 @@ public class PlanetPersistenceHSQLDB implements PlanetPersistence {
         String desc = rs.getString("DESCRIPTION");
         String shortDesc = rs.getString("SHORTDESC");
 
-        return new Location(planetName, image, years, min, max, pop, dist, desc, shortDesc);
+        Location newLocation = new Location(planetName);
+        newLocation.setImgSrc(image);
+        newLocation.setYears(years);
+        newLocation.setMinTemp(min);
+        newLocation.setMaxTemp(max);
+        newLocation.setPopulation(pop);
+        newLocation.setDistance(dist);
+        newLocation.setDescription(desc);
+        newLocation.setShortDesc(shortDesc);
+
+        return newLocation;
     }
 
 }

@@ -24,7 +24,8 @@ public class ItemPersistenceHSQLDB implements ItemPersistence {
     public Item getItem(String name) {
         Item price = null;
         try (final Connection c = connection()) {
-            final PreparedStatement st = c.prepareStatement("SELECT * FROM ITEMS WHERE item = ?");
+            final PreparedStatement st = c.prepareStatement(
+                    "SELECT * FROM ITEMS WHERE item = ?");
             st.setString(1, name);
             final ResultSet rs = st.executeQuery();
             while (rs.next()) {

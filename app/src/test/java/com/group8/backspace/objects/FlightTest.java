@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 import org.joda.time.DateTime;
 
@@ -18,11 +19,15 @@ public class FlightTest {
         System.out.println("\nStarting testFlight");
 
         flight = new Flight(12345, "earth","venus",departure,arrival);
+        flight.setStatus(1);
+
         assertNotNull(flight);
         assertTrue(flight.getFlightID()==12345);
         assertTrue("earth".equals(flight.getOrigin()));
         assertTrue("venus".equals(flight.getDestination()));
-
+        assertTrue(flight.getStatus()==1);
+        assertFalse(flight.isDead());
+        assertFalse(flight.isDelayed());
 
         System.out.println("Finished testFlight");
     }
