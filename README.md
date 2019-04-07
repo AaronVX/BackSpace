@@ -25,12 +25,12 @@ On Virtual Device Nexus 7
 
 ### Documentation
 
+[Presentation](https://benlenabat.github.io/BackSpace/)
+
 [Retrospective](https://code.cs.umanitoba.ca/comp3350-winter2019/BackSpace/blob/master/RETROSPECTIVE.md)
 
 [Vision](https://code.cs.umanitoba.ca/comp3350-winter2019/BackSpace/blob/master/VISION.md)
 
-[Architecture](https://code.cs.umanitoba.ca/comp3350-winter2019/BackSpace/tree/master/app/src/main/assets/ARCHITECTURE.md)
-
-[Presentation](https://benlenabat.github.io/BackSpace/)
+[Architecture](https://code.cs.umanitoba.ca/comp3350-winter2019/BackSpace/blob/master/ARCHITECTURE.md)
 
 [Project Velocity](https://code.cs.umanitoba.ca/comp3350-winter2019/BackSpace/blob/master/ProjectVelocity.PNG)
