@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.group8.backspace.R;
 import com.group8.backspace.application.Services;
@@ -29,6 +30,13 @@ public class BrowseFlightsList extends AppCompatActivity  {
         String origin = getIntent().getStringExtra("origin");
         String destination = getIntent().getStringExtra("destination");
 
+        // set planet names
+        TextView origin_name = findViewById(R.id.origin_name);
+        TextView destination_name = findViewById(R.id.destination_name);
+        origin_name.setText(origin);
+        destination_name.setText(destination);
+
+        // set planet icons
         ImageView origin_view = (ImageView) findViewById(R.id.origin);
         origin_view.setImageResource(getResources().getIdentifier(
                 "ic_".concat(origin) , "drawable", getPackageName()));

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.group8.backspace.R;
 import com.group8.backspace.application.Services;
@@ -32,7 +33,13 @@ public class BrowseFlightsCalendar extends AppCompatActivity {
         String origin = getIntent().getStringExtra("origin");
         String destination = getIntent().getStringExtra("destination");
 
-        // Update top images
+        // set planet names
+        TextView origin_name = findViewById(R.id.origin_name);
+        TextView destination_name = findViewById(R.id.destination_name);
+        origin_name.setText(origin);
+        destination_name.setText(destination);
+
+        // set planet icons
         ImageView origin_view = (ImageView) findViewById(R.id.origin);
         origin_view.setImageResource(getResources().getIdentifier(
                 "ic_" + origin , "drawable", getPackageName()));
