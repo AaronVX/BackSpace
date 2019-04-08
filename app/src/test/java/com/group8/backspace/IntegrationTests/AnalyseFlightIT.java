@@ -37,7 +37,7 @@ public class AnalyseFlightIT {
     public void setUp() throws IOException {
         this.tempDB = TestUtils.copyDB();
         final PlanetPersistence persistence = new PlanetPersistenceHSQLDB(this.tempDB.getAbsolutePath().replace(".script", ""));
-        flight = new Flight(1, "earth", "venus", new DateTime(1546797600), DateTime.now());
+        flight = new Flight(1, "earth", "venus", new DateTime("2019-04-01"), new DateTime("2019-04-10"));
         this.analyseFlight = new AnalyseFlight(flight,persistence);
     }
 
@@ -61,7 +61,7 @@ public class AnalyseFlightIT {
         int durationTest = analyseFlight.getDuration();
         double distanceTest = analyseFlight.getDistance();
 
-        assertEquals(17969,durationTest);
+        assertEquals(9,durationTest);
         assertEquals(0.277,distanceTest,0.01);
         System.out.println("End testing Analyse");
     }
