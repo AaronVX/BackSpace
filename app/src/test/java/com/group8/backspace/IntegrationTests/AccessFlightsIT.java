@@ -6,6 +6,7 @@ import com.group8.backspace.logic.accessors.AccessFlights;
 import com.group8.backspace.objects.Flight;
 import com.group8.backspace.utils.TestUtils;
 
+import org.joda.time.DateTime;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -32,6 +33,7 @@ public class AccessFlightsIT {
         this.tempDB = TestUtils.copyDB();
 //        final FlightPersistence persistence = new FlightPersistenceHSQLDB(this.tempDB.getAbsolutePath().replace(".script", ""));
         this.accessFlights = Services.getAccessFlight();
+        accessFlights.setStatusTime(new DateTime("2019-04-01"));
     }
 
     @Rule
