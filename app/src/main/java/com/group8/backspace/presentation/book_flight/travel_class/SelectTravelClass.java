@@ -46,7 +46,7 @@ public class SelectTravelClass extends AppCompatActivity {
                 int classPrice = economy.getPrice();
                 Intent detailIntent = new Intent(
                         SelectTravelClass.this, ReviewBooking.class);
-                detailIntent.putExtra("Class_Name", "hyper sleep");
+                detailIntent.putExtra("Class_Name", "hyper_sleep");
                 detailIntent.putExtra("FLIGHT_NUM", flightNum);
                 detailIntent.putExtra("Class_Price", classPrice);
                 detailIntent.putExtra("Items_Price", 0);

@@ -2,7 +2,6 @@ package com.group8.backspace.logic;
 import com.group8.backspace.objects.Flight;
 import org.joda.time.DateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class AnalyseDates {
@@ -26,14 +25,15 @@ public class AnalyseDates {
         return dates;
     }
 
-    public ArrayList<Flight> getFlightsForDeparture(int year, int mounth, int day)
+    public ArrayList<Flight> getFlightsForDeparture(DateTime date)
     {
         ArrayList<Flight> similarFlights = new ArrayList<Flight>();
-        DateTime date;
+        DateTime curr;
         for (Flight flight : flights) {
-            date = flight.getDeparture();
-            if (date.getYear() == year && date.getMonthOfYear() == mounth
-                    && date.getDayOfMonth() == day) {
+            curr = flight.getDeparture();
+            if (date.getYear() == curr.getYear() &&
+                    date.getMonthOfYear() == curr.getMonthOfYear() &&
+                    date.getDayOfMonth() == curr.getDayOfMonth()){
                 similarFlights.add(flight);
             }
         }

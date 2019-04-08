@@ -1,12 +1,8 @@
 package com.group8.backspace.persistence.hsqldb;
 
-import android.util.Log;
-
-import com.group8.backspace.R;
 import com.group8.backspace.objects.Location;
 import com.group8.backspace.persistence.PlanetPersistence;
 
-import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

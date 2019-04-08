@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNotNull;
 
 import static org.mockito.Mockito.*;
 
-public class AnalysisFlightTest {
+public class AnalyseFlightTest {
     private PlanetPersistence planetPersistence;
     private AnalyseFlight analyseFlight;
     private Flight flight;

@@ -89,7 +89,8 @@ public class BrowseFlightsCalendar extends AppCompatActivity {
                 int y = calendarDay.getYear();
                 int m = calendarDay.getMonth();
                 int d = calendarDay.getDay();
-                List<Flight> similarFlights = analyseDates.getFlightsForDeparture(y,m,d);
+                DateTime dt = new DateTime(y, m, d, 0, 0, 0, 0);
+                List<Flight> similarFlights = analyseDates.getFlightsForDeparture(dt);
 
                 if(similarFlights.size()>0) {
                     Flight flight = similarFlights.get(0); // TODO, 2 or more flights on the same day

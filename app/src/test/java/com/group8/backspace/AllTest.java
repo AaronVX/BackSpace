@@ -3,7 +3,8 @@ package com.group8.backspace;
 import com.group8.backspace.logic.AccessFlightsTest;
 import com.group8.backspace.logic.AccessItemsTest;
 import com.group8.backspace.logic.AccessPlanetsTest;
-import com.group8.backspace.logic.AnalysisFlightTest;
+import com.group8.backspace.logic.AnalyseDatesTest;
+import com.group8.backspace.logic.AnalyseFlightTest;
 import com.group8.backspace.logic.CalculatePriceTest;
 import com.group8.backspace.objects.FlightTest;
 import com.group8.backspace.objects.ItemTest;
@@ -21,7 +22,8 @@ import org.junit.runners.Suite;
         FlightTest.class,
         ItemTest.class,
         AccessPlanetsTest.class,
-        AnalysisFlightTest.class,
+        AnalyseFlightTest.class,
+        AnalyseDatesTest.class,
         CalculatePriceTest.class
 })
 public class AllTest {

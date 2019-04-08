@@ -2,7 +2,6 @@ package com.group8.backspace.logic;
 
 import com.group8.backspace.application.Services;
 import com.group8.backspace.logic.accessors.AccessPlanets;
-import com.group8.backspace.logic.exceptions.CouponException;
 import com.group8.backspace.objects.Location;
 
 import java.util.List;

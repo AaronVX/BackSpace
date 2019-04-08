@@ -55,7 +55,7 @@ public class ReviewBooking extends AppCompatActivity{
         int dailyClassPrice = getIntent().getIntExtra("Class_Price", 0);
         int dailyItemsPrice = getIntent().getIntExtra("Items_Price", 0);
 
-        if(className.equals("hyper sleep") || dailyItemsPrice == 0){
+        if(className.equals("hyper_sleep") || dailyItemsPrice == 0){
             LinearLayout hide1 = findViewById(R.id.layout_daily_expenses);
             SeekBar hide2 = findViewById(R.id.seekBarDays);
             View hide3 = findViewById(R.id.divider2);
@@ -83,11 +83,16 @@ public class ReviewBooking extends AppCompatActivity{
 
         String originSrc = "ic_".concat(origin);
         String destinationSrc = "ic_".concat(destination);
+        String classSrc = "ic_".concat(className);
+
         int resID;
         resID = getResources().getIdentifier(originSrc , "drawable", getPackageName());
         btn_origin.setCompoundDrawablesWithIntrinsicBounds(0, resID, 0, 0);
         resID = getResources().getIdentifier(destinationSrc , "drawable", getPackageName());
         btn_destination.setCompoundDrawablesWithIntrinsicBounds(0, resID, 0, 0);
+        resID = getResources().getIdentifier(classSrc , "drawable", getPackageName());
+        btn_travel_class.setCompoundDrawablesWithIntrinsicBounds(0, resID, 0, 0);
+
 
         //use the date handler to get nice strings for textviews
 
