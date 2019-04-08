@@ -17,7 +17,6 @@ import com.group8.backspace.objects.Flight;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
-
 import org.joda.time.DateTime;
 
 import java.util.ArrayList;
@@ -56,7 +55,7 @@ public class BrowseFlightsCalendar extends AppCompatActivity {
 
         // Add available days to the calendar
         AnalyseDates analyseDates = new AnalyseDates(flights);
-        ArrayList<DateTime> dates = analyseDates.extractUniqueDepartures();
+        ArrayList<DateTime> dates = analyseDates.getUniqueDepartures();
 
         for (DateTime date : dates) {
             int year = date.getYear();
@@ -85,22 +84,23 @@ public class BrowseFlightsCalendar extends AppCompatActivity {
                 // don't allow calendar selection changes
                 materialCalendarView.setDateSelected(calendarDay, !b);
 
-                // NOTE: assumes only one flight per day
-                for (Flight flight : flights) {
-                    if (flight.getDeparture().getYear() == calendarDay.getYear() &&
-                        flight.getDeparture().getMonthOfYear() == calendarDay.getMonth() &&
-                        flight.getDeparture().getDayOfMonth() == calendarDay.getDay()) {
-                        materialCalendarView.setDateSelected(calendarDay, true); // re-select date
+                DateTime temp = new DateTime();
 
-                        int chosenFlightNum = flight.getFlightID();
+                int y = calendarDay.getYear();
+                int m = calendarDay.getMonth();
+                int d = calendarDay.getDay();
+                List<Flight> similarFlights = analyseDates.getFlightsForDeparture(y,m,d);
 
-                        Intent detailIntent = new Intent(BrowseFlightsCalendar.this,
-                                FlightDetailActivity.class);
-                        detailIntent.putExtra("FLIGHT_NUM", chosenFlightNum);
+                if(similarFlights.size()>0) {
+                    Flight flight = similarFlights.get(0); // TODO, 2 or more flights on the same day
+                    int chosenFlightNum = flight.getFlightID();
 
-                        startActivity(detailIntent); // TODO, 2 or more flights on the same day
-                        return;
-                    }
+                    Intent detailIntent = new Intent(BrowseFlightsCalendar.this,
+                            FlightDetailActivity.class);
+                    detailIntent.putExtra("FLIGHT_NUM", chosenFlightNum);
+
+                    startActivity(detailIntent);
+                    return;
                 }
             }
         });
