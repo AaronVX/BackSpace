@@ -75,7 +75,7 @@ public class PlanetPersistenceHSQLDB implements PlanetPersistence {
 
     private Location fromResultSet(final ResultSet rs) throws SQLException {
         final String planetName = rs.getString("LOCATIONID");
-        String image = rs.getString("IMAGESRC");
+//        String image = rs.getString("IMAGESRC");
         String years = rs.getString("YEAR");
         String min = rs.getString("MINTEMP");
         String max = rs.getString("MAXTEMP");
@@ -85,7 +85,7 @@ public class PlanetPersistenceHSQLDB implements PlanetPersistence {
         String shortDesc = rs.getString("SHORTDESC");
 
         Location newLocation = new Location(planetName);
-        newLocation.setImgSrc(image);
+//        newLocation.setImgSrc(image);
         newLocation.setYears(years);
         newLocation.setMinTemp(min);
         newLocation.setMaxTemp(max);

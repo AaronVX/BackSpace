@@ -30,7 +30,7 @@ public class Info extends AppCompatActivity {
         String planetName = loc.getId();
         final String displayName = planetName;
         planetName = planetName.substring(0,1).toUpperCase() + planetName.substring(1);
-        String iconName = loc.getImgSrc();
+        String iconName = "ic_".concat(loc.getId());
         String desc = loc.getDescription();
         String pop = loc.getPopulation();
         String years = loc.getYears();
