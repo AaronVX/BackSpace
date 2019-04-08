@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.group8.backspace.R;
+import com.group8.backspace.application.Services;
 import com.group8.backspace.logic.CheckPlanetList;
+import com.group8.backspace.logic.accessors.AccessPlanets;
 
 public class SelectOrigin extends AppCompatActivity implements View.OnClickListener {
 
@@ -33,13 +35,12 @@ public class SelectOrigin extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
-        CheckPlanetList checkOrigin = new CheckPlanetList(); //check planet object
+        CheckPlanetList checkOrigin = new CheckPlanetList(new AccessPlanets(Services.getPlanetPersistence())); //check planet object
         String destination = ""; //hold destination
         try {
             destination = getIntent().getStringExtra("destination"); //tries to get destination
         }
-        catch (NullPointerException e)
-        {
+        catch (NullPointerException e) {
         }
         checkOrigin.setDestination(destination); //sets destination
 

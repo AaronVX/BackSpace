@@ -9,9 +9,10 @@ import java.util.List;
 public class CheckPlanetList {
 
     String destination;
-
-    public CheckPlanetList(){
+    AccessPlanets access;
+    public CheckPlanetList(AccessPlanets accessPlanets){
         destination = "";
+        access = accessPlanets;
     }
 
     public void setDestination(String origin) {
@@ -24,7 +25,6 @@ public class CheckPlanetList {
 
     public boolean hasOrigin() { //null value not possible by this method call
         boolean toReturn = false;
-        AccessPlanets access = new AccessPlanets(Services.getPlanetPersistence());
         List<Location> planetList = access.getPlanets();
 
         for (int i = 0; i < planetList.size(); i++) {
