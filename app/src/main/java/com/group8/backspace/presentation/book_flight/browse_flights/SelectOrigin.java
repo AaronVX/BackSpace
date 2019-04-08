@@ -35,7 +35,7 @@ public class SelectOrigin extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
-        CheckPlanetList checkOrigin = new CheckPlanetList(new AccessPlanets(Services.getPlanetPersistence())); //check planet object
+        CheckPlanetList checkOrigin = new CheckPlanetList(Services.getPlanetPersistence()); //check planet object
         String destination = ""; //hold destination
         try {
             destination = getIntent().getStringExtra("destination"); //tries to get destination
