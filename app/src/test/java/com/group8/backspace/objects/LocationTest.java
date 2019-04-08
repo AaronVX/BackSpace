@@ -14,7 +14,7 @@ public class LocationTest {
         System.out.println("\nStarting testLocation");
 
         location = new Location("mercury");
-        location.setImgSrc("ic_mercury");
+//        location.setImgSrc("ic_mercury");
         location.setYears("88 days");
         location.setMinTemp("-173");
         location.setMaxTemp("427");
@@ -23,7 +23,7 @@ public class LocationTest {
         assertNotNull(location);
 
         assertTrue("mercury".equals(location.getId()));
-        assertTrue("ic_mercury".equals(location.getImgSrc()));
+//        assertTrue("ic_mercury".equals(location.getImgSrc()));
         assertTrue("88 days".equals(location.getYears()));
         assertTrue("-173".equals(location.getMin()));
         assertTrue("427".equals(location.getMax()));

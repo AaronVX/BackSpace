@@ -30,9 +30,9 @@ public class StatusDetail extends AppCompatActivity {
 
         final String displayName = "Flight#".concat(Integer.toString(currFlight.getFlightID()));
         int originSrc =  getResources().getIdentifier(
-                origin.getImgSrc(), "drawable", getPackageName());
+                "ic_".concat(origin.getId()), "drawable", getPackageName());
         int destSrc =  getResources().getIdentifier(
-                destination.getImgSrc(), "drawable", getPackageName());
+                "ic_".concat(destination.getId()), "drawable", getPackageName());
 
         TextView titleView = (TextView) findViewById(R.id.flightNum);
         ImageView departView = (ImageView) findViewById(R.id.departPic);

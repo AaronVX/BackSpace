@@ -78,8 +78,11 @@ public class ReviewBooking extends AppCompatActivity{
         DateHandler handleDates = new DateHandler(currFlight.getDeparture(), currFlight.getArrival());
 
         //get the image sources from the flight object
-        String originSrc = pAccess.getPlanetByName(currFlight.getOrigin()).getImgSrc();
-        String destinationSrc = pAccess.getPlanetByName(currFlight.getDestination()).getImgSrc();
+        String origin = pAccess.getPlanetByName(currFlight.getOrigin()).getId();
+        String destination = pAccess.getPlanetByName(currFlight.getDestination()).getId();
+
+        String originSrc = "ic_".concat(origin);
+        String destinationSrc = "ic_".concat(destination);
         int resID;
         resID = getResources().getIdentifier(originSrc , "drawable", getPackageName());
         btn_origin.setCompoundDrawablesWithIntrinsicBounds(0, resID, 0, 0);

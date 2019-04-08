@@ -3,7 +3,7 @@ package com.group8.backspace.objects;
 public class Location {
 
     private String id;
-    private String imgSrc;
+//    private String imgSrc;
     private String years;
     private String minTemp;
     private String maxTemp;
@@ -21,7 +21,7 @@ public class Location {
         return this.id;
     }
 
-    public String getImgSrc() { return imgSrc; }
+//    public String getImgSrc() { return imgSrc; }
 
     public String getYears() { return years; }
 
@@ -38,7 +38,7 @@ public class Location {
     public String getShortDesc() { return this.shortDesc; }
 
     //Mutators
-    public void setImgSrc(String newSrc) { this.imgSrc = newSrc; }
+//    public void setImgSrc(String newSrc) { this.imgSrc = newSrc; }
 
     public void setYears(String newYears) { this.years = newYears; }
 
