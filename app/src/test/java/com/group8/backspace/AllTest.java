@@ -5,6 +5,8 @@ import com.group8.backspace.logic.AccessItemsTest;
 import com.group8.backspace.logic.AccessPlanetsTest;
 import com.group8.backspace.logic.AnalyseDatesTest;
 import com.group8.backspace.logic.CalculatePriceTest;
+import com.group8.backspace.logic.CheckPlanetList;
+import com.group8.backspace.logic.CheckPlanetListTest;
 import com.group8.backspace.logic.DistanceHandlerTest;
 import com.group8.backspace.objects.FlightTest;
 import com.group8.backspace.objects.ItemTest;
@@ -24,7 +26,8 @@ import org.junit.runners.Suite;
         AccessPlanetsTest.class,
         AnalyseDatesTest.class,
         DistanceHandlerTest.class,
-        CalculatePriceTest.class
+        CalculatePriceTest.class,
+        CheckPlanetListTest.class
 })
 public class AllTest {
 

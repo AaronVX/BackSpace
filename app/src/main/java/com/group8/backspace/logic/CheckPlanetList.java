@@ -11,9 +11,9 @@ public class CheckPlanetList {
 
     String destination;
     PlanetPersistence access;
-    public CheckPlanetList(PlanetPersistence planetPersistencelanets){
+    public CheckPlanetList(PlanetPersistence planetPersistence){
         destination = "";
-        access = planetPersistencelanets;
+        access = planetPersistence;
     }
 
     public void setDestination(String origin) {

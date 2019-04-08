@@ -1,5 +1,6 @@
 package com.group8.backspace.application;
 
+import com.group8.backspace.logic.CheckPlanetList;
 import com.group8.backspace.logic.accessors.AccessFlights;
 import com.group8.backspace.logic.accessors.AccessItems;
 import com.group8.backspace.logic.accessors.AccessPlanets;
@@ -53,9 +54,11 @@ public class Services {
         return new AccessItems(getItemPersistence());
     }
 
+    public static CheckPlanetList getPlanetList(){return new CheckPlanetList(getPlanetPersistence());}
+
     public static void resetAccess(){
-        FlightPersistence flightPersistence = null;
-        PlanetPersistence planetPersistence = null;
-        ItemPersistence itemPersistence = null;
+        flightPersistence = null;
+        planetPersistence = null;
+        itemPersistence = null;
     }
 }
