@@ -10,7 +10,7 @@ import com.group8.backspace.application.Services;
 import com.group8.backspace.logic.accessors.AccessFlights;
 import com.group8.backspace.logic.accessors.AccessPlanets;
 import com.group8.backspace.objects.Flight;
-import com.group8.backspace.presentation.util.DateHandler;
+import com.group8.backspace.presentation.util.DateParser;
 import com.group8.backspace.presentation.util.list_adapters.FlightListAdapter;
 
 import java.util.List;
@@ -74,9 +74,10 @@ public class FlightStatusList extends AppCompatActivity {
                     stats += "Deorbiting\nETA: ";
                 }
 
-                DateHandler dateHandle = new DateHandler(
-                        currFlight.getDeparture(), currFlight.getArrival());
-                stats += dateHandle.getStrings()[1];
+                DateParser date = new DateParser(currFlight.getDeparture());
+                date.setDate(currFlight.getArrival());
+
+                stats += date.toString();
             }
             flightStats[i] = stats;
         }

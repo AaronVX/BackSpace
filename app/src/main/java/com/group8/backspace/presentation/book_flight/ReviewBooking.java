@@ -11,16 +11,17 @@ import android.widget.TextView;
 
 import com.group8.backspace.R;
 import com.group8.backspace.application.Services;
+import com.group8.backspace.logic.AnalyseDates;
 import com.group8.backspace.logic.accessors.AccessFlights;
 import com.group8.backspace.logic.accessors.AccessPlanets;
-import com.group8.backspace.logic.AnalyseFlight;
+import com.group8.backspace.logic.DistanceHandler;
 import com.group8.backspace.logic.CalculatePrices;
 import com.group8.backspace.objects.Flight;
 import com.group8.backspace.presentation.book_flight.browse_flights.SelectOrigin;
 import com.group8.backspace.presentation.book_flight.travel_class.SelectDailyExpenses;
 import com.group8.backspace.presentation.book_flight.browse_flights.SelectDestination;
 import com.group8.backspace.presentation.book_flight.travel_class.SelectTravelClass;
-import com.group8.backspace.presentation.util.DateHandler;
+import com.group8.backspace.presentation.util.DateParser;
 
 // seekBar usage example...
 // https://stackoverflow.com/questions/8629535/implementing-a-slider-seekbar-in-android
@@ -66,16 +67,23 @@ public class ReviewBooking extends AppCompatActivity{
 
         // setup accessors
         AccessFlights flightAccessor =  new AccessFlights(Services.getFlightPersistence());
+        AccessPlanets pAccess = new AccessPlanets(Services.getPlanetPersistence());
         Flight currFlight = flightAccessor.getFlightByID(currFlightNum);
 
-        AnalyseFlight analyseFlight = new AnalyseFlight(currFlight, Services.getPlanetPersistence());
-        analyseFlight.analyse();
+        // handlers
+        int duration = AnalyseDates.getTravelTimeDays(
+                currFlight.getDeparture(), currFlight.getArrival());
 
-        CalculatePrices prices = new CalculatePrices(analyseFlight.getDistance(),
-                analyseFlight.getDuration(),dailyClassPrice,dailyItemsPrice);
 
-        AccessPlanets pAccess = new AccessPlanets(Services.getPlanetPersistence());
-        DateHandler handleDates = new DateHandler(currFlight.getDeparture(), currFlight.getArrival());
+        DistanceHandler handleDistance = new DistanceHandler(
+                pAccess.getPlanetByName(currFlight.getOrigin()),
+                pAccess.getPlanetByName(currFlight.getDestination()));
+        double distance = handleDistance.getDistance();
+
+
+        // prices
+        CalculatePrices prices = new CalculatePrices(
+                distance,duration,dailyClassPrice,dailyItemsPrice);
 
         //get the image sources from the flight object
         String origin = pAccess.getPlanetByName(currFlight.getOrigin()).getId();
@@ -95,10 +103,10 @@ public class ReviewBooking extends AppCompatActivity{
 
 
         //use the date handler to get nice strings for textviews
-
-        String dates[] = handleDates.getStrings();
-        btn_origin.setText(dates[0]);
-        btn_destination.setText(dates[1]);
+        DateParser date = new DateParser(currFlight.getDeparture());
+        btn_origin.setText(date.toString());
+        date.setDate(currFlight.getArrival());
+        btn_destination.setText(date.toString());
         //totalTime.setText(handleDates.getTravelTime());
 
         int progress = seekBar.getProgress();
@@ -115,7 +123,7 @@ public class ReviewBooking extends AppCompatActivity{
         destination_name.setText(name);
 
         // set prices
-        btn_travel_class.setText("Days: ".concat(Integer.toString(analyseFlight.getDuration())));
+        btn_travel_class.setText("Days: ".concat(Integer.toString(duration)));
         btn_purchase.setText(Integer.toString(prices.calculateTotalPrice()).concat(" $") );
         items_price.setText(Integer.toString(prices.calculatePrepaidPrice()).concat(" $"));
         class_price.setText(Integer.toString(prices.calculateClassPrice()).concat(" $"));

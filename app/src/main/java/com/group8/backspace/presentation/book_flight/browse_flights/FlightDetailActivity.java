@@ -10,11 +10,12 @@ import android.widget.TextView;
 
 import com.group8.backspace.R;
 import com.group8.backspace.application.Services;
+import com.group8.backspace.logic.AnalyseDates;
 import com.group8.backspace.logic.accessors.AccessFlights;
 import com.group8.backspace.logic.accessors.AccessPlanets;
 import com.group8.backspace.objects.Flight;
 import com.group8.backspace.presentation.book_flight.travel_class.SelectTravelClass;
-import com.group8.backspace.presentation.util.DateHandler;
+import com.group8.backspace.presentation.util.DateParser;
 
 
 public class FlightDetailActivity extends AppCompatActivity {
@@ -50,11 +51,16 @@ public class FlightDetailActivity extends AppCompatActivity {
         destPlanetName.setText(destName);
 
         //use the date handler to get nice strings for textviews
-        DateHandler handleDates = new DateHandler(currFlight.getDeparture(), currFlight.getArrival());
-        String dates[] = handleDates.getStrings();
-        departTime.setText(dates[0]);
-        arrivalTime.setText(dates[1]);
-        totalTime.setText(handleDates.getTravelTime());
+        DateParser date = new DateParser(currFlight.getDeparture());
+        departTime.setText(date.toString());
+
+        date.setDate(currFlight.getArrival());
+        arrivalTime.setText(date.toString());
+
+        int duration = AnalyseDates.getTravelTimeDays(
+                currFlight.getDeparture(), currFlight.getArrival());
+
+        totalTime.setText(String.valueOf(duration).concat(" days"));
 
         //get the image sources from the flight object
         AccessPlanets pAccess = new AccessPlanets(Services.getPlanetPersistence());

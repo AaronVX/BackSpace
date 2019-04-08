@@ -13,7 +13,7 @@ import com.group8.backspace.R;
 import com.group8.backspace.application.Services;
 import com.group8.backspace.logic.accessors.AccessFlights;
 import com.group8.backspace.objects.Flight;
-import com.group8.backspace.presentation.util.DateHandler;
+import com.group8.backspace.presentation.util.DateParser;
 import com.group8.backspace.presentation.util.list_adapters.FlightListAdapter;
 
 import java.util.List;
@@ -64,11 +64,12 @@ public class BrowseFlightsList extends AppCompatActivity  {
             flightIcon[i] = getResources().getIdentifier(source,"drawable", getPackageName());
 
             //use the date handler to get nice strings for textviews
-            DateHandler handleDates = new DateHandler(currFlight.getDeparture(), currFlight.getArrival());
-            String dates[] = handleDates.getStrings();
             StringBuilder stats = new StringBuilder();
-            stats.append( "Departure: ".concat(dates[0]) );
-            stats.append( "\nArrival: ".concat(dates[1]) );
+            DateParser date = new DateParser(currFlight.getDeparture());
+            stats.append( "Departure: ".concat(date.toString()) );
+
+            date.setDate(currFlight.getArrival());
+            stats.append( "\nArrival: ".concat(date.toString()) );
             flightStats[i] = stats.toString();
         }
 

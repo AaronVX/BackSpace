@@ -1,6 +1,8 @@
 package com.group8.backspace.logic;
 import com.group8.backspace.objects.Flight;
 import org.joda.time.DateTime;
+import org.joda.time.Days;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +40,11 @@ public class AnalyseDates {
             }
         }
         return similarFlights;
+    }
+
+    public static int getTravelTimeDays(DateTime departure, DateTime arrival) {
+        int duration = Days.daysBetween(departure.toLocalDate(), arrival.toLocalDate()).getDays();
+        return duration;
     }
 
 
